@@ -1,0 +1,1572 @@
+/* wv.v.1.0 2020-01 */
+/* common */
+
+html {height: 100%;  font-family:'Noto Sans KR', sans-serif; }
+body {height: 100%; font-size:14px; font-weight:400; color:#666; line-height:1.4; word-break:keep-all; margin:0px; letter-spacing:-0.03em;}
+ul,li {padding:0px; margin:0px; list-style: none;}
+a {color:#666; text-decoration: none;}
+.d-none{display: none !important;}
+.txt_white {color:#fff;}
+.txt_skyblue {color:#4EA7FF;}
+.txt_red {color:#FF4747;}
+#faceLayout {width:100%; height:100%; overflow:hidden;overscroll-behavior-y: none;touch-action: none;}
+#faceLayout.headNone #faceHeader .hed {display: none;}
+#faceLayout.headNone #gnbBox {top:0px;}
+#faceLayout.videoView #viewBox {opacity:1; z-index:2;left: 0px;right: 0px;}
+#faceLayout.videoView.gnbOn #viewBox {left:62px;}
+#faceLayout.headNone #viewBox {top: 30px;}
+#faceLayout.headNone .contentLayout {top:0px;}
+#faceLayout.headNone.on #noteBox {top:0px;}
+#faceLayout.headNone #faceAllBox {top:0px; bottom:0px;}
+#faceLayout.headNone #faceAllBox.grid1Column {bottom: 80px;}
+#faceLayout.headNone .gnbCon {top:0px;}
+
+#faceHeader {height:120px; position:static; z-index:100; left:0px; top:0px; right:0px;}
+.gnbOn #faceHeader {height:100%; z-index: 100;}
+#faceHeader .rBox {display: none; flex-direction: column;align-items: center; font-size:15px; position:relative; width: 60px; top:auto; bottom: 3vh; left: 0px; right:25px; z-index: 999; transition:all 0.6s ease;}
+.gnbOn #faceHeader .rBox {display: flex;}
+#faceHeader .rBox .timeline {font-size:12px; text-align:center; padding: 3px 6px; margin-bottom:10px; border-radius:15px;vertical-align: middle; letter-spacing: 0;}
+#faceHeader .rBox .onoffBtn {position: relative; line-height: 30px; font-size:40px; vertical-align: middle; display:inline-block; padding:0; transition:all .6s ease;}
+#faceHeader .rBox .onoffBtn:before {display:none; content:''; width:2px; height:16px; opacity:0.3; position:absolute; left:5px; top:50%; margin-top:-8px;}
+#faceHeader .rBox #stop_room.onoffBtn {top:5px; line-height: 23px; text-align: center;}
+#faceHeader .rBox #stop_room.onoffBtn:hover {color:#fff;}
+#faceHeader .rBox #stop_room.onoffBtn:before {display:none; content:''; width:2px; height:16px; opacity:0.3; position:absolute; left:-22px; top:50%; margin-top:-8px;}
+#faceHeader .rBox #stop_room.onoffBtn .icon-leave2 {position: relative;top: -11px;line-height: 5px; font-size: 12px; opacity: 0.8;width: 26px; height: 26px; border-radius: 50%;background-color: #FF4747; display: inline-block;line-height: 26px;}
+#faceHeader .rBox #stop_room.onoffBtn .icon-leave2:before {position:relative; top: -1px; left:1px;}
+#faceHeader .rBox #stop_room.onoffBtn:hover .icon-leave2 {opacity: 1;}
+#faceHeader .rBox .onoffBtn strong {position: absolute; width: max-content; left: 0; right: 0; margin: auto;display: block; font-weight: 500; font-size: 12px;}
+#faceHeader .rBox #stop_room.onoffBtn:hover strong {color:#FF4747;}
+#faceHeader .rBox .circlePBtn {position: relative;top: -1px;font-size: 37px;vertical-align: middle;display: inline-block;padding: 0 0 0 25px; transition: all .6s ease;}
+#faceHeader .rBox .circlePBtn:before {display:inline-block; content:''; width:2px; height:16px; opacity:0.3; position:absolute; left:8px; top:55%; margin-top:-8px; background: #fff;}
+#faceHeader .rBox .studentCo {vertical-align: middle; text-align: center;}
+#faceHeader .rBox .studentCo span {font-size: 12px;}
+#faceHeader .hotkeyBtn {position: relative; margin:5px 0; font-size:35px; line-height:30px; vertical-align: middle;}
+#faceHeader .hotkeyBtn:before {display:none; content:''; width:2px; height:16px; opacity:0.3; position:absolute; left:-15px; top:57%; margin-top:-8px; background-color: #fff;}
+#faceHeader .rBox .fullscreenBtn {position: relative;top: -3px;font-size: 25px;vertical-align: middle;display: inline-block;transition: all .6s ease;}
+#faceHeader .rBox .fullscreenBtn:hover {color:#fff;}
+#faceHeader .hed  {background-color:rgba(0,0,0,0.2);}
+#faceHeader .hed h1 {padding:0; margin:0; padding:16px 0 0 25px;}
+#faceHeader .hed h1 img{width: 135px; height: 32px }
+#faceHeader .hed .hedLink {position: absolute; left:50%; top:12px; width:300px;overflow: hidden; border-radius:20px; margin-left:-150px; background-color:rgba(0,0,0,0.23);}
+#faceHeader .hed .hedLink li {float:left; width:50%;}
+#faceHeader .hed .hedLink li a {display:block; font-size:15px; border-radius:20px;color:rgba(255,255,255,0.6);padding:7px; text-align:center;}
+#faceHeader .hed .hedLink li a:hover {background-color:#0063D5; color:#fff;}
+#faceHeader .subjectTitle {display:none; word-break: break-all; width: 52%;text-overflow: ellipsis;white-space: nowrap;word-wrap: normal;overflow: hidden;font-size:18px;  font-weight:500; margin:-5px 0px 0px 80px; transition:all 0.6s ease;}
+
+#faceHeader .tooltip {display:none;word-break: break-all; position: absolute; top:50px; left:80px; margin:auto; width:auto; height: 25px;line-height: 12px; text-align: center; color: #fff;border-radius: 3px; background-color:rgba(66,66,72,0.8);box-shadow: 0px 1px 5px 2px rgba(0,0,0,0.2); transition:0.3s all ease;z-index: 1;}
+#faceHeader .subjectBox.on .tooltip {display: block;}
+#faceHeader .tooltip span {position: relative; display:inline-block; padding:0 5px; font-size:13px; line-height: 25px;}
+#faceHeader .tooltip span:after {content:''; display:block; position:absolute; left: 10px;top:-5px; width:13px; height:11px; background:url(../img/tagHvBgAr2.png) no-repeat;background-size: 11px;opacity: 0.8;}
+.gnbOn #faceHeader .tooltip {left:25px;}
+
+
+#gnbBox {position:fixed; z-index:100; width:45px; height:100%; left:0px; top:50px; }
+#gnbBox ul li.setG:before {display:block; content:''; left:50%; margin:0px 0px 12px 18px; width:50%; height:2px;}
+#gnbBox .gnbBoxIn {position: relative;}
+#gnbBox .menuBtn {margin:0; padding:0;}
+#gnbBox .menuBtn a {display:block; position: relative; height:100%; padding: 5px 10px; text-align:center; overflow: hidden; border-radius: 10px;
+    background: linear-gradient(90deg, rgba(19,19,22,1) 0%, rgba(19,19,22,0.819765406162465) 50%, rgba(19,19,22,1) 100%); transition: .3s all ease;}
+.gnbOn #gnbBox .menuBtn a {padding: 15px 10px;}
+#gnbBox .menuBtn span.line {display:inline-block;transition: .5s ease; position:absolute; margin:0 auto; width:18px; height:2px; border-radius:12px; left:50%; margin-left:-12px; top:50%; opacity:1}
+#gnbBox .menuBtn span.line:before {display:block; transition: .5s ease;width: 25px; height:2px; content:''; border-radius:12px; position:absolute; top:-8px;}
+#gnbBox .menuBtn span.line:after {display:block; transition: background .5s ease, .3s ease-out; width: 25px; height:2px; content:''; border-radius:12px; position:absolute; bottom:-8px;}
+#gnbBox .menuBtn .topArrow {position: absolute; right:1px; bottom:-16px; transform: rotate(-90deg); transition: .3s ease; font-size:20px;}
+#gnbBox .menuBtn .mbin {height:30px; overflow:hidden; display:block; position: relative;}
+#gnbBox .menuBtn a:hover span.line, #gnbBox .menuBtn a:hover span.line:before, #gnbBox .menuBtn a:hover span.line:after {opacity:1;}
+#gnbBox .gnbList { text-align:center;}
+#gnbBox .gnbList .br {display:block;}
+#gnbBox .gnbList a {position: relative; display: block;text-decoration: none; padding:10px 0; opacity:0.5; transition:all 0.3s ease; text-align:center;}
+#gnbBox .gnbList button {transition:all 0.3s ease;}
+#gnbBox .gnbList:hover a, #gnbBox .gnbList:hover button {opacity:1;}
+#gnbBox .gnbList a.on {opacity:1;}
+#gnbBox .gnbList .classUNum {position: absolute; right:0px; top:0; display:block; padding-right:10px; opacity:1;}
+#gnbBox .gnbList .icon {display:block; font-size:32px; line-height:30px; }
+#gnbBox .gnbList .icon.icon-qa {font-size: 28px;}
+#gnbBox .gnbList span {font-size:12px; line-height:15px; /*width:75px;*/ overflow:hidden; word-wrap:break-word;}
+#gnbBox .gnbList .menuText {display:none; font-size:12px; line-height:15px; width:auto; padding:0 3px;overflow:hidden; word-wrap:break-word; overflow: visible;height: auto;word-break: break-word;}
+#gnbBox .chatAlert {display:none; position: absolute;z-index: 100; top: 6px; left: 45px; font-size: 30px; color: #B0B0B3;}
+#gnbBox .chatAlert .chatCount {display: flex;background-color: #FE4746;border-radius: 10px;position: absolute;top: 6px;right: -8px;font-size: 11px;color: #000;align-items: center;justify-content: center;padding: 1px 7px;}
+
+button[data-target="faceAllBox"] {cursor: pointer;padding: 20px 0; background-color: transparent;border: none;color: #fff;opacity: 0.5;}
+button[data-target="faceAllBox"].on {color: #4EA7FF; opacity: 1;}
+#gnbBox .gnbList button[data-target="faceAllBox"] span {font-size: 29px;}
+/* #faceListButtonBox button[data-target="faceAllBox"] {display:none;} */
+
+.gnbOn #gnbBox {width: 60px; background: linear-gradient(90deg, rgba(19,19,22,1) 0%, rgba(19,19,22,0.819765406162465) 50%, rgba(19,19,22,1) 100%);}
+.gnbOn #gnbBox .menuBtn span.line:after {width:12px;}
+.gnbOn #gnbBox .menuBtn  .topArrow {bottom:-4px;}
+.gnbOn #faceHeader .subjectTitle {margin-left:25px;}
+.gnbOn .gnbCon {left:62px;}
+.gnbOn #faceAllBox {left:80px;}
+
+.menuList {position: absolute; left:-75px; width: 100%;padding-top: 15px;overflow-y: auto; overflow-x: hidden;padding-bottom:10px;height: calc(100vh - 275px);display: block !important;}
+.gnbOn .menuList {left:0}
+.menuList.start_lecture {height: calc(100vh - 290px);}
+.menuList ul {padding:0;}
+.menuList.menuListMb {overflow-x: auto; overflow-y: hidden;}
+.menuList .mCustomScrollBox {overflow: auto;}
+.menuList.menuListMb .mCustomScrollBox {overflow: hidden;}
+
+.mCSB_inside > .mCSB_container {width:auto !important;}
+
+
+  #faceListBox {position:fixed; z-index:11; width:220px; top:130px; bottom:105px; right:-230px; border-radius:10px; overflow: hidden; transition:all 0.6s ease;}
+  #faceListBox .faceListButtonBox {position: fixed; bottom: 20px; right: 20px;}
+  #faceListBox.on  {z-index:11; opacity:1;  right:20px;}
+  #faceListButtonBox .rightBtn span {transform: rotate(180deg);}
+  #faceListButtonBox .rightBtn.on span {display:inline-block; transform: rotate(0);}
+
+
+  .sectionTitleBox { font-size:18px; padding: 0 18px; width:284px; overflow:hidden;}
+  .sectionTitleBoxIn{margin-bottom:20px; padding:18px 0; border-bottom:1px solid; position: relative; }
+  .sectionTitleBox a {display:inline-block;}
+  .sectionTitleBox a .icon {transform: rotate(-180deg); font-size:30px; }
+  .sectionTitleBox a span {vertical-align: middle; transition: all .6s ease; display: inline-block;}
+  .sectionTitleBox a.set {position:absolute; right:0; top:10px; padding:0; font-size:30px; }
+  .sectionTitleBox .downBtnBox {display: inline-block;float: right;}
+  .sectionTitleBox a.downloadBtn {margin-left:6px; padding: 4px 8px;font-size: 13px; color:rgba(255,255,255,0.6); border-radius: 2px; border: 1px solid #D7D7D7; transition: 0.3s all ease;}
+  .sectionTitleBox a.downloadBtn:hover {border:1px solid #4EA7FF; color:#4EA7FF;}
+  .sectionTitleBox a.downloadBtn .icon-down {position: relative; top: -2px;font-size: 10px;margin-left:4px; color:rgba(255,255,255,0.6);}
+
+  .sectionTitleBoxIn .setIn {font-size:13px;}
+
+
+  #viewBox {position:fixed; top:60px; left:0px; right:0px; bottom:0px; z-index:1; opacity:0; background:url(../images/icon/view.png); background-size:cover; transition:all 0.6s ease;}
+
+  #classUser .classUSerListIn {padding:0 ; width:0;}
+  #classUser.on .classUSerListIn {padding:0 18px 0 18px; width: 284px;}
+  #classUser .mCSB_inside>.mCSB_container {margin-right:0;}
+
+  #surveyBox .surveTitleCon {width:0; padding:0; overflow:hidden;}
+  #surveyBox.on .surveTitleCon {width:100%; padding:0 0 20px 0;}
+  #surveyBox .surviReing {width:0; overflow:hidden; }
+  #surveyBox.on .surviReing {width:320px;}
+
+  .gnbCon {position:fixed; z-index:0; opacity:0; width:0px; top:130px; bottom:105px; left:20px; transition:all 0.6s ease; border-radius:10px; overflow: hidden; transition:all 0.6s ease; }
+  .gnbCon .sectionTitleBoxIn {width:0; opacity:0; transition:all .1s ease-out;}
+  .gnbCon .contentIn {width:0; overflow: hidden; transition:all .3s ease-out;}
+  .gnbCon.on {z-index:101; opacity:1; width:320px;}
+  .gnbCon.on .contentIn {width:100%; height:100%;}
+  .gnbCon.on .sectionTitleBoxIn {width:100%; opacity:1;}
+
+  #waitingRoom  { position: fixed; left:0; top: 120px; right: 0;bottom: 0; z-index: 101; transition: all 0.6s ease;}
+
+
+
+/* waiting room */
+
+#waitingRoom  {position: fixed; left:0; top: 120px; right: 0;bottom: 0; z-index: 101; transition: all 0.6s ease;}
+  .waitingRoomIn {max-width:1200px; margin:0 auto; border-radius: 10px;}
+  .waitingRoomIn > .hed {padding: 30px 40px; position: relative; border-top-right-radius: 10px; border-top-left-radius: 10px;}
+  .waitingRoomIn > .hed1 {padding: 20px 40px; position: relative; border-top-right-radius: 10px; border-top-left-radius: 10px;}
+  .waitingRoomIn > .hed img {display:none;}
+  .waitingRoomIn .nick span {vertical-align: middle; font-size:18px;}
+  .waitingRoomIn .nick span.icon {font-size:23px;}
+  .waitingRoomIn .nick input {margin-left:10px; border:none; padding:8px; width:600px; height: 24px; font-size:14px;}
+  .waitingRoomIn .con  {padding:50px 70px 50px 70px;}
+  /* .waitingRoomIn .conListBox {height:400px;} */
+  .waitingRoomIn .conListBox ul.conList:after {display:block; content:''; clear: both;}
+  .waitingRoomIn .conListBox ul.conList2 {padding-top:40px;}
+  .waitingRoomIn .conListBox ul.conList2_n {padding-top:15px;}
+  .waitingRoomIn .conListBox ul.conList3 {border:none; padding-top:15px;}
+  .waitingRoomIn .conListBox ul.conList > li{float:left; margin-bottom:40px; width:50%;}
+  .waitingRoomIn .conListBox ul.conList1_n > li{float:left; margin-bottom:22px; width:50%;}
+  .waitingRoomIn .con .w_setting {margin: 0 28px; }
+  .waitingRoomIn .con .w_setting .subject{font-size:18px; margin-bottom:22px; }
+  .waitingRoomIn .con .w_setting .subject .icon {font-size:25px; margin-right:10px;}
+  .waitingRoomIn .con .w_setting .subject span {vertical-align: middle;}
+  .waitingRoomIn .con .w_setting .cont > ul > li { transition: all .3s ease; cursor:pointer; position: relative; padding:25px 20px; height:20px; }
+  .waitingRoomIn .con .w_setting .cont > ul > li:before { border-radius: 10px; display:block; content:''; width:100%; height:100%; border:3px solid transparent; position: absolute; left:0; top:-3px;}
+  .waitingRoomIn .con .w_setting .cont > ul > li:first-child {border-top:none;}
+  .waitingRoomIn .con .w_setting .cont select {border:none; height:36px; padding:0 8px; background-size:10px;
+    -webkit-appearance: none;-moz-appearance: none; appearance: none; font-size:14px;width:100%;}
+  .waitingRoomIn .con .btnBox {text-align:center; padding:30px 0 0 0;}
+  .waitingRoomIn .con .btnBox a{display:inline-block; font-size:14px; border-radius: 5px; padding:10px 35px; text-align:center;color: rgba(255,255,255,0.8);background-color: #0063D5;}
+  .waitingRoomIn .con .btnBox a.disabled {opacity: 0.3; cursor: default;}
+  .waitingRoomIn .con .btnBox a:hover {color:#fff;}
+
+  /* 20201124 */
+  .ment_box {max-width:1200px; margin:0 auto; border-radius: 10px;}
+  .ment {background:#13131680;padding:20px 0;text-align:center;margin-bottom:10px;border-radius:10px;font-size:22px;}
+  .lec_info {padding:20px 100px;overflow:hidden;}
+  .lec_info li {float:left;width:49.6%;color:#aaa;padding:2px 0;font-size:14px;}
+  .lec_info li strong {display:inline-block;width:60px;text-align:justify;color:#fff;}
+  .waitingRoomIn .con1  {padding:30px 70px 30px 70px;}
+
+  /*ê°•ì˜ ëŒ€ê¸°ì‹¤*/
+  .restArea.waitingRoomIn .nick span.icon-videofixe {display: inline-block; margin-right: 3px;font-size: 25px;}
+  .restArea.waitingRoomIn .nick span.icon-cricleAdd {position: relative;top: 1px;display: inline-block; margin-right: 3px;}
+  .restArea.waitingRoomIn .nick span.icon-setting {position: relative;top: 2px;}
+  .restArea.waitingRoomIn .nick span.icon-user {position: relative;top: 1px;display: inline-block; margin-right: 3px;}
+  .restArea.waitingRoomIn .con .w_setting .subject {font-size: 17px;}
+  .restArea.waitingRoomIn .con .w_setting .subject .icon {position: relative; top: 2px;margin-right: 6px;}
+  .restArea {height: calc(100% - 120px);}
+  .restArea .hed {padding: 20px 40px;position: relative;border-top-right-radius: 10px;border-top-left-radius: 10px;background-color: rgba(19,19,22,0.2);}
+  .restArea .lec_info {padding:20px 75px;}
+  .restArea .lec_info li {float:none;width: auto;margin-top: 20px;font-size: 17px; display: table;}
+  .restArea .lec_info li:first-child {margin-top:0px;}
+  .restArea .lec_info li strong {width:150px; font-weight: 400; display: table-cell; padding-right: 20px; word-break: break-all;}
+  .restArea .lec_info li.lec_infoRList strong {position: relative;top: -32px;width:150px;}
+  .restArea .lec_info li span {color:#fff; opacity: 0.8; display: table-cell;}
+  .restArea .lec_info li span.txt_skyblue {color: #4EA7FF; opacity: 1;word-break: break-all;}
+  .restArea .lec_info li span.inputSubT {display:block; margin-top:4px; font-size:13px; transition: 0.3s all ease;}
+  .restArea .lec_info li span.inputSubT.on {color:#4EA7FF;opacity: 1;}
+  .restArea .lec_info li span.inputSubT.readonly {color:rgba(255,255,255,0.3);}
+  .restArea .lec_info li .lec_infoR {display: inline-block;}
+  .restArea .lec_info li .lec_infoR input[type="text"] {border: none;width: 600px; height: 40px; padding:0; text-indent: 8px;font-size: 14px;background-color: #36363B;color: rgba(255,255,255,0.8);border-radius: 2px;font-family: 'Noto Sans KR', sans-serif;}
+  .restArea .lec_info li .lec_infoR input[type="text"].readonly {outline: none;cursor: default;color:rgba(255,255,255,0.4); background-color: rgba(19,19,22,0.4);}
+  .restArea .infoDetail ul.conList1_n > li {float:none; width:auto;}
+  .restArea .infoDetail .w_setting {margin:0;}
+  .restArea .w_setting .cont {/*height:230px; overflow: auto;*/}
+  .restArea .w_setting .cont p {margin:0; font-size:16px; line-height:24px; color:#fff;opacity: 0.8;}
+  .restArea .w_setting .cont pre {white-space: pre-wrap; word-break: break-all;}
+  .restArea .infoDetailSet ul.conList1_n > li .w_setting {margin:0 0 0 70px;}
+  .restArea .infoDetailSet ul.conList1_n > li:first-child .w_setting {margin:0;}
+  .restArea .infoDetailSet .w_setting .cont {height:auto;}
+  .restArea .infoDetailSet .w_setting .subject {margin-bottom:12px;}
+  .skin_black .restArea .con.infoDetailSet .w_setting .cont select {height:40px; border-radius: 2px;background: url(../img/arrowDown_white.png) no-repeat 98% 50% #36363B;}
+  .skin_black .restArea .con.infoDetailSet .w_setting .cont select.disabled {font-size:14px;background: url(../img/arrowDown_disabled.png) no-repeat 98% 50% #36363B; background-color:rgba(19,19,22,0.4); border-color:rgba(19,19,22,0.4); color:rgba(255,255,255,0.4);}
+
+  #waitingAlert {position: fixed;z-index:100;left:50%;right:0;top:85px;width:480px;margin-left:-235px;/* display: none; */z-index:1000;}
+  #waitingAlert .waitingAlertBox {padding:8px; border-radius: 50px; background-color:rgba(0,0,0,0.7); color:#fff; text-align:center;border:3px solid #0063D5; margin:0 auto;}
+
+  .topMent {padding:30px 0;}
+  .topMent.btnBox {max-width: 1200px; margin: 0 auto;text-align: center;}
+  .topMent.btnBox a {display:inline-block; width: 300px; font-size:14px; border-radius: 5px; padding:10px 35px; text-align:center;color: rgba(255,255,255,0.8);background-color: #0063D5;}
+  .topMent.btnBox a.disabled {opacity: 0.3; cursor: default;}
+  .topMent.btnBox a:hover {color:#fff;}
+
+  /*ì•”í˜¸í™•ì¸ íŒì—…*/
+    .passwordChkPopup {display:none; position:fixed; width:100%; height:100%; left:0; right:0; top:0; bottom:0; background-color:rgba(0,0,0,0.7);overflow:hidden; z-index: 102;}
+    .passwordChkPopupIn {position:absolute; left:50%; top:50%;  transform: translate(-50%, -50%); background-color:#2F2F37; box-shadow:10px 10px 20px rgba(0,0,0,0.16); width:386px; border-radius: 5px; padding:24px 32px;}
+    .passwordChkPopHed  {position: relative; margin-bottom:16px;}
+    .passwordChkPopHed .subject {font-size:20px; color:#fff;}
+    .passwordChkPopHed .loginCloseBtn {position: absolute; color:rgba(255,255,255,0.6);font-size:50px; right:-10px; top:-20px;}
+    .passwordChkPopHed .loginCloseBtn .icon-closebtn {position: relative; top: -10px;font-size: 38px;}
+    .passwordChkPopCon  {width:386px; margin:0 auto;}
+    .passwordChkPopCon .passwordChkinputBox {margin-bottom:25px;}
+    .passwordChkPopCon .passwordChkinputBox strong {font-size:16px; font-weight: 500; color:#aaa;}
+    .passwordChkPopCon .passwordChkinputBox input { width:99%;font-family: 'Noto Sans KR', sans-serif;text-indent: 12px;border: 1px solid rgba(255,255,255,0.05); height: 40px;font-size: 16px;border-radius: 5px;  color:#fff;background-color:rgba(0,0,0,0.10); font-size:14px;}
+    .passwordChkPopCon .passwordChkinputBox input:-ms-input-placeholder {color:rgba(255,255,255,0.6);}
+    .passwordChkPopCon .passwordChkinputBox input:-webkit-input-placeholder {color:rgba(255,255,255,0.6);}
+    .passwordChkPopCon .passwordChkinputBoxIn {position: relative; margin:6px 0;}
+    .passwordChkPopCon .passwordChkinputBoxIn .icon  {font-size:25px; position:absolute; color:rgba(255,255,255,0.5); left:10px; top:11px;}
+    .passwordChkPopCon .passwordChkBtnBox  {text-align: center;}
+    .passwordChkPopCon .passwordChkBtnBox a{display: inline-block;width:167px;height:40px; line-height:40px;color: rgba(255,255,255,0.8); border:none; font-size:14px; text-align:center; border-radius: 5px; background-color:#0063D5; border: 1px solid #0063D5;cursor: pointer;}
+    .passwordChkPopCon .passwordChkBtnBox a:hover {color:#fff;}
+
+
+  /*grid*/
+  #faceAllBox {opacity: 0; background-color: #27272E; position: absolute; left: 25px; right: 0px; top: 0px; bottom: 0px; z-index: -1;}
+  #faceAllBox .mCSB_inside>.mCSB_container {margin-right:10px;}
+  #faceAllBox.on {opacity:1; z-index: 11;}
+  #faceAllBox .faceAllBoxOver {width:100%; height:90%; overflow:hidden; overflow-y: auto;}
+  #faceAllBox.grid1Column .faceAllBoxOver {height:100%;}
+  #faceAllBox .faceAllBoxW {display: flex;justify-content: center; width:100%; height:100%; position:relative; transition:all 0.6s ease; -webkit-transition:all 0.6s ease; -moz-transition:all 0.6s ease; -ms-transition:all 0.6s ease; -o-transition:all 0.6s ease; }
+  #faceAllBox .faceAllBoxW > div {width:100%;}
+  #faceAllBox .faceAllBoxIn {position:relative; display: flex; align-items: center; height:100% !important; width:100%; justify-content: center;}
+  #faceAllBox .faceAllBox2 {position:absolute; left:50%; width:100%; height:100%; top: 0px;}
+  #faceAllBox .faceAllBoxIn2 {position:relative; display: flex; align-items: center; height:100%; width:100%; justify-content: center;}
+  #faceAllBox .faceAllList {width:100%;  /*height:auto !important;display: grid;align-items: flex-start; grid-auto-flow: dense; grid-gap: 0px; justify-content: center; grid-template-rows: repeat(1, 1fr);
+      grid-template-columns: repeat(1, 1fr);*/ }
+  #faceLayout.topThumbnail #faceAllBox .faceAllList:before {content:''; margin:auto;}
+  #faceLayout.topThumbnail #faceAllBox .faceAllList:after {content:''; margin:auto;}
+  #faceAllBox .faceAllList > li {display: flex;align-items: center; /*flex: 1 1 40%;*/ overflow: hidden; width: 100%; max-height: 100%;min-width: 100px; min-height: 100px;}
+  #faceLayout.topThumbnail #faceAllBox .faceAllList > li {/*flex: inherit;*/ margin:2px;}
+  #faceAllBox .faceAllList > li .faceAllVideo {position: relative; border:2px solid transparent; border-radius:0; text-align:center; box-sizing: border-box; width:100%; height:100%; overflow:hidden;}
+  #faceAllBox .faceAllList > li .faceAllVideo img {width:100%; height:100%;}
+  #faceAllBox .faceAllList > li .faceAllVideoIn {height:100%;}
+  #faceAllBox .faceAllList > li .basicBox {height:100%; overflow:hidden;}
+  #faceAllBox .faceAllList > li.on .faceAllVideo{border:5px solid #FF4747;}
+  #faceLayout.topThumbnail #faceAllBox.thumbnailMode .faceAllList > li {width: 100px;height: 100px;}
+  .movie-player-wrapper {position: relative;width: 100%;height: 0;overflow: hidden;padding-bottom: 57%; margin:0 auto;}
+  .movie-player-wrapper .wrap {position: absolute;top: 0;left: 0;width: 100%;height: 100%;}
+  
+  #faceAllBox .iconLeft {position:fixed; z-index:10; top:50%; left:-5px; font-size:40px; margin-top:-50px; transform: rotate(180deg); transition: 0.3s all ease;}
+  .gnbOn #faceAllBox .iconLeft {left:70px;}
+  .gnbOn.leftArea.menuFixedMode #faceAllBox .iconLeft {left:395px;}
+  #faceAllBox .iconRight {position:fixed;z-index:10; top:50%; right:-5px; font-size:40px; margin-top:-50px; opacity:1;}
+  #faceAllBox.page2 .iconLeft {opacity:1;}
+  #faceAllBox.page2 .iconRight {opacity:0.3;}
+  #faceAllBox.page2 .faceAllBoxW {transform: translate3d(0%, 0px, 0px);}
+  .icon-gallery.iconLeft {position:absolute; z-index:101; top:40%; left:100px; font-size:50px; transform: rotate(180deg);color: rgba(255,255,255,1);}
+  .icon-gallery.iconRight {position:absolute;z-index:101; top:40%; right:0; font-size:50px;color: rgba(255,255,255,1);}
+
+  /* 오른쪽 사용자 리스트 */
+  #faceListButtonBox {position:fixed; right:20px; bottom:20px; z-index:100; }
+  #faceListButtonBox .rbtn { cursor:pointer; border:none; padding:0; margin:0; border-radius:10px; width:55px; height:55px; font-size:40px; line-height:55px; margin-left:10px; outline:none;}
+  #faceListButtonBox .rbtn span {display:inline-block; transition:all 0.5s ease; }
+  #faceListButtonBox .rightBtn {opacity:1; width:55px; height:55px; transition: all .4s ease;}
+  #faceListButtonBox .rightBtn:first-child {margin-left:0;}
+  #faceListButtonBox .rightBtn.off {opacity:0; width:0; height:0; overflow:hidden; font-size:0; line-height:0; margin-left:0; transform: scale(0);}
+
+  .faceTeacher {padding:25px 22px; }
+  .faceTeacher .faceTIn {max-height:110px; position: relative; text-align:center; border-radius: 3px;}
+  .faceTeacher .faceTIn .basicBoxIn {overflow:hidden; max-height:110px; border-radius: 3px;}
+  #studentListContainer {height: calc(100% - 160px);}
+    #studentListContainer.breakRoom {height: calc(100%);}
+  .studenListBox {height: calc(100% - 90px);}
+  .studenListBox .mCSB_inside > .mCSB_container {margin-right:23px;}
+  .studenListBox .studenListBoxIn {padding:0 0px 0px 23px;}
+  .studenListBox .faceAllList > li {margin-top:20px; position: relative; border-radius:3px; float:none;}
+  .studenListBox .faceAllList > li:first-child {margin-top:0;}
+  .studenCount {margin-bottom:12px; padding: 13px 23px 0;font-size:16px;}
+  .studenCount span {vertical-align: middle; font-size:16px;float:left;}
+  .studenCount span.num {margin-left:3px;}
+  .videoBox {position:absolute; left:0;top:0; width:100%; height:100%; z-index:9;}
+  .videoBox .videoBoxIn {max-height: 110px; overflow:hidden;}
+  .videoBox video {width:100%; height:100%;}
+
+  .studenListBox .faceAllVideo {margin:0;}
+  .studenListBoxIn .faceAllVideoIn {position: relative;}
+
+  .studenListBox .faceAllList li .basicBox {max-height:110px; overflow:hidden;}
+  .faceAllVideo .basicBox:before {display:block; content:''; width:100%; height:100%; background-color:#000; opacity:0.4; position: absolute; left:0; top:0; }
+  .Announ {width:24px; height:24px; border-radius: 50%;; display:block;position: absolute; background-color:#000; opacity:0.4; color:#fff; left:5px; top:5px; z-index:10; text-align:center;}
+  .Announ span {font-size:20px; line-height:23px;  display:inline-block;}
+  /*.Announ:hover {background-color:#1365C4; opacity:1;}*/
+  .Announ.on {background-color:#1365C4; opacity:1;}
+  .videoSetting {position: absolute; width:20px; height:25px; right:0; top:0; display:block; z-index:12;}
+  .videoSetting .vedioSetIn  {display:block; width:100%; height:100%; text-align:center;}
+  .videoSetting span.btn:before {display:block; content:''; width:4px; height:4px; position:absolute; top:-6px; border-radius: 50%;}
+  .videoSetting span.btn:after {display:block; content:''; width:4px; height:4px;  position:absolute; bottom:-6px; border-radius: 50%;}
+  .videoSetting span.btn {margin:12px auto 0; display:block; width:4px; height:4px; border-radius: 50%; position: relative;}
+  .naming {max-width:144px;line-height:25px; position: absolute;bottom:5px; left:5px; background-color:rgba(0, 0, 0, 0.6); border-radius: 5px; padding:0 5px; text-overflow:ellipsis;white-space:nowrap;overflow:hidden; word-wrap:normal; z-index:10;}
+  .naming span {display:inline-block; opacity:1;}
+  .naming .textChang {width:120px; margin:0; padding:0; border:none; background-color:#fff;}
+  .naming .mic { font-size:20px; vertical-align: middle;color:#fff;}
+  .naming .mic.off,.naming .camera.off  {opacity:0.6;}
+  .naming .camera {font-size:20px; vertical-align: middle; color:#fff;}
+  .naming .nameText {display:inline; color:#fff; opacity:0.8; font-size:12px; vertical-align: middle; text-overflow:ellipsis;white-space:nowrap;overflow:hidden; word-wrap:normal;}
+  .faceAllList li.on .faceAllVideo {border-radius: 5px; border:5px solid #FF4747;}
+  .faceAllList li.on .faceAllVideo .basicBox:before, .faceAllList li .faceAllVideo:hover .basicBox:before {display:none;}
+
+  .studenListBox .videoSetBg ul li {margin-bottom:0; padding-bottom:5px;}
+  .videoSetBg { opacity:0; border-radius:5px;  position: absolute; right:15px; top:6px; z-index:1;  transition: all .6s ease;}
+  .videoSetBg ul li div {padding-right:20px;}
+  .videoSetBg ul li div a {display:block; padding:5px 0px 5px 10px; font-size:12px; opacity:0.6; transition: all .5s ease; position: relative;}
+  .videoSetBg ul li div a span {margin-left:20px;;}
+  .videoSetBg ul li div a span.icon {vertical-align: middle; font-size:20px; position: absolute; left:5px;top:3px; margin-left:0;}
+  .videoSetBg ul li {margin-bottom:0;}
+  .videoSetBg ul li:first-child {border-top:none;}
+  .videoSetBg ul li div a:hover {opacity:1;}
+  .videoSetBg.on {opacity:1;z-index: 11}
+
+
+/*note Box */
+  .contentLayout {position:fixed; left:20px; top:130px; right:20px; bottom:105px; z-index:1; transition:all 0.6s ease;}
+  .contentLayout.gnbArea {margin-left:80px;}
+  .contentLayout.leftArea {left:350px;}
+  .contentLayout.rightArea {right:260px;}
+    #noteBox {position:absolute; z-index:0; top:0px; opacity:0; left:0px; right:0px; bottom:0px; background-color:#fff;  border-radius:10px; overflow: hidden; transition:all 0.6s ease;}
+    #noteBox .noteBoxIn {position: relative;width:100%; height:100%;}
+    #noteBox.on {opacity:1; z-index:1;}
+    #noteBox .leftArrow {position:absolute; left:0; top:50%; font-size:60px; transform: rotate(-180deg); z-index:10;}
+    #noteBox .leftArrow  a {display:block; color:rgba(0,0,0,0.3);}
+    #noteBox .rightArrow {position:absolute; right:0; top:50%; font-size:60px; z-index:10;}
+    #noteBox .rightArrow  a {display:block; color:rgba(0,0,0,0.3);}
+    #noteBox .toolusingStudentName {display:block; position:absolute; padding:4px 8px;text-align: center; font-size:12px; border-radius:5px;}
+    #noteBox .toolusingStudentName.red {background-color:rgba(255,71,71,0.21);color:rgba(255,71,71,0.8); left:0; }
+    #noteBox .toolusingStudentName.blue {background-color:rgba(0,99,231,0.21);color:rgba(0,99,231,0.8); left:200px}
+    #noteBox .toolusingStudentName.gray {background-color:rgba(0,0,0,0.21);color:rgba(0,0,0,0.8); left:230px;}
+    #noteBox .toolusingStudentName.purple {background-color:rgba(159,23,155,0.21);color:rgba(159,23,155,0.8);left:300px}
+
+    #noteBox .leftArrow  a.on, #noteBox .rightArrow  a.on {color:rgba(0,0,0,1);}
+    .screenCtrBtn {float: right; padding:0 7px; font-size: 20px; color:#fff;background-color: rgba(0,0,0,0.3);border-radius: 5px; margin: 8px; transition: 0.3s all ease;}
+    .screenCtrBtn:hover {background-color: #4EA7FF;}
+    .screenCtrBtn .icon-minus {position: relative; top:-2px;}
+
+    /*noteBox toolbar*/
+    #noteBox .toolbarBox { position:absolute;  left:55%; top:5px; width:360px; height:38px; border-radius:5px; margin-left:-210px; }
+    #noteBox .toolbarBox > ul > li {float:left;}
+    #noteBox .toolbarBoxIn .slideViewBox  {position:relative; width:140px; height:38px; line-height:33px;text-align: center;}
+    #noteBox .toolbarBoxIn .slideViewBox .arrow {font-size:30px; position:absolute;}
+    #noteBox .toolbarBoxIn .slideViewBox .leftA {transform:rotate(-180deg); left:0; top:0;}
+    #noteBox .toolbarBoxIn .slideViewBox .rightA {right:0; top:0;}
+    #noteBox .toolbarBoxIn .slideViewBox .slideV_txt { color:#fff; padding:0 33px;}
+    #noteBox .toolbarBoxIn .slideViewBox .slideV_txt span {vertical-align: middle; transition: .3s ease;}
+    #noteBox .toolbarBoxIn .slideViewBox .slideV_txt span.icon {display:inline-block; transform:rotate(0deg); vertical-align: middle;}
+    #noteBox .toolbarBoxIn li.on .slideViewBox .slideV_txt span.icon {transform:rotate(180deg);}
+
+    #noteBox .toolbarBoxIn .slideViewList {width:140px; display:none;}
+    #noteBox .toolbarBoxIn .slideViewList ul {width:100px; max-height: 300px; margin:0 auto;  border-bottom-right-radius:5px; border-bottom-left-radius:5px; overflow-y: auto;}
+    #noteBox .toolbarBoxIn .slideViewList ul li {border-top:1px solid rgba(0,0,0,0.2)}
+    #noteBox .toolbarBoxIn .slideViewList ul li:first-child {border:none;}
+    #noteBox .toolbarBoxIn .slideViewList ul li a {padding: 8px;display:block;}
+
+    #noteBox .toolbarBoxIn .selecToolBox {width:36px; height:38px; position:relative; font-size:30px; text-align:center;}
+    #noteBox .toolbarBoxIn .selecToolBox .selecTool {position:absolute; display:block; left:0; top:0; width:100%; height:100%;}
+    #noteBox .toolbarBoxIn .selecToolBox .selecTool .tip {font-size:12px; position:absolute; display:block; transform: rotate(-45deg); bottom:-1px; right:-2px;}
+
+    #noteBox .toolbarBoxIn .selecList {display:none; border-bottom-left-radius:5px; border-bottom-right-radius: 5px; overflow:hidden;}
+    #noteBox .toolbarBoxIn .selecList ul li {position:relative; width:36px; height:38px;}
+    #noteBox .toolbarBoxIn .selecList ul li:last-child {padding-bottom:3px;}
+    #noteBox .toolbarBoxIn .selecList ul li a {text-align:center; display:block;font-size:30px; width:36px; height:38px; position:absolute; left:0; right:0;}
+    #noteBox .toolbarBoxIn .selecList ul li a:hover {background-color:rgba(0,0,0,0.2);}
+    #noteBox .toolbarBoxIn .circle {display:block; width:15px; height:15px; border-radius:50%; line-height:38px; margin:12px auto 0;}
+    #noteBox .toolbarBoxIn .square {display:block; width:15px; height:15px; line-height:38px; margin:12px auto 0;}
+    #noteBox .toolbarBoxIn .triangleBox {display:block; height:18px; position: relative; overflow: hidden; margin:12px auto 0;}
+    #noteBox .toolbarBoxIn .triangle { position: absolute; top: 0; left: 7px; width: 100%; height: 100%; transform-origin: 0 100%; transform: rotate(60deg) skewX(30deg);  }
+    #noteBox .toolbarBoxIn .slash {display:block; width:1px; height:20px; line-height:38px; margin:12px auto 0; transform: rotate(-45deg);}
+
+    #noteBox .toolbarBoxIn .selecToolBox:before {display:block; content:''; width:1px; height:50%; border-left:1px solid rgba(0,0,0,0.2);position:absolute; left:0; top:50%; margin-top:-25%;}
+    #noteBox .toolbarBoxIn  .lastline .selecToolBox:before {height:100%; margin-top:0;  top:0;}
+    #noteBox .toolbarBoxIn  .firstline .selecToolBox:before {display:none;}
+
+    #noteBox .weight01 .pencilWeight {width:2px; height:2px; border-radius:50%; background-color:#BFBFBF; display:block; margin:17px auto 0;}
+    #noteBox .weight02 .pencilWeight {width:4px; height:4px; border-radius:50%; background-color:#BFBFBF; display:block; margin:17px auto 0;}
+    #noteBox .weight03 .pencilWeight {width:6px; height:6px; border-radius:50%; background-color:#BFBFBF; display:block; margin:17px auto 0;}
+    #noteBox .weight04 .pencilWeight {width:8px; height:8px; border-radius:50%; background-color:#BFBFBF; display:block; margin:17px auto 0;}
+    #noteBox .weight05 .pencilWeight {width:12px; height:12px; border-radius:50%; background-color:#BFBFBF; display:block; margin:12px auto 0;}
+    #noteBox .weight06 .pencilWeight {width:16px; height:16px; border-radius:50%; background-color:#BFBFBF;display:block; margin:12px auto 0;}
+    #noteBox .weight07 .pencilWeight {width:20px; height:20px; border-radius:50%; background-color:#BFBFBF; display:block; margin:9px auto 0;}
+    #noteBox .weight08 .pencilWeight {width:24px; height:24px; border-radius:50%; background-color:#BFBFBF; display:block; margin:9px auto 0;}
+
+    #noteBox .color01 .pencilColor {display:block; width:18px; height:18px; background-color:#BFBFBF; border-radius: 3px; margin:10px auto;}
+    #noteBox .color02 .pencilColor {display:block; width:18px; height:18px; background-color:#FF00FF; border-radius: 3px; margin:10px auto;}
+    #noteBox .color03 .pencilColor {display:block; width:18px; height:18px; background-color:#8800FF; border-radius: 3px; margin:10px auto;}
+    #noteBox .color04 .pencilColor {display:block; width:18px; height:18px; background-color:#0000FF; border-radius: 3px; margin:10px auto;}
+    #noteBox .color05 .pencilColor {display:block; width:18px; height:18px; background-color:#0088FF; border-radius: 3px; margin:10px auto;}
+    #noteBox .color06 .pencilColor {display:block; width:18px; height:18px; background-color:#00FFFF; border-radius: 3px; margin:10px auto;}
+    #noteBox .color07 .pencilColor {display:block; width:18px; height:18px; background-color:#00FF00; border-radius: 3px; margin:10px auto;}
+    #noteBox .color08 .pencilColor {display:block; width:18px; height:18px; background-color:#CCFF00; border-radius: 3px; margin:10px auto;}
+    #noteBox .color09 .pencilColor {display:block; width:18px; height:18px; background-color:#FF8800; border-radius: 3px; margin:10px auto;}
+    #noteBox .color010 .pencilColor {display:block; width:18px; height:18px; background-color:#FF0000; border-radius: 3px; margin:10px auto;}
+    #noteBox .color011 .pencilColor {display:block; width:18px; height:18px; background-color:#FFFFFF; border-radius: 3px; margin:10px auto;}
+    #noteBox .color012 .pencilColor {display:block; width:18px; height:18px; background-color:#000000; border-radius: 3px; margin:10px auto;}
+
+    #noteBox .tsize01 .fontS {font-size:16px; display:block; text-align:center; margin:8px auto 0;}
+    #noteBox .tsize02 .fontS {font-size:18px; display:block; text-align:center; margin:5px auto 0;}
+    #noteBox .tsize03 .fontS {font-size:20px; display:block; text-align:center; margin:3px auto 0;}
+    #noteBox .tsize04 .fontS {font-size:22px; display:block; text-align:center; margin:3px auto 0;}
+    #noteBox .tsize05 .fontS {font-size:24px; display:block; text-align:center; margin:0 auto 0;}
+    #noteBox .tsize06 .fontS {font-size:28px; display:block; text-align:center; margin:-4px auto 0;}
+
+/* 하단 버튼  */
+ #btnBox {width:100%; max-width:600px; left:50%; margin-left:-300px; position: fixed; bottom:20px; text-align: center; z-index:20; transition:all 0.6s ease;}
+  .btnBoxIn {text-align:center}
+    .bottomBtn,.picture {vertical-align:middle; width:54px; height:54px; line-height:54px; border-radius: 50%; color:#fff; text-align:center; position: relative; display:inline-block; margin:0 8px; overflow:hidden;  transition:all 0.6s ease;}
+    .bottomBtn:after, .picture:after { display:block; content:''; background-color:rgba(125,125,130,0.8);  width:100%; height:100%;  transition:all 0.6s ease;}
+    .picture:after{ background-color:#1365C4;}
+    .bottomBtn span {font-size:40px; position: absolute; left:0; top:8px; right:0; bottom:0;  transition:all 0.6s ease;}
+    .picture span.icon-camera_off {opacity:0;}
+    .picture span.icon-camera_on {opacity:1;}
+    .picture span.icon-mic_off {opacity:0;}
+    .picture span.icon-mic_on{opacity:1;}
+    .bottomRecoding{ width:50px; height:50px; background-color:transparent; border:3px solid #fff; overflow:hidden; }
+    .bottomRecoding:after {display:block; content:''; background-color:#000; opacity:0.2; width:100%; height:100%;}
+    .bottomRecoding span.recording {width:31px;height:31px; background-color:#FF4747; border-radius: 50%; left:10px; top:10px; right:0; bottom:0; z-index:1; transition: all .3s ease;}
+    .line {display:inline-block; width:1px; height:27px; background-color:#000; opacity:0.4; margin:0 4px; vertical-align: middle;}
+
+    .bottomBtn.on:after { background-color:#1365C4;}
+    .picture.on:after {background-color:rgba(125,125,130,0.8);}
+    .picture.on span.icon-camera_off {opacity:0.6;}
+    .picture.on span.icon-camera_on {opacity:0;}
+    .picture.on span.icon-mic_off {opacity:0.6;}
+    .picture.on span.icon-mic_on {opacity:0;}
+    .picture.on:hover span.icon-camera_off {opacity:1;}
+    .picture.on:hover span.icon-mic_off {opacity:1;}
+    .bbtright span {opacity:0.6; transition:.6s ease;}
+    .bbtright:hover span {opacity:1;}
+    .bottomRecoding.on span.recording {border-radius:5px; display:block; opacity:1;}
+    .bbtright.on span {opacity:1;}
+/*하단 버튼 > 마이크, 카메라 클릭시 */
+    .btnSettingBox {position: relative;}
+    .btnSetting {display:block;position: absolute; bottom:-20px;right:5px; background-color:rgba(0,0,0,0.9); width:20px; height:20px; line-height:20px;border-radius: 50%; }
+    .btnSetting  span {display:block; transform:rotate(90deg); transition: .3s ease; font-size:20px; color:rgba(255,255,255,0.4);}
+    .btnSetting.on span {transform:rotate(-90deg); color:rgba(255,255,255,1);}
+
+    .faceRecognition {font-size:35px; line-height:35px; color:rgba(255,255,255,0.6);}
+    .faceRecognition.on {background-color:#1365C4;  color:rgba(255,255,255,1);}
+
+    /* 20210210 */
+    .bottomBtn .icon-mic_off, .bottomBtn .icon-mic_on {left:-2px;top:7px;}
+    .bottomBtn .icon-camera_off, .bottomBtn .icon-camera_on {left:4px;top:8px;}
+    .bottomBtn .icon-board {left:3px;top:8px;}
+
+    .popupLayout {position:fixed; width:100%; top:120px; bottom:105px; left:100px; transition:all 0.6s ease; border-radius:10px; transition:all 0.6s ease; }
+
+    .breakRoomBox.on {position: relative; height:100%;}
+    .breakRoomBox {position:absolute;width:100%; height:100%;}
+    .popupLayout.on {z-index:100;}
+    .popupLayout .layerPopup {opacity:0; transition: opacity .8s ease;}
+    .popupLayout.on .layerPopup {opacity:1;}
+    .layerPopup.recording.recStart, .layerPopup.recording.recoStop,
+    .layerPopup.surveyResult, .layerPopup.borPopup, .layerPopup.borGeneraPopup,
+    .layerPopup.studyStatusPopup,.layerPopup.displayshare,.layerPopup.hotkeyPopup
+    {display:none;}
+
+
+  /* recoding button click > rec start button click */
+  #recodingStatus {position:fixed ; top:130px; left:50%; z-index:20; margin-left:-138px;;width:276px; height:28px; display:none;}
+  /* #recodingStatus > div {float:left;} */
+  #recodingStatus > div.recCondition {width:100%;}
+  #recodingStatus .reCIn {background-color:rgba(58,58,68,0.8);font-size:12px; padding:5px 10px; border-radius: 10px; position:relative;}
+  #recodingStatus .reCIn span.txt {color:#FF4747; padding-left:8px;}
+  #recodingStatus .reCIn .circle {display:inline-block; width:12px; height:12px; border-radius: 50%; background-color:#FF4747; position: relative; }
+  #recodingStatus .reCIn .circle:before {display:block; content:''; background-color:rgba(255,71,71,0.5); border-radius: 50%; position: absolute; width:18px; height:18px; left:50%; top:50%; margin-left:-9px; margin-top:-9px;}
+  #recodingStatus .reCIn .time {color:rgba(255,255,255,0.6); position: absolute; right:32%; top:5px;}
+  #recodingStatus > div.recoStopBox {width:30%; position:absolute; right:0; top:0;}
+  #recodingStatus > div.recoStopBox a {display:block; background-color:#27272E; color:#fff; padding:4px 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; font-size:12px;}
+  #recodingStatus > div.recoStopBox a span {vertical-align: middle;}
+  #recodingStatus > div.recoStopBox a span.square {background-color:#fff; width:10px; height:10px; border-radius:2px; margin-right:4px; display: inline-block;}
+
+
+  /* 발표자 클릭시 */
+  #presenterAlert {position: fixed; z-index:100; left:50%; right:0; bottom:110px; width:350px; margin-left:-175px; display: none; z-index:1000;}
+  #presenterAlert .presenterAletBox {padding:8px; border-radius: 50px; background-color:rgba(0,0,0,0.7); color:#fff; text-align:center;border:3px solid #0063D5; margin:0 auto;}
+
+
+/********************* Content *****************************/
+.mCSB_inside > .mCSB_container {margin:0;}
+  /*강의정보*/
+  #classInfo .cinfol {width:0; padding:0; opacity:0; transition: all .3s ease;}
+  #classInfo.on .cinfol {padding:0 18px; width:284px; opacity:1;}
+  #classInfo .infoBox {padding-bottom:20px; margin-bottom:20px; }
+  #classInfo .infoBox.ciLBox {border-bottom:none;}
+  #classInfo .infoBox .subject { margin-bottom:8px; font-size:15px;}
+  #classInfo .infoBox .subjTitle a{font-size:14px; display:block; overflow:hidden;margin-bottom:4px;}
+  #classInfo .infoBox .subjTitle a span {display:block; /*text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;*/overflow:hidden;}
+  #classInfo .infoBox .subjlmsid {font-size:13px; letter-spacing: 0;}
+  #classInfo .infoBox  span {vertical-align: middle; }
+  #classInfo .infoBox .infoTe span.tcode {font-size: 13px;}
+  #classInfo .infoBox .infoTe span.tname {display:inline-block;width:100%; /*text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;*/overflow:hidden;}
+  #classInfo .infoBox .clstarttop {margin-bottom:4px;}
+  #classInfo .infoBox .clstart,  #classInfo .infoBox .cling {display:inline-block; font-size:14px;}
+  #classInfo .infoBox .cldateTime ,  #classInfo .infoBox .clingTime {margin-left:8px; display:inline-block; font-size:13px;}
+  #classInfo .infoBox.ciLBox {border-bottom:none;}
+  #classInfo .infoBox .classInfoLinkBox {position: relative; }
+  #classInfo .infoBox .classInfoLinkBox a{display:inline-block;font-size: 24px; padding: 0 8px 8px; border-radius: 5px; position: absolute;left:0}
+  #classInfo .infoBox .classInfoLinkBox .urltextArea {padding:12px 10px 12px 47px;border-radius: 5px;}
+  #classInfo .infoBox .classInfoLinkBox .urltextArea span {display:block; text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;overflow:hidden; font-size:12px;}
+
+/* 사용자 */
+ .clasSet {font-size:18px; position: relative; padding-bottom:16px; margin-bottom:20px;}
+ .clasSet .arrrow span {vertical-align: middle;}
+ .clasSet .arrrow span.icon{display:inline-block; transform: rotate(180deg); font-size:30px; vertical-align: middle; margin-left:-8px; opacity:0.6;}
+ .classUserIn {width:320px;}
+/*카메라, 마이크 설정*/
+ .classUserSetView  { margin:0 20px 18px; border-radius: 5px;}
+ .classUserSetView .classUSVIn{ overflow:hidden; padding:12px 10px 12px 10px; position: relative;}
+ .classUserSetView .classUSVIn:after {display:block; content:''; clear:both;  width:1px; height:110px; position: absolute; left:50%;}
+ .classUserSetView .classUSVIn > div {float:left; width:50%;}
+ .classUserSetView .classUSVIn .classUSCIn {padding:0 5px; }
+ .classUserSetView .classUSVIn .classUSCIn .subject {/*margin-bottom:4px;*/}
+ .classUserSetView .classUSVIn .classUSCIn .subject p {width:100px; margin-left: 30px; overflow:hidden; word-wrap:break-word;}
+ .classUserSetView .classUSVIn .classUSCIn .subject span {vertical-align: middle;}
+ .classUserSetView .classUSVIn .classUSCIn .subject span.icon {position: absolute; top:8px;font-size:25px; margin-right:4px;}
+ .classUserSetView .classUSVIn .classUSCSetL li {margin-top:2px;}
+ .classUserSetView .classUSVIn .classUSCSetL li:first-child {margin-top:0;}
+ .classUserSetView .classUSVIn .classUSCSetL a {position:relative; text-align:center; display:block;  padding:2px 12px;border:2px solid transparent; border-radius: 14px;}
+ .classUserSetView .classUSVBtnBox {padding:15px 10px; overflow:hidden; }
+ .classUserSetView .classUSVBtnBox a{display:block; padding:6px 0; text-align: center;  border-radius: 5px; width:100%;}
+/*카메라, 마이크 설정 끝*/
+/* 사용자 찾기 버튼 */
+  .classUserSearch { padding:0 18px; width:284px;}
+  .classUserSearch .classUserSearchIn { border-radius: 10px; position: relative;}
+  .classUserSearch .classUserSearchIn .line {display:inline-block; width:1px; height:17px }
+  .classUserSearch .classUserSearchIn input[type="text"] { font-size:14px; padding:8px; background-color:transparent; border:none; outline:none;}
+  .classUserSearch .classUserSearchIn button[type="submit"] {outline:none; border:none; background-color:transparent; position:absolute; right:0; top:5px; font-size:25px;}
+  .classUserSearch select {border:none; border-radius:10px; height:36px; padding:0 8px; background-size:10px;
+    -webkit-appearance: none;-moz-appearance: none; appearance: none; font-size:14px;width:76px;}
+
+  /* 사용자 찾기 버튼 끝*/
+/* 사용자 리스트 */
+  .classUserListBox {height: 100%;}
+  .classUSerList {height:calc(100% - 330px); height:-webkit-calc(100% - 330px);}
+  .classUSerList li {position: relative;}
+  .classUSerList .userPro {width:38px; height:38px; border-radius:50%;overflow:hidden; background-image:url('../images/icon/testimg4.png');
+  background-repeat: no-repeat; background-size: cover; background-position: center; object-fit:cover; -o-object-fit:cover; position: absolute; left:0; top:0; }
+  .classUSerList .userProBox  {width:40px; height:40px; position: absolute;}
+  .classUSerList .userProBox .teacherIcon {display:block; width:16px; height:16px; border-radius: 50%;  font-size:10px; position:absolute; right:0; bottom:-5px; line-height:16px; text-align:center;}
+  .classUSerList .userNameMicCamer {margin-left:55px; width:100%;}
+  /* .classUSerList .userNameMicCamerIN {padding:0 0 0 22px;} */
+  .classUSerList .culnamelmsid .name {display:inline-block; text-overflow:ellipsis;white-space:nowrap; word-wrap:normal;overflow:hidden; vertical-align: middle; }
+  .classUSerList .culnamelmsid .lmsid {vertical-align: middle;}
+  .classUSerList .culonoffTime {margin-top:4px;}
+  .classUSerList .culonoffTime span {vertical-align: middle; font-size:12px; letter-spacing: 0.02em;}
+  .classUSerList .culiconBox > span a {margin-left:8px; vertical-align: middle; font-size:20px; transition: .4s ease;}
+  .classUSerList .culiconBox > span.first a{margin-left:0;}
+  .classUSerList .culiconBox > span a span.off{opacity:0;}
+  .classUSerList .culiconBox > span.onofficonBox a {position: relative;}
+  .classUSerList .culiconBox > span.onofficonBox a span.off {position: absolute;}
+  .classUSerList .culiconBox > span.ext a {transition: .4s ease;}
+  .classUSerList .culinvitation a span{margin-left:4px; vertical-align: middle;font-size:12px; transition: .4s ease;}
+  .classUSerList .culinvitation a span.icon {font-size:20px; margin-left:0;}
+
+  .classUSerList ul li{margin-top:15px; overflow:hidden;}
+  .classUSerList ul li:first-child{margin-top:20px;}
+  .classUSerList ul li.on .culonoffTime.invit span.off {margin-left:8px;}
+/* 사용자 리스트 끝*/
+
+/* 사용자 끝*/
+
+/* 채팅 */
+  #chattingBox .classUserIn  {width:320px; opacity:0; transition: .3s ease; }
+  #chattingBox.on .classUserIn{ opacity:1; height:calc(100% - 75px);}
+  #chattingBox .chattingTak {height:calc(100% );}
+  #chattingBox .chattingTak ul {padding:0 18px; margin-bottom: 60px; }
+  #chattingBox .chattingTak ul li {margin-top:16px; position: relative;}
+  #chattingBox .chattingTak ul li:first-child {margin-top:0;}
+  #chattingBox .chattingTak ul li:last-child {margin-bottom:30px;}
+  #chattingBox .chattingTak ul li.others .othersName {margin-left:8px; font-size:14px;}
+  #chattingBox .chattingTak ul li.talkMe .othersName {margin-left:8px; font-size:14px;}
+
+  #chattingBox .chattingTak ul li.others .talkTime {font-size:11px;}
+  #chattingBox .chattingTak ul li.others .talkBox {word-break: break-all; max-width:200px; font-size:14px; color:#fff; line-height:22px;padding:8px 10px; border-top-right-radius:10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; margin-top:4px;}
+  #chattingBox .chattingTak ul li.talkMe > div {text-align:right; right:0; bottom:0;}
+  #chattingBox .chattingTak ul li.talkMe .talkTime {color:#fff; opacity:0.8;font-size:11px;}
+  #chattingBox .chattingTak ul li.talkMe .talkBox { margin-left:70px;word-break: break-all; max-width:200px;text-align:left; font-size:14px; line-height:22px; padding:8px 10px; border-top-left-radius:10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; margin-top:4px;}
+  #chattingBox .chattingTak ul li.chattingOut, #chattingBox .chattingTak ul li.chatBrakeOutStart, #chattingBox .chattingTak ul li.chatFileDownload{min-height:30px;}
+  #chattingBox .chattingTak ul li.chattingOut .talkTime, .chattingTak ul li.chatBrakeOutStart .talkTime,  #chattingBox .chattingTak ul li.chatFileDownload .talkTime{font-size:11px;  }
+  #chattingBox .chattingTak ul li.chattingOut .chatoutIn,  .chattingTak ul li.chatBrakeOutStart .chatoutIn {font-size:13px;}
+  #chattingBox .chattingTak ul li.chattingOut .chatoutIn strong,  .chattingTak ul li.chatBrakeOutStart .chatoutIn strong {font-weight: 500; margin-left:4px;}
+  #chattingBox .chattingTak ul li.chatFileDownload .icon {font-size:25px; vertical-align: middle;}
+  #chattingBox .chattingTak ul li.chatFileDownload a{color:#4EA7FF; font-size:13px; margin-left:4px;}
+  #chattingBox .talkMeTextArea { position: absolute;bottom:5px;}
+  #chattingBox .talkMeTextArea.on {bottom:0;}
+  #chattingBox .talkMeTextArea .tmtaIn {padding:0 10px;}
+  #chattingBox .talkMeTextArea .chatTakBtn  {vertical-align:middle; display:inline-block; font-size:35px; line-height:30px; text-align:center; border-radius: 8px; transition: .5s ease; }
+  #chattingBox .talkMeTextArea .chatTakBtn:first-child {margin-left:0;}
+  #chattingBox .talkMeTextArea .typing {vertical-align:middle ;display:inline-block; position: relative; width:224px;}
+  #chattingBox .talkMeTextArea .typing input[type="text"] {color:rgba(255,255,255,0.8); border:none; border-radius: 10px; height:41px; padding:0 40px 0 13px;  outline:none; font-size:14px;}
+  #chattingBox .talkMeTextArea .typing .enterBnt { border:none; margin:0; padding:0; border-radius: 10px; text-align: center; width:40px;font-size:32px; position: absolute; color:rgba(255,255,255,0.8); right:-3px; top:0;}
+  #chattingBox .talkMeTextArea .typing .enterBnt span {display:block; margin-top:9px;}
+  #chattingBox .imo {margin-top:8px; background-color:#F3F3F3; display:none; border-top-left-radius:5px; border-top-right-radius:5px;  }
+  #chattingBox .imo ul {padding:0 10px;}
+  #chattingBox .imo ul li {display:inline-block; font-size:20px;text-align: center;}
+  #chattingBox .imo ul li a {display: block; padding:5px 10px;}
+  #chattingBox .imo ul li a:hover {background-color:#99C9EF; color:#fff;}
+  #chattingBox .talkMeTextArea .chatTakBtn.imobtn.on {background-color:#EE5151}
+  #chattingBox .chattingTak ul li.chatFileDownload strong span {word-break: break-all;}
+  /* 채팅 끝 */
+
+ /* user survey*/
+
+
+ /* 설문 리스트 */
+ /*대표님 확인후 삭제 예정*/
+#surveyBox{overflow-y: auto;}
+ #surveyBox .srbinListB {height: calc(100% - 195px);}
+ #surveyBox .surveyEdiBtnBox {position: static;}
+/*대표님 확인후 삭제 예정*/
+
+  #surveyBox .set:hover {opacity:1;}
+  #surveyBox .set {transition: .6s ease; font-size:13px; padding: 0 0 0 8px; border-radius:3px; top:18px;}
+  #surveyBox .srbinListB { height: calc(100% - 110px); width:320px;}
+  #surveyBox .srbinListB .mCSB_inside > .mCSB_container {margin-right:0;}
+  #surveyBox .srbinListB ul {padding:0 18px;}
+  #surveyBox .srbinListB ul {width:0; padding:0; overflow: hidden;}
+  #surveyBox.on .srbinListB ul {width:284px; padding:0 18px; overflow: hidden; }
+  #surveyBox .surveyConBox { border-radius:5px; margin-top:16px;}
+  #surveyBox .surveyConBox:first-child{margin-top:0}
+  #surveyBox .surveyConBox .surConBIn {padding:16px 15px;}
+  #surveyBox .surveyConBox .surConBIn h3 {margin:0; padding:0; font-weight:400;font-size:15px; margin-bottom:4px;}
+  #surveyBox .surveyConBox .surConBIn .surveyJoinNum {margin-bottom:12px;}
+  #surveyBox .surveyConBox .surConBIn .surveyJoinNum span {vertical-align: middle; font-size:15px;}
+  #surveyBox .surveyConBox .surConBIn .surveyJoinNum span.sNum {margin-left:4px;font-size:14px;}
+  #surveyBox .surveyConBox .surConBIn .surveyProgressDate {margin-bottom:12px;}
+  #surveyBox .surveyConBox .surConBIn .surveyProgressDate span {vertical-align: middle;}
+  #surveyBox .surveyConBox .surConBIn .surveyProgressDate .sProg {font-size:13px; padding:4px 8px; border-radius:12px;}
+  #surveyBox .surveyConBox .surConBIn .surveyProgressDate .sDate {font-size:12px; margin-left:8px;}
+  #surveyBox .surveyConBox .surConBIn .surveyBtnBox {text-align: center;}
+  #surveyBox .surveyConBox .surConBIn .surveyBtnBox a {display:block; padding:10px;border-radius:5px;}
+  #surveyBox .surveyConBox .surConBIn .surveyBtnBox.end a {cursor: pointer;}
+  #surveyBox .surveyConBox .surConBIn .surveyBtnBox.share a {cursor: pointer;}
+  #surveyBox .surveyConBox .surConBIn .surveyBtnBox.complete a {cursor: pointer;}
+  #surveyBox .surveyConBox .surConBIn .surveyBtnBox.start a { cursor: pointer;}
+/* 설문 리스트 끝*/
+/* 설문 생성 */
+  #surveyBox .surveyConCreatio {width:0;}
+  #surveyBox.on .surveyConCreatio {padding:0 18px 0 18px;margin-bottom:16px; width:284px;}
+  #surveyBox .surveyConCreatio.sccInputBoxTop {width: 298px;padding: 0 0 0 18px;}
+  #surveyBox .surveyConCreatio.sccInputBoxTop .sccInputBox {max-height: 60px;min-height: 60px;overflow: auto;word-break: break-all;}
+  #surveyBox .surveTitleCon {padding-bottom: 20px;}
+  #surveyBox .surveTitleCon h3 {margin:0; padding:0; font-size:15px; font-weight: 400; margin-bottom:8px;}
+  #surveyBox .surveTitleCon .sccInputBox input {width:94%; border-radius: 5px;padding:8px; font-size:14px; color:rgba(255,255,255,0.8);}
+  #surveyBox .surveTitleCon .sccInputBox .txt {font-size:14px;}
+  #surveyBox .surveyCCBox {height:calc(100% - 59px);}
+  #surveyBox .surveryDetailBox {height: calc(100% - 110px);}
+  #surveyBox .surveyCCListT {padding:0 18px; margin:0; margin-bottom:10px; font-size:15px;font-size:15px; font-weight: 400;}
+  #surveyBox .surveyCCList {padding:0 18px; width:284px;}
+  #surveyBox .surveyCCListBox {height:100%;}
+  #surveyBox .surveyCCListBoxIn {height:calc(100% - 187px);}
+  #surveyBox .surveyCCList > li {margin-top:16px;}
+  #surveyBox .surveyCCList > li:first-child {margin-top:0;}
+  #surveyBox .surveyCCList > li .radio { position: relative; cursor: pointer; line-height: 20px; font-size: 14px;}
+  #surveyBox .surveyCCList > li .radio .label { position: relative; display: block;float: left; margin-right: 10px; width: 15px; height: 15px; border-radius: 100%; -webkit-tap-highlight-color: transparent;}
+  #surveyBox .surveyCCList > li .radio .label:after { content: ''; position: absolute; left:50%; margin-left:-4.5px; top:50%; margin-top:-4.5px; width: 9px; height: 9px; border-radius: 100%;  transform: scale(0); transition: all 0.2s ease; opacity: 0.08; pointer-events: none; }
+  #surveyBox .surveyCCList > li .radio:hover, .label:after { transform: scale(4); }
+  #surveyBox .surveyCCList > li input[type="radio"]:checked + .label {  background-color:#141417;}
+  #surveyBox .surveyCCList > li input[type="radio"]:checked + .label:after { transform: scale(1); transition: all 0.2s cubic-bezier(0.35, 0.9, 0.4, 0.9); opacity: 1; }
+  #surveyBox .surveyCCList > li .hidden {width:0; height: 0; overflow:hidden; position: absolute; left:-9999px}
+  #surveyBox .surveyCCList > .surCusListBoxIn {height:364px;}
+  #surveyBox .surveyCCList > li .surccCustom { margin-top:10px; margin-left: 30px; padding-bottom:20px; word-break: break-word;}
+  #surveyBox .surveyCCList > li .surccCustom ul {padding:0;}
+  #surveyBox .surveyCCList > li .surccCustom ul > li {margin-top:8px;}
+  #surveyBox .surveyCCList > li .surccCustom ul > li:first-child{margin-top:0;}
+  #surveyBox .surveyCCList > li .surccCustom ul > li > div {line-height:20px; position: relative; border-radius: 5px;padding:4px 8px;}
+  #surveyBox .surveyCCList > li .surccCustom ul > li > div span {vertical-align: middle; }
+  #surveyBox .surveyCCList > li .surccCustom ul > li > div span.txt {padding-right:16px; display:block; font-size:14px;}
+  #surveyBox .surveyCCList > li .surccCustom ul > li > div a {display:block; width:30px; height:30px; position: absolute; right:0; top:0; text-align: center;}
+  #surveyBox .surveyCCList > li .surccCustom ul > li .icon {font-size:25px; font-weight: 600; margin-right:4px; margin-top:4px;display:block;}
+  #surveyBox .surveyCCList > li .surccCustom ul > li.surAddBox a{ transition:.6s ease; border-radius:5px; font-size:14px; display:block; text-align: center; padding:4px 0;}
+  #surveyBox .surveyCCList > li .surccCustom ul > li.surAddBox a span.icon {margin-top:-2px;  margin-right:-4px; opacity:0.5; position: static; font-size:25px; display:inline-block; transform:rotate(-135deg);}
+  #surveyBox .surveyCCList > li .surccCustom ul > li.surAddBox a span {vertical-align:middle;}
+  #surveyBox .surveyCCList > li .surccCustom ul > li.surAddBox a:hover {opacity:1;}
+  #surveyBox .surCusListBox .surCusSaveBtn {transition:.6s ease; padding:10px 0; display:block; border-radius:5px; text-align: center}
+/* 설문 생성 끝 */
+/* 설문 수정 */
+  #surveyBox .sureditLay {/*height:410px;*/height: calc(100% - 110px);}
+  #surveyBox .surveyConCreatio .survReBoxan {padding:12px; border-radius:5px;}
+  #surveyBox .surveyConCreatio .survReBoxan:after {display:block; content:''; clear:both;}
+  #surveyBox .surveyConCreatio .survReBoxan{margin-top:8px}
+  #surveyBox .surveyConCreatio .survReBoxan:first-child{margin-top:0;}
+  #surveyBox .surveyConCreatio .survReBoxan > div {float:left; color:#fff;}
+  #surveyBox .surveyConCreatio .survReBoxan div.txtR {text-align:right; width:30%;}
+  #surveyBox .surveyConCreatio .survReBoxan div.txtR .survN {font-size:13px;}
+  #surveyBox .surveyConCreatio .survReBoxan div.txtR .surP {font-weight:500; padding:3px 4px; font-size:13px;margin-left:12px;}
+  #surveyBox .surveyConCreatio .survReBoxan div.txtR .surP.on {border-radius:5px;}
+  #surveyBox .surveyConCreatio .survReBoxan div.survT {width:70%; font-size:14px; word-break: break-word;}
+  #surveyBox .surveyConCreatio.answer .surveTitleCon {border-bottom:none; padding-bottom:0; margin-bottom:0;}
+  #surveyBox .surveyConCreatio.answer .survReBoxstu {border-radius: 5px; overflow: hidden;}
+  #surveyBox .surveyConCreatio.answer .survReBoxstu > ul li {padding: 12px 12px 6px;}
+  #surveyBox .surveyConCreatio.answer .survReBoxstu > ul li:after {display:block; content:''; clear:both;}
+  #surveyBox .surveyConCreatio.answer .survReBoxstu > ul li > div.survName {width:20%; overflow: hidden;float: left;}
+  #surveyBox .surveyConCreatio.answer .survReBoxstu > ul li > div.survName span {display:inline-block; width:100%; text-overflow:ellipsis; white-space:nowrap; word-wrap:normal; overflow:hidden; margin-right:24px;}
+  #surveyBox .surveyConCreatio.answer .survReBoxstu > ul li > div.survTR {font-size:14px; width:77%; margin-left:4px; float:left; word-break: break-word;}
+  #surveyBox .surveyEdiBtnBox { bottom:0; z-index:10; display:inline-block; width:100%; }
+  #surveyBox .surveyEdiBtnBox .surveyEdiBtnBoxIn {padding:20px 18px 18px 18px;}
+  #surveyBox .surveyEdiBtnBox .surveyEdiBtnBoxIn:after {display:block; content:'';clear:both;}
+  #surveyBox .surveyEdiBtnBox .surveyEdiBtnBoxIn > div {float:left; width:50%;}
+  #surveyBox .surveyEdiBtnBox .surveyEdiBtnBoxIn > div.all {width:100%;}
+  #surveyBox .surveyEdiBtnBox .surveyEdiBtnBoxIn > div a {display:none; padding:10px; transition:.6s ease; text-align:center; border-radius:5px;}
+  #surveyBox .surveyEdiBtnBox .surveyEdiBtnBoxIn > div a.reS {margin-right:4px}
+  #surveyBox .surveyEdiBtnBox .surveyEdiBtnBoxIn > div a.open {margin-left:4px;}
+  #surveyBox .surveyEdiBtnBox .surveyEdiBtnBoxIn > div a.on {display:block;}
+/* 설문 수정 끝*/
+/* 설문 끝 */
+
+/* 브레이크아웃룸 */
+#breakOutRoom .boRListoBox {padding:0 18px;}
+#breakOutRoom .boRListoBox > div{height:calc(100% - 120px);}
+#breakOutRoom .boRListoBox li {margin-top:20px;}
+#breakOutRoom .boRListoBox li:first-child {margin-top:0;}
+#breakOutRoom .boRListoBox li > div {padding:12px; width:262px;}
+#breakOutRoom .boRListoBox li > div .subject {position: relative; margin-bottom:8px;}
+#breakOutRoom .boRListoBox li > div .subject .roomNumber { font-size:15px; word-break: break-all;}
+#breakOutRoom .boRListoBox li > div .subject .count {margin-left:8px;}
+#breakOutRoom .boRListoBox li > div .subject .time {/*position:absolute; right:0; top:0;*/}
+#breakOutRoom .boRListoBox li > div .userBox {overflow:hidden;text-overflow:ellipsis;line-height:1.5;height:40px;
+  word-wrap:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical; font-size:13px; text-align: center; width:100%;}
+#breakOutRoom .boRListoBox li > div .participationBox {margin-top:12px;}
+#breakOutRoom .boRListoBox li > div .participationBox a {display:block; text-align: center; border-radius:5px; cursor: default;}
+#breakOutRoom .boRListoBox li > div .participationBox a.on {padding:8px; transition: .3s ease; cursor: pointer;}
+/* 브레이크아웃룸 끝 */
+
+/* 자료실 */
+  #referenceRoom .set {transition: .6s ease; font-size:13px; padding: 0 0 0 8px; border-radius:3px; top:18px;}
+  #referenceRoom .referRBox {height:100%;}
+#referenceRoom .referRBox ul {padding:0 18px; width:284px; }
+  #referenceRoom .referroomb .subject {font-size:15px; margin-bottom:8px;}
+  #referenceRoom .referFindBox {margin-bottom:8px;}
+  #referenceRoom .referFind {font-size: 14px; border:none; padding:8px;border-radius:3px; width:94%;}
+  #referenceRoom .referToggle {display:inline-block; margin-bottom:8px;font-size:14px;}
+  #referenceRoom .referToggle span.icon {font-size:20px;  margin-left:0;}
+  #referenceRoom .referToggle span {vertical-align: middle;margin-left:8px;}
+  #referenceRoom .selecRefer span.txt {display:inline-block; width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; word-wrap:normal;}
+  #referenceRoom .referSaveBox { display:inline-block; width:100%; height:40px; padding:10px 0;}
+  #referenceRoom .referSaveBox a {margin:0 18px; text-align: center; padding:10px 0;  display:block; border-radius: 5px;}
+
+  #referenceRoom .referList {height:calc(100% - 150px);}
+  #referenceRoom .referList ul li {margin-top:20px;}
+  #referenceRoom .referList ul li:first-child {margin-top:0;}
+  #referenceRoom .referList ul li {padding:12px; border-radius: 5px; position: relative;}
+  #referenceRoom .referList ul li h3 {font-size:15px; font-weight: 400;margin:0; padding:0; margin-bottom:8px;}
+  #referenceRoom .referList ul li .selecRefer {position: relative; display: block; margin-bottom:2px;}
+  #referenceRoom .referList ul li .selecRefer span.txt{width:90%;vertical-align: middle;}
+  #referenceRoom .referList ul li .selecRefer span.icon {font-size:20px; vertical-align: middle; position: absolute;right:0;top:0;}
+  #referenceRoom .referList ul li .refreReInfo {margin-top:12px; }
+
+  /* 질의응답 */
+  #qaCont .classUserIn  {width:320px; opacity:0; transition: .3s ease; }
+  #qaCont.on .classUserIn{ opacity:1; height:calc(100% - 75px);}
+  #qaCont .chattingTak {height:calc(100% );}
+  #qaCont .chattingTak ul {padding:0 18px;}
+  #qaCont .chattingTak ul li {margin-top:30px; padding-bottom: 20px;position: relative; min-height:100px; border-bottom: 2px dotted rgba(215,215,215,0.2);}
+  #qaCont .chattingTak ul li:first-child {margin-top:0;}
+  #qaCont .chattingTak ul li:last-child {margin-bottom:30px;}
+  #qaCont .chattingTak ul li.question .othersName {margin-left:8px; font-size:14px;}
+  #qaCont .chattingTak ul li.question .talkTime {font-size:11px; color:rgba(255,255,255,0.6);}
+  #qaCont .chattingTak ul li.question .talkBox {word-break: break-all; font-size:14px; color:#fff; line-height:22px;padding:8px 10px; border-radius: 0 5px 5px 5px; margin-top:8px;}
+  #qaCont .chattingTak ul li.talkMe > div {text-align:right; position: absolute; right:0; bottom:0;}
+  #qaCont .chattingTak ul li.talkMe .talkTime {color:#fff; opacity:0.8;font-size:11px;}
+  #qaCont .chattingTak ul li .comentBox {position: relative; margin-top:16px; margin-left:30px;}
+  #qaCont .chattingTak ul li .comentBox:before {content:''; position: absolute; top:0; left:-23px; width:12px; height:12px; border-left:1px solid #707070; border-bottom:1px solid #707070;}
+  #qaCont .chattingTak ul li .comentBox .talkBox {word-break: break-all; text-align:left; font-size:14px; line-height:22px; padding:8px 10px; border-radius: 0 5px 5px 5px; margin-top:4px;}
+  #qaCont .chattingTak ul li .comentBox .talkTime {color: rgba(255,255,255,0.6);}
+  #qaCont .chattingTak ul li .comentBox .tmtaIn {}
+  #qaCont .chattingTak ul li .comentBox .tmtaIn .typing {}
+  #qaCont .chattingTak ul li .comentBox .tmtaIn .typing input[type="text"] {color: rgba(255,255,255,0.8);border: none;border-radius: 10px;width: 195px;height: 38px; padding-right:10px; text-indent: 10px; outline: none;font-size: 14px; background-color: #434343;}
+  #qaCont .chattingTak ul li .comentBox .tmtaIn .typing textarea {resize: vertical;color: rgba(255,255,255,0.8);border: none;border-radius: 10px;width: 187px;min-height: 40px; padding:0px 10px; outline: none;font-size: 14px; background-color: #434343;font-family: 'Noto Sans KR', sans-serif;}
+  #qaCont input:-ms-input-placeholder {font-family: 'Noto Sans KR', sans-serif;}
+  #qaCont input:-webkit-input-placeholder {font-family: 'Noto Sans KR', sans-serif;}
+
+
+  /*textarea custom*/
+  ::-webkit-scrollbar {/* 스크롤바 전체 영역 */width: 4px;} 
+  ::-webkit-scrollbar-track {/* 스크롤이 움직이는 영역 */background-color: #000000;} 
+  ::-webkit-scrollbar-thumb {/*  스크롤 */background-color: #8E8E8E; border-radius:5px;} 
+  ::-webkit-scrollbar-button:start:decrement, 
+  ::-webkit-scrollbar-button:end:increment {/* 스크롤의 화살표가 포함된 영역 */display:block;height:8px;background-color: #000;} 
+  ::-webkit-scrollbar-corner {/*  상하+좌우 스크롤이 만나는 공간 */background-color: #000000;} 
+  textarea{-ms-overflow-style: none; overflow: auto;}
+  #qaCont .chattingTak ul li .comentBox .tmtaIn .typing .enterBnt {position: absolute;top: 0;right: 0px;background-color: #7C7C84;color: #fff;border-radius: 8px;font-size: 13px;width: 40px;height: 40px;border: 1px solid #7C7C84;font-family: 'Noto Sans KR', sans-serif;}
+  #qaCont .chattingTak ul li.chattingOut, #qaCont .chattingTak ul li.chatBrakeOutStart, #qaCont .chattingTak ul li.chatFileDownload{min-height:30px;}  
+  #qaCont .chattingTak ul li.chattingOut .talkTime, .chattingTak ul li.chatBrakeOutStart .talkTime,  #qaCont .chattingTak ul li.chatFileDownload .talkTime{font-size:11px;  }
+  #qaCont .chattingTak ul li.chattingOut .chatoutIn,  .chattingTak ul li.chatBrakeOutStart .chatoutIn {font-size:13px;}
+  #qaCont .chattingTak ul li.chattingOut .chatoutIn strong,  .chattingTak ul li.chatBrakeOutStart .chatoutIn strong {font-weight: 500; margin-left:4px;}
+  #qaCont .chattingTak ul li.chatFileDownload .icon {font-size:25px; vertical-align: middle;}
+  #qaCont .chattingTak ul li.chatFileDownload a{color:#4EA7FF; font-size:13px; margin-left:4px;}
+  #qaCont .talkMeTextArea { position: absolute;bottom:12px;left:3px;}
+  #qaCont .talkMeTextArea.on {bottom:0;}
+  #qaCont .talkMeTextArea .tmtaIn {padding:0 10px;}
+  #qaCont .talkMeTextArea .chatTakBtn  {vertical-align:middle; display:inline-block; font-size:35px; line-height:30px; text-align:center; border-radius: 8px; transition: .5s ease; }
+  #qaCont .talkMeTextArea .chatTakBtn:first-child {margin-left:0;}
+  #qaCont .talkMeTextArea .typing {vertical-align:middle ;display:inline-block; position: relative; width:290px;}
+  #qaCont .talkMeTextArea .typing input[type="text"] {color:rgba(255,255,255,0.8); border:none; border-radius: 10px; width:233px; height:38px; padding-right:10px; text-indent: 10px;; outline:none; font-size:14px;}
+  #qaCont .talkMeTextArea .typing .enterBnt { border:none; margin:0; padding:0; border-radius: 10px; text-align: center; width:40px; height:40px; font-size:14px; position: absolute; color:rgba(255,255,255,0.8); right:-3px; top:0;font-family: 'Noto Sans KR', sans-serif;}
+  #qaCont .talkMeTextArea .typing .enterBnt span {display:block; margin-top:9px;}
+  #qaCont .imo {margin-top:8px; background-color:#F3F3F3; display:none; border-top-left-radius:5px; border-top-right-radius:5px;  }
+  #qaCont .imo ul {padding:0 10px;}
+  #qaCont .imo ul li {display:inline-block; font-size:20px;text-align: center;}
+  #qaCont .imo ul li a {display: block; padding:5px 10px;}
+  #qaCont .imo ul li a:hover {background-color:#99C9EF; color:#fff;}
+  #qaCont .talkMeTextArea .chatTakBtn.imobtn.on {background-color:#EE5151}
+
+  .commentAdd {float:right; font-size: 12px; color:rgba(255,255,255,0.6);transition:0.3s all ease;}
+  .commentAdd:hover {color:#4EA7FF;}
+  .commentAdd .icon-create {margin-right:5px;}
+  .commentDel {float:right; font-size: 12px; color:rgba(255,255,255,0.6);transition:0.3s all ease;}
+  .commentDel:hover {color:#FF4747;}
+  .commentDel .icon-delete {position: relative; top:-1px; margin-right:5px;}
+  /* 질의응답 끝 */
+
+
+  /*일반 설정 */
+  #generSetting .generSetIn {padding:0 18px; width:284px;}
+  #generSetting .generBox {padding-bottom:20px}
+  #generSetting .generBox .subject {font-size:15px; margin-bottom:8px;}
+  #generSetting .generBox input[type="text"] {padding:8px; border:none; outline:none; border-radius: 5px;width:93%; font-size:14px;}
+  #generSetting .generBox ul {margin-top:20px;}
+  #generSetting .generBox ul li {margin-top:20px;}
+  #generSetting .generBox ul li:first-child {margin-top:0;}
+  #generSetting .generBox ul li select ,  #generSetting .generBox.last select{ height:36px; padding:0 30px 0 8px; border-radius:2px; -webkit-appearance: none; -moz-appearance: none; appearance: none; width:289px; font-size:15px;}
+  #generSetting .generBox ul li select:-ms-expand {display: none}
+
+  /* 강의실 설정 */
+  #lectureSetting .lectuSetBox {padding:0 18px; width:284px;}
+  #lectureSetting .lectuBox {padding-bottom:20px; margin-bottom:20px}
+  #lectureSetting .lectuBox .subject {font-size:15px; margin-bottom:8px;}
+  #lectureSetting .lectuBox ul li {margin-top:20px;}
+  #lectureSetting .lectuBox ul li:first-child {margin-top:0;}
+  #lectureSetting .lectuBox select {border-radius:3px; height:36px; padding:0 8px; -webkit-appearance: none; -moz-appearance: none; appearance: none; width:289px;font-size:15px;}
+  #lectureSetting .lectuBox ul li select:-ms-expand { display: none; }
+  #lectureSetting .lectuBox.last {margin-top:20px; border-bottom:none;}
+  #lectureSetting .lectuBox .md-checkbox { position: relative;}
+  #lectureSetting .lectuBox .md-checkbox.md-checkbox-inline { display: inline-block;}
+  #lectureSetting .lectuBox .md-checkbox label { cursor: pointer; display: inline; vertical-align: top; clear: both;padding-left: 15px;}
+  #lectureSetting .lectuBox .md-checkbox label:before,  #lectureSetting .lectuBox .md-checkbox label:after { content: ""; position: absolute;left: 0;top: 0;}
+  #lectureSetting .lectuBox .md-checkbox input[type="checkbox"] + label:after { transform: translate(0.2em, 0.2em) rotate(-45deg); width: 0.75em;height: 0.375em; border: 0.21em solid #fff; border-top-style: none; border-right-style: none;border-radius: 3px;}
+  #lectureSetting .lectuBox .md-checkbox label:before {width: 18px;height: 18px; border: none;border-radius: 3px;cursor: pointer;transition: background .3s;}
+  #lectureSetting .lectuBox .md-checkbox input[type="checkbox"] { outline: 0;visibility: hidden; width: 0px; height:0; overflow:hidden;}
+  #lectureSetting .lectuBox .md-checkbox label span.labelText strong{font-weight:500;}
+  #lectureSetting .lectuBox select:-ms-expand {display: none}
+
+
+/************************ 팝업 *******************************/
+/* 팝업 기본 틀 */
+.layerPopup {position:absolute; left:50%; top:50%; z-index:1000;  transform:translateY(-50%); border-radius: 5px; width:400px; margin-left:-300px;  display:none; }
+.layerPopup.draged {transform:translateY(0%) !important;}
+.layerPopup .rspopIn  { padding:12px; border-radius:3px;}
+.layerPopup .rspopIn .hed { padding-bottom:12px; position: relative; font-size:16px;margin-bottom:20px;}
+.layerPopup .rspopIn .hed .closeBtn {opacity:0.6; position: absolute; right:0; top:-10px; width:40px; height:40px; line-height:40px; display:block; font-size:40px;}
+.layerPopup .rspopIn .con {text-align: center; margin-bottom:30px;}
+.layerPopup .rspopIn .bottom {text-align:center;margin-bottom:20px;padding-top:10px;}
+.layerPopup .rspopIn .bottom  .cancel {border-radius:5px;padding:8px 36px; max-width:100px; margin-right:6px;}
+.layerPopup .rspopIn .bottom  .starBtn { border-radius:5px;  padding:8px 36px; max-width:100px; margin-left:6px;}
+.layerPopup .rspopIn .bottom  .starBtn.re { border-radius:5px; padding:8px 36px; max-width:100px; margin-left:6px;}
+/* 팝업 기본 틀 끝 */
+
+/* 설문 결과 팝업 */
+.layerPopup.surveyResult {width:330px;  margin: 0 auto; margin-left:-165px; transform:translateY(-50%);}
+.layerPopup.surveyResult .hed {margin-bottom:20px;}
+.layerPopup.surveyResult .survReBoxan { margin-top:8px; padding: 8px; border-radius: 5px; position:relative;}
+.layerPopup.surveyResult .survReBoxan:after {display:block; content:''; clear:both;}
+.layerPopup.surveyResult .survReBoxan:first-child {margin-top:0;}
+.layerPopup.surveyResult .survReBoxan div.survT {text-align:left; width:70%;  font-size: 14px; word-break: break-word;}
+.layerPopup.surveyResult .survReBoxan div.txtR {width:30%;text-align: right; position:absolute; right:8px; top:8px;}
+/* 설문 결과 팝업 끝 */
+
+/* 브레이크 아웃 룸 */
+.layerPopup.borPopup {width:1200px;  margin-left:-700px; }
+.layerPopup.borPopup .rspopIn .hed span {vertical-align: middle;}
+.layerPopup.borPopup .rspopIn .hed span.icon {font-size:25px;}
+.layerPopup.borPopup .rspopIn .hed span.txt {font-size:16px; margin-left:8px;}
+.layerPopup.borPopup .rspopIn .con {text-align:left;padding:0 48px;}
+.layerPopup.borPopup .rspopIn .conIn{position: relative;}
+.layerPopup.borPopup .rspopIn .con .subject {color:#fff; font-size:15px; margin-bottom:12px;}
+.layerPopup.borPopup .rspopIn .con .subject span {vertical-align: middle;}
+.layerPopup.borPopup .rspopIn .con .subject .studenCount {opacity:0.8; padding:0; margin:0; margin-left:8px;}
+.layerPopup.borPopup .rspopIn .con .subject .studenCount .num {vertical-align: middle;}
+.layerPopup.borPopup .rspopIn .con .leftTopBox {padding-bottom:50px; margin-bottom:50px;}
+.layerPopup.borPopup .rspopIn .con select {border-radius:3px; height:36px; padding:0 8px; background: url('../images/icon/arrowDown_white.png') no-repeat 95% 50% #36363B; -webkit-appearance: none; -moz-appearance: none; appearance: none; width:220px; font-size:15px;}
+.layerPopup.borPopup .rspopIn .con .md-checkbox { position: relative; margin-bottom:24px;}
+.layerPopup.borPopup .rspopIn .con .md-checkbox.md-checkbox-inline { display: inline-block;}
+.layerPopup.borPopup .rspopIn .con .md-checkbox label { cursor: pointer; display: inline; vertical-align: top; clear: both;padding-left: 15px;}
+.layerPopup.borPopup .rspopIn .con .md-checkbox label:before, .layerPopup.borPopup .rspopIn .con .md-checkbox label:after { content: ""; position: absolute;left: 0;top: 0;}
+.layerPopup.borPopup .rspopIn .con .md-checkbox input[type="checkbox"] + label:after { transform: translate(0.2em, 0.2em) rotate(-45deg); width: 0.75em;height: 0.375em; border: 0.21em solid #fff; border-top-style: none; border-right-style: none;border-radius: 3px;}
+.layerPopup.borPopup .rspopIn .con .md-checkbox label:before {width: 18px;height: 18px; border: none;border-radius: 3px;cursor: pointer;transition: background .3s;}
+.layerPopup.borPopup .rspopIn .con .md-checkbox input[type="checkbox"] { outline: 0;visibility: hidden; width: 0px; height:0; overflow:hidden;}
+.layerPopup.borPopup .rspopIn .con .md-checkbox label span.labelText strong{font-weight:500;}
+.layerPopup.borPopup .rspopIn .con .leftBottomBox select {margin-bottom:8px;}
+.layerPopup.borPopup .rspopIn .con .broaAutoBtnBox {margin-bottom:25px;}
+.layerPopup.borPopup .rspopIn .con .broaAutoBtnBox a{ display:block; padding:8px; text-align: center; font-size:14px; border-radius: 5px;}
+.layerPopup.borPopup .rspopIn .con .broInfomation {font-size:15px; word-break: break-all;}
+.layerPopup.borPopup .rspopIn .con .leftArea {position: absolute; left:0; max-width:220px;}
+.layerPopup.borPopup .rspopIn .con .rightArea {margin-left:260px;  overflow: hidden; padding-left:40px; }
+.layerPopup.borPopup .rspopIn .con .sutdenBox {margin:0 -10px 0 -10px;}
+.layerPopup.borPopup .rspopIn .con .sutdenBox > li {float:left; width:33.3%;}
+.layerPopup.borPopup .rspopIn .con .sutdenBox > li > ul {margin:0 10px 20px 10px; border-radius:5px; padding:12px; height:136px; overflow-y:auto;}
+.layerPopup.borPopup .rspopIn .con .sutdenBox > li > ul li {margin-bottom:4px;}
+.layerPopup.borPopup .rspopIn .con .sutdenBox > li > ul li a{ display:block; border: 2px dashed transparent; border-radius:5px; padding:3px;}
+
+.layerPopup.borGeneraPopup {width:500px; margin-left:-350px;}
+.layerPopup.borGeneraPopup .rspopIn .con {text-align: center; margin-bottom:30px;}
+.layerPopup.borGeneraPopup .rspopIn .con  select {border-radius:3px; height:36px; padding:0 8px; -webkit-appearance: none; -moz-appearance: none; appearance: none; width:416px; font-size:15px; margin-top:8px; }
+.layerPopup.borGeneraPopup {width:500px; margin-left:-350px;}
+.layerPopup.borGeneraPopup .rspopIn .con {text-align: center; margin-bottom:30px;}
+
+/* 브레이크 아웃 룸 끝*/
+
+/* 학습현황 팝업 */
+
+.layerPopup.studyStatusPopup {width:1200px;  margin-left:-700px; z-index: 10000;}
+.layerPopup.studyStatusPopup .rspopIn .hed span {vertical-align: middle;}
+.layerPopup.studyStatusPopup .rspopIn .hed span.icon {font-size:25px;}
+.layerPopup.studyStatusPopup .rspopIn .hed span.txt {font-size:16px; margin-left:4px;}
+
+.layerPopup.studyStatusPopup .rspopIn .con .conIn {padding:0 78px;text-align: center;}
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaTab {max-width:400px; overflow: hidden; margin:0 auto 40px;  border-radius:50px}
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaTab ul li {float:left; width:50%;}
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaTab ul li  a {display:block; padding:8px; text-align:center;font-size:16px; border-radius:50px; transition: .3s ease;}
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaDownSearch {text-align: left; position:relative;  margin-bottom:16px;}
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaDownSearch .downloadBtn {font-size:14px;}
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaDownSearch .downloadBtn span{vertical-align: middle;}
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaDownSearch .downloadBtn span.icon {font-size:25px;}
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaDownSearch .searchR {float:right; position:relative;width:289px;margin-top:-5px;}
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaDownSearch .searchR input[type="text"] {padding:8px; width:95%; border:none; border-radius: 5px; font-size:14px;}
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaDownSearch .searchR button[type="submit"] {border:none; background:none; position: absolute; right:0;top:0;}
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaDownSearch .searchR button[type="submit"] span {font-size:25px; display:block; line-height:32px;}
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaTable { margin-bottom:40px;}
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaTable table {border-spacing: 0; width:100%;table-layout: fixed;}
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaTable table th {font-size:14px; font-weight:400; border:none;padding:10px 0; }
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaTable table td.user .code {font-size:13px;}
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaTable table td { padding:10px 0; font-size:14px; font-size:14px;}
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .radioBox {display:inline-block; overflow:hidden; vertical-align: middle; margin-right:24px;}
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .radio { position: relative; cursor: pointer; line-height: 20px; font-size: 14px; margin-right:12px;}
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .radio .label {vertical-align: middle; position: relative; display: inline-block; margin-right: 8px; width: 15px; height: 15px; border-radius: 100%; -webkit-tap-highlight-color: transparent;}
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .radio .label:after { content: ''; position: absolute; left:50%; margin-left:-4.5px; top:50%; margin-top:-4.5px; width: 9px; height: 9px; border-radius: 100%; transform: scale(0); transition: all 0.2s ease; opacity: 0.08; pointer-events: none; }
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .radio:hover, .layerPopup.studyStatusPopup .rspopIn .con .conIn .label:after { transform: scale(4); }
+.layerPopup.studyStatusPopup .rspopIn .con .conIn input[type="radio"]:checked + .label:after { transform: scale(1); transition: all 0.2s cubic-bezier(0.35, 0.9, 0.4, 0.9); opacity: 1; }
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .hidden { width:0; height: 0; overflow:hidden; position: absolute; left:-9999px}
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaCon {display:none; transition: .3s ease;}
+.layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaCon.on {display:block;}
+
+
+/* 화면공유 */
+
+.layerPopup.displayshare {width:1200px;  margin-left:-700px;  z-index: 10000;}
+.layerPopup.displayshare .rspopIn .hed span {vertical-align: middle;}
+.layerPopup.displayshare .rspopIn .hed span.icon {font-size:25px;}
+.layerPopup.displayshare .rspopIn .hed span.txt {font-size:16px; margin-left:4px;}
+
+.layerPopup.displayshare .rspopIn .con {margin-bottom:40px;}
+.layerPopup.displayshare .rspopIn .con .conIn {padding:0 78px;text-align: center;}
+.layerPopup.displayshare .rspopIn .con .conIn .popupTab {max-width:540px; overflow: hidden; margin:0 auto 90px;  border-radius:50px;}
+.layerPopup.displayshare .rspopIn .con .conIn .popupTab ul li {float:left; width:33.3%;}
+.layerPopup.displayshare .rspopIn .con .conIn .popupTab ul li  a {display:block; padding:8px; text-align:center; border-radius:50px; transition: .3s ease;}
+
+.layerPopup.displayshare .rspopIn .con .conIn .popupTabCon {display:none; transition: .3s ease;}
+.layerPopup.displayshare .rspopIn .con .conIn .popupTabCon.on {display:block;}
+
+
+.layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox {height:400px;}
+.layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox ul  {margin:0 -30px; overflow: hidden;}
+.layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox ul li {float:left; width:50%;}
+.layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox ul li .asBoxIn {margin:0 30px 16px; border:5px solid transparent; width:470px; height:300px; overflow:hidden;}
+.layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox ul li .asBoxIn img {width:100%;}
+.layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox ul li .screenTitle {margin-bottom:16px;}
+.layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox ul li.on .asBoxIn{border-radius:3px; transition: .3s ease;}
+.layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox ul li.on .screenTitle{transition: .3s ease;}
+
+.layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox.app ul {margin: 0 -50px; padding:0 25px;}
+.layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox.app ul li {float:left; width:33.3%;}
+.layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox.app ul li .asBoxIn {margin:0 30px 16px; border-radius:3px; border:5px solid transparent; width:280px; height:187px; overflow:hidden;}
+.layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox.app ul li .asBoxIn img {width:100%;}
+.layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox.app ul li .screenTitle {margin-bottom:16px; text-align:left; width:280px; margin:0 30px 16px;}
+.layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox.app ul li .screenTitle img {margin-right:4px;}
+.layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox.app ul li .screenTitle img span.txt {font-size:14px;}
+.layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox.app ul li.on .asBoxIn{ transition: .3s ease;}
+
+
+.layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox.browser ul {margin:0;}
+.layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox.browser ul li {float:none; width:100%;}
+.layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox.browser ul li .screenTitle {position:relative; border:5px solid transparent;padding:20px; overflow:hidden; text-align: left; margin-bottom:0;}
+.layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox.browser ul li .screenTitle:before {display:block; content:''; width:100%; height:2px;  position:absolute;left:0; top:0;}
+.layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox.browser ul li:first-child .screenTitle:before {display:none;}
+.layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox.browser ul li.on .screenTitle{border-radius:3px; transition: .3s ease;}
+.layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox.browser ul li.on .screenTitle{ transition: .3s ease; }
+
+/* 단축키 팝업  */
+.layerPopup.hotkeyPopup{width:400px; margin-left:-300px; z-index: 10000;  transform:translateY(-50%); border-radius: 5px}
+.layerPopup.hotkeyPopup .rspopIn .con {margin:20px 0 0 0; text-align:center; font-size:15px;}
+.layerPopup.hotkeyPopup .rspopIn .con .hotkeyTable {height:400px; border-radius: 2px;}
+.layerPopup.hotkeyPopup .rspopIn .con table {width:100%; border-spacing: 0; border-radius: 2px}
+.layerPopup.hotkeyPopup .rspopIn .con table th {font-size:14px;padding:10px; font-weight: 400;}
+.layerPopup.hotkeyPopup .rspopIn .con table td { font-size:14px; padding:10px;}
+.layerPopup.hotkeyPopup .rspopIn .con table td.txtleft {text-align:left;}
+
+
+
+/* 하단 버튼 > 마이크, 카메라 컨트롤 */
+.btnSettingList { display:none;position:absolute; top:-457px; width:280px; text-align: left; border-radius: 10px;padding:16px 0 0 0;}
+.btnSettingList .bslHead {font-size:16px; margin:0 10px; position: relative; }
+.btnSettingList .bslHead span {vertical-align: middle;}
+.btnSettingList .bslHead span.icon {font-size:25px; margin-right:4px;}
+.btnSettingList .bslHead .micAnnounce {position:absolute; right:0; top:0;display:block; padding:5px 14px; border-radius: 5px; text-align: center; font-size:13px;}
+.btnSettingList .bslHead .bslHeadIn {padding:0 0 20px 0;}
+
+.btnSettingList .deviceList > li {padding:14px; height:22px; position: relative;}
+.btnSettingList .deviceList > li .radio { position: relative; cursor: pointer; line-height: 20px; font-size: 14px;}
+.btnSettingList .deviceList > li .radio .label { position: relative; display: block;float: left; margin-right: 10px; width: 15px; height: 15px; border: 2px solid #D7D7D7; border-radius: 100%; -webkit-tap-highlight-color: transparent; background-color: transparent;}
+.btnSettingList .deviceList > li .radio .label span {padding-left:25px; position: absolute; left:0; top:-3px;}
+.btnSettingList .deviceList > li .radio .label:after { content: ''; position: absolute; left:50%; margin-left:-4.5px; top:50%; margin-top:-4.5px; width: 9px; height: 9px; border-radius: 100%; transform: scale(0); transition: all 0.2s ease; opacity: 0.08; pointer-events: none; }
+.btnSettingList .deviceList > li .radio:hover, .label:after { transform: scale(4); }
+.btnSettingList .deviceList > li input[type="radio"]:checked + .label {  background-color:transparent; }
+.btnSettingList .deviceList > li input[type="radio"]:checked + .label:after { transform: scale(1); transition: all 0.2s cubic-bezier(0.35, 0.9, 0.4, 0.9); opacity: 1; }
+.btnSettingList .deviceList > li .hidden { width:0; height: 0; overflow:hidden; position: absolute;left:-9999px; }
+.btnSettingList .line{width:100%; height:1px; display:block; margin-bottom:16px;}
+
+.btnSettingList .volumBox {position:absolute; right:14px; top:14px;}
+.btnSettingList .volumBox li {display:inline-block; vertical-align:middle; width:5px; height:16px;margin:0 1px;}
+.btnSettingList .rce .volumBox li {width:auto;}
+.btnSettingList .volumBox span {display:block; width:100%; height:100%;}
+
+
+
+
+
+/* mediaquery */
+
+/*20210204*/
+@media all and (max-width: 1900px) {
+  /* #faceAllBox.on .faceAllBoxIn {margin-left: 100px;} */
+}
+
+@media all and (max-width: 1430px) {
+  .waitingRoomIn .con {height:100%;}
+  .waitingRoomIn .conListBox {height:500px;}
+
+  /*ê°•ì˜ ëŒ€ê¸°ì‹¤*/
+  .restArea.waitingRoomIn .con {height:auto;}
+  .restArea.waitingRoomIn .conListBox {height:auto;}
+
+  #faceHeader .tooltip {left: 60px; width:300px; height:auto;}
+
+}
+@media all and (max-width: 1245px) {
+  .layerPopup.borPopup {width:1024px; margin-left:-612px;}
+  .layerPopup.displayshare {width:1024px; margin-left:-612px;}
+  .layerPopup.displayshare .rspopIn .con {margin-bottom:0;}
+  .layerPopup.displayshare .rspopIn .con .conIn {padding:0 20px;}
+  .layerPopup.displayshare .rspopIn .con .conIn .popupTab {margin:0 auto 20px;}
+  .layerPopup.displayshare .rspopIn .con .conIn .allScreenBox ul li .asBoxIn {width:420px; height:270px; margin:0 10px 16px;}
+  .layerPopup.displayshare .rspopIn .con .conIn .allScreenBox ul {margin:0 -10px;}
+  .layerPopup.displayshare .rspopIn .con .conIn .allScreenBox.app ul {margin: 0 -10px;}
+
+  /*ê°•ì˜ ëŒ€ê¸°ì‹¤*/
+  .ment_box {margin-left:15px; margin-right:15px;}
+  .restArea {margin:0 15px;}
+  .restArea .hed {padding:20px;}
+  .restArea.waitingRoomIn .nick .icon-videofixe {position: relative; top:2px;}
+  .restArea.waitingRoomIn .nick .icon-cricleAdd {position: relative; top:2px;}
+  .restArea.waitingRoomIn .nick span.txt {font-size: 16px;}
+  .restArea .lec_info {padding: 20px 25px;}
+  .restArea .lec_info li {font-size: 15px;}
+  .restArea .w_setting .cont p {font-size: 15px;}
+  .restArea.waitingRoomIn .infoDetail {padding: 20px 25px;}
+  .restArea.waitingRoomIn .infoDetailSet {padding: 20px 25px;}
+  .restArea.waitingRoomIn .conListBox ul.conList1_n > li {/*width: 48%;*/}
+  .restArea.waitingRoomIn .conListBox ul.conList1_n > li.right {float: right;}
+  .restArea .infoDetailSet ul.conList1_n > li .w_setting {margin:0;}
+
+}
+
+@media all and (max-width: 930px) {
+
+
+  .waitingRoomIn .nick input {width:200px}
+}
+
+@media all and (max-width: 1024px) {
+  /* .sectionTitleBoxIn { padding: 8px 0; font-size:16px; margin-bottom:12px;}
+  .sectionTitleBox a.set {top:0;} */
+  body {-webkit-overflow-scrolling:touch;}
+  #waitingRoom {top:60px;}
+
+  .waitingRoomIn .nick input {width:200px}
+  .waitingRoomIn > .hed img {margin:0 auto; display:none !important;}
+  .waitingRoomIn .con {padding:30px }
+  #faceHeader {height:60px; }
+  #faceHeader .rBox {right:10px; top:10px;}
+  #faceHeader .rBox .studentCount {margin-left:4px;}
+  #faceHeader .rBox .studentCo span {display:none;}
+  #faceHeader .rBox .studentCo span.studentCount {display:inline-block;}
+  #faceHeader .rBox .timeline {margin:0 0 0 4px; padding:0; }
+  #faceHeader .rBox .onoffBtn:before {display: none;}
+  #faceHeader .rBox .onoffBtn {padding:0; font-size:35px;}
+  #faceHeader .rBox .studentCo {vertical-align: middle; margin-left:10px;}
+  #faceHeader .hotkeyBtn {display:none;}
+  #faceHeader .hotkeyBtn:before {display:inline-block; content:''; width:2px; height:16px; opacity:0.3; position:absolute; left:-15px; top:57%; margin-top:-8px; background-color: #fff;}
+  #faceHeader .rBox .fullscreenBtn {position: relative;top: -2px;font-size: 25px;vertical-align: middle;display: inline-block; padding: 0 0 0 10px;transition: all .6s ease;}
+  #faceHeader .rBox .fullscreenBtn:hover {color:#fff;}
+  #faceHeader .rBox .circlePBtn {padding: 0 0 0 16px;}
+
+  #faceHeader div {height:60px; }
+  #faceHeader .hed  {display:none;}
+  #faceHeader .hed h1 {padding:0; margin:0; padding:16px 0 0 25px; }
+  #faceHeader .hed .hedLink {display:none;}
+  #faceHeader .hed .hedLink li {float:left; width:50%;}
+  #faceHeader .hed .hedLink li a {display:block; font-size:15px; border-radius:20px;color:rgba(255,255,255,0.6);padding:7px; text-align:center;}
+  #faceHeader .hed .hedLink li a:hover {background-color:#0063D5; color:#fff;}
+
+  #faceHeader .subjectBox {height:55px;}
+  #faceHeader .subjectTitle {font-size:16px; margin:0px 0 0 60px; width:47%; text-overflow:ellipsis; white-space:nowrap; word-wrap:normal; overflow:hidden;}
+
+
+  #gnbBox {position: static;left:0; top:0; width:100%;}
+  #gnbBox ul li.setG:before {display:none;}
+  #gnbBox .menuBtn {position: absolute; top:3px; width:70px;z-index:100;}
+  #gnbBox .menuList {/*margin-top:10px;*/ overflow:hidden; overflow-x: scroll; background-color:rgba(19,19,22,0.8); position:relative; top:60px; height:55px; display:none; padding-bottom:0; }
+  #gnbBox .menuList ul:after {display:block;  content:''; background-image:url('../img/swipe_gra.png'); background-repeat:no-repeat; position:fixed; right:0; top:60px; width:50px; height:0; opacity:0; transition:.2s ease;}
+  #gnbBox .menuList ul {width:1100px;}
+  #gnbBox .gnbList { text-align:center; float:left; height:55px; line-height:55px;}
+  #gnbBox .gnbList .br {display:inline;}
+  #gnbBox .gnbList.brr {display:none;}
+  #gnbBox .gnbList .classUNum {font-size:10px; top:10px; left:0;}
+  #gnbBox .gnbList a {padding:0 10px;}
+  #gnbBox .gnbList .icon {display:inline-block; width:auto; vertical-align:middle; font-size:30px; line-height:30px; }
+  #gnbBox .gnbList span {vertical-align: middle;}
+
+  .gnbOn #gnbBox {top:0; left:0; width:100%;}
+  .gnbOn #gnbBox .menuBtn a {padding:10px;}
+  .gnbOn #gnbBox .menuBtn span.line:after {width:12px;}
+  .gnbOn #gnbBox .menuBtn  .topArrow {bottom:-4px;}
+  .gnbOn #faceHeader .subjectTitle {margin-left:60px;}
+  .gnbOn .gnbCon {left:100px; }
+  .gnbOn #gnbBox .menuList ul:after {opacity:1; height:55px; width:60px;}
+
+  .menuList.menuListMb .mCSB_inside > .mCSB_container {width:1000px !important;}
+
+  /* 오른쪽 사용자 리스트 */
+  #faceListButtonBox {bottom:92px; z-index: 98;}
+  #faceListButtonBox .rbtn { width:50px; height:50px; line-height:0px;}
+
+  #faceListBox {top:80px; bottom:150px; }
+  #faceListBox.topMenuOut {top:130px;} /* 20210202 */
+
+  /* 하단 버튼  */
+  #btnBox {width:100%; max-width:100%; left:0%; margin-left:0; bottom:0;}
+  .btnBoxIn {padding:10px 0; background-color:#27272E;}
+    .bottomBtn,.picture { width:50px; height:50px; line-height:50px; }
+    .bottomBtn span {font-size:40px; position: absolute; left:0; top:5px; right:0; bottom:0;  transition:all 0.6s ease;}
+    .bottomRecoding{ width:46px; height:46px; }
+    .bottomRecoding span.recording {width:31px;height:31px; left:8px; top:8px;}
+    /* .disp {display:none;} */
+    .btnSetting {display:none;}
+
+    /* 20210210 */
+    .bottomBtn .icon-mic_off, .bottomBtn .icon-mic_on {left:0px;top:5px;}
+    .bottomBtn .icon-camera_off, .bottomBtn .icon-camera_on {left:2px;top:6px;}
+    .bottomBtn .icon-board {left:3px;top:5px;}
+
+
+
+#faceAllBox .faceAllList > li .faceAllVideo {margin:0;}
+  /*content*/
+  .gnbOn .gnbCon {left:0;}
+  .gnbCon  {left:0; width:100%; max-width:100%; top:113px; bottom:150px; border-radius:0;}
+  .gnbCon .contentIn {width:100%; position:relative;}
+  .gnbCon.on {width:100%; z-index:101;  padding-bottom:20px;overflow-y:scroll; }
+  .sectionTitleBox {width:96%;}
+  .contentLayout.gnbArea {margin-left:0;}
+
+  #recodingStatus {top:80px;}
+
+
+
+  #classInfo.on .cinfol {width:96%;}
+  .classUserIn {width:100%;}
+  .sectioncontIn {height:calc(100% - 59px); overflow-y:scroll;}
+    .classUserSearch{width:96%;}
+  .classUSerList{height:calc(100% - 303px); overflow-y:scroll;}
+  #classUser.on .classUSerListIn {width:100%;}
+  .classUserSetView .classUSVIn .classUSCSetL a {font-size:14px;}
+
+  #surveyBox .srbinListB , #surveyBox.on .surviReing{width:100%;}
+  #surveyBox.on .srbinListB ul {width:96%;}
+
+  #surveyBox .set {top:8px;}
+  #surveyBox.on .surveyConCreatio, #surveyBox .surveyCCList {width:96%;}
+
+
+  #referenceRoom .referRBox {width:96%; overflow-y: auto;}
+  #referenceRoom .referList {padding-bottom:0; ;}
+  #referenceRoom .set {top:18px;}
+  #generSetting .generSetIn {width:96%; height:calc(100% - 59px);overflow-y:scroll}
+  #generSetting .generBox ul li select, #generSetting .generBox.last select {width:100%;}
+  #lectureSetting .lectuSetBox {width:96%;height:calc(100% - 59px);overflow-y:scroll}
+
+
+  #chattingBox.on .classUserIn { height:calc(100% - 100px); width:100%;}
+  #chattingBox .chattingTak {height:calc(100% - 40px); }
+  #chattingBox .talkMeTextArea {position: relative;}
+  #chattingBox .talkMeTextArea .tmtaIn {position: absolute;width:100%; bottom:5px;}
+  #chattingBox .talkMeTextArea .typing {width:calc(100% - 100px); margin-left:80px;}
+  #chattingBox .talkMeTextArea .typing input[type="text"] {width:calc(100% - 55px);}
+  #chattingBox .talkMeTextArea .chatTakBtn {position: absolute; left:40px; top:0;}
+  #chattingBox .talkMeTextArea .chatTakBtn.imobtn {left:0; top:0;}
+  #chattingBox .talkMeTextArea .typing .enterBnt {right:0;}
+
+  #presenterAlert {width:300px; margin-left:-150px;}
+
+  .faceAllVideo .basicBox:before {display:none;}
+
+  /*질의응답*/
+  #qaCont .classUserIn {width: auto;}
+  #qaCont .chattingTak ul li .comentBox .tmtaIn .typing textarea {width: calc(100% - 66px);}
+  #qaCont .chattingTak ul li .comentBox .tmtaIn .typing input[type='text'] {width: calc(100% - 58px);}
+  #qaCont .talkMeTextArea {left:9px; right:9px; bottom:3px;}
+  #qaCont .talkMeTextArea .typing {width:100%;}
+  #qaCont .talkMeTextArea .typing input[type="text"] {width: calc(100% - 58px);}
+  #gnbBox .gnbList .icon.icon-qa {font-size:21px;}
+
+  /**  layerpopup **/
+
+  .layerPopup.studyStatusPopup {max-width:1000px; width:90%; margin-left:-56%}
+  .layerPopup.studyStatusPopup .rspopIn .con .conIn {padding:0;}
+  .layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaTable {height:200px;}
+  .layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaTable table {width:1200px;}
+  .layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaDownSearch .downloadBtn span.icon {font-size:20px;}
+  .layerPopup.studyStatusPopup .rspopIn .con .conIn .radioBox {display:block; margin-bottom:12px;}
+
+
+  #faceAllBox .icon-arrowR {display:none;}
+
+  /*ê°•ì˜ëŒ€ê¸°ì‹¤*/
+  .ment {font-size: 20px;}
+
+  /*20210203 프레젠테이션 툴팁 영역 반응형 css 추가*/
+  #noteBox .toolbarBoxIn .selecList {position: absolute; z-index: 2;}
+
+  /*20210204*/
+  #faceAllBox.on .faceAllBoxIn {margin-left:0px;}
+  #faceAllBox.on .mCSB_inside>.mCSB_container {margin-right:0px;}
+
+  #faceLayout.videoView.gnbOn #viewBox {margin-left:10px;}
+
+
+
+
+}
+@media all and (max-width: 768px) {
+  /*ê°•ì˜ëŒ€ê¸°ì‹¤*/
+  .restArea .lec_info li.lec_infoRList strong {top:0; margin-bottom:6px;}
+  .restArea .lec_info li .lec_infoR {display: block;}
+  .restArea .lec_info li .lec_infoR input[type="text"] {width:100%;}
+
+  #waitingAlert {top:50px; left:0; margin-left:0; width:auto;margin-left: 10px; margin-right: 10px;}
+}
+@media all and (max-width: 640px) {
+
+  #waitingRoom {top:55px;}
+  .waitingRoomIn > .hed {padding:30px 10px;}
+  .waitingRoomIn .nick {position: static; margin-top:0; text-align:center;}
+  .waitingRoomIn .nick input {width:180px}
+  .waitingRoomIn > .hed img {margin:0 auto; display:none !important;}
+  .waitingRoomIn .con {padding:0;}
+  .waitingRoomIn .con .w_setting .subject {margin-bottom:8px;}
+  .waitingRoomIn .con .w_setting .cont > ul > li {padding:20px;}
+  .waitingRoomIn .con .w_btnBox {padding:30px 0 30px 0; position: fixed; width:100%; bottom:0; left:0;}
+  .waitingRoomIn .conListBox {height:100%; height:calc(100% - 200px);}
+  .waitingRoomIn .conListBox ul.conList > li {margin-bottom:0;}
+  .waitingRoomIn .conListBox ul.conList > li {width:100%; margin-bottom:20px; float:none; display:none}
+  .waitingRoomIn .conListBox ul.conList > li.lang {display:block; height:300px}
+  .waitingRoomIn .conListBox ul.conList2 {padding:0;}
+
+  #faceHeader .subjectTitle {font-size:15px; margin:0px 0 0 60px; width:40%; text-overflow:ellipsis; white-space:nowrap; word-wrap:normal; overflow:hidden;}
+  #faceHeader .tooltip {left:10px;right: 10px;width: auto;}
+
+  #faceListBox { width:160px; top:80px; bottom:150px; right:-160px;}
+
+  .faceTeacher {padding:12px; }
+  .faceTeacher .faceTIn {max-height:110px;position: relative; text-align:center; border-radius: 3px;}
+  .faceTeacher .faceTIn .basicBoxIn {overflow:hidden; max-height:110px; border-radius: 3px;}
+  .studenListBox .studenListBoxIn {padding:0 12px 0 12px;}
+  .studenListBox .mCSB_inside > .mCSB_container{ margin-right:0;}
+  .studenCount {margin-bottom:0; padding: 12px;}
+  .studenCount span { font-size:14px;}
+
+  .videoBox {position:absolute; left:0;top:0; width:100%; height:100%; z-index:9;}
+  .videoBox .videoBoxIn {max-height: 110px; overflow:hidden;}
+  .videoBox video {width:100%; height:100%;}
+
+  .studenListBox .faceAllVideo {margin:0;}
+  .studenListBoxIn .faceAllVideoIn {position: relative;}
+
+  .studenListBox {height:calc(100% - 60px);}
+  .studenListBox .faceAllList > li {margin-top:12px;}
+  .studenListBox .faceAllList > li .basicBox {max-height:110px; width:100%;}
+  .naming {max-width:84%;}
+  .videoSetBg { width:120px;}
+  .videoSetBg ul li div {padding-right:0;}
+
+
+  #gnbBox .menuBtn {width:60px;}
+  #gnbBox .menuList {/*margin-top:10px;*/ /*overflow:hidden; overflow-x: scroll;*/ background-color:rgba(19,19,22,0.8); position:relative; height:55px !important;}
+  #gnbBox .menuList .mCustomScrollBox {overflow: hidden;}
+  #gnbBox .menuList ul, .menuList .mCSB_inside > .mCSB_container {width:1100px !important;}
+  #gnbBox .gnbList { text-align:left; float:left; width:auto; padding:0 15px; display:inline-block; height:55px; line-height:55px; margin:0 ;}
+  #gnbBox .gnbList.brr {display:none;}
+  #gnbBox .gnbList .br {display:inline;}
+  #gnbBox .gnbList .classUNum {font-size:10px; top:10px; left:0;}
+  #gnbBox .gnbList a {padding:0;}
+  #gnbBox .gnbList .icon {display:inline-block; vertical-align:middle; font-size:25px; line-height:30px; }
+  #gnbBox .gnbList span {font-size:12px; line-height:15px;}
+  #gnbBox .gnbList .menuText {width:auto;}
+
+  .gnbOn #gnbBox {top:0; left:0; width:100%;}
+  .gnbOn #gnbBox .menuBtn a {padding:10px;}
+  .gnbOn #gnbBox .menuBtn span.line:after {width:12px;}
+  .gnbOn #gnbBox .menuBtn  .topArrow {bottom:-4px; font-size:15px;}
+  .gnbOn #faceHeader .subjectTitle {margin-left:50px;}
+  .gnbOn .gnbCon {left:0;}
+
+  /* 하단 버튼  */
+ #btnBox {width:100%; max-width:100%; left:0%; margin-left:0; bottom:0;opacity: 0}
+ #btnBox:hover {
+     opacity: 1;
+ }
+ .btnBoxIn {padding:10px 0; background-color:#27272E;}
+   .bottomBtn,.picture { width:40px; height:40px; line-height:50px; margin:0 3px;}
+   .bottomBtn span {font-size:30px; position: absolute; left:0; top:5px; right:0; bottom:0;  transition:all 0.6s ease;}
+    .btnSetting {display:none;}
+   .bottomRecoding{ width:33px; height:33px; }
+   .bottomRecoding span.recording {width:25px;height:25px; left:4px; top:4px;}
+
+  /************ content **************/
+
+  .gnbCon .contentIn {width:100%; position: relative;}
+  .gnbCon.on {width:100%; z-index:101; padding-bottom:20px;  }
+  .contentLayout {left:0; right:0;}
+
+  .sectionTitleBox {width:91%;}
+  #classInfo.on .cinfol {width:91%; height:calc(100% - 59px); overflow-y: auto;}
+
+    .classUserSearch{width:91%;}
+  .classUserListBox {overflow:hidden; overflow-y: scroll; height:calc(100% - 59px);}
+  .classUserListBox .classUSerList {height:calc(100% - 20px);}
+  .classUSerList .culnamelmsid .name {width:52%;}
+  #classUser.on .classUSerListIn {width:100%;}
+
+  #surveyBox .srbinListB , #surveyBox.on .surviReing{width:100%;}
+  #surveyBox.on .srbinListB ul {width:91%;}
+  #surveyBox.on .surveyConCreatio, #surveyBox .surveyCCList {width:91%;}
+
+  #referenceRoom .referRBox {width:91%; overflow-y: auto;}
+  #generSetting .generSetIn {width:91%;}
+
+
+  #chattingBox .classUserIn {width:100%; }
+  #chattingBox.on .classUserIn {height:calc(100% - 150px); width:100%;}
+  #chattingBox .chattingTak {height:calc(100% - 10px); }
+  #chattingBox .talkMeTextArea .tmtaIn {position: relative;}
+  #chattingBox .talkMeTextArea .typing {width:calc(100% - 90px);}
+
+  #surveyBox .surveyConCreatio.answer .survReBoxstu > ul li > div.survTR {margin-left:0;}
+
+
+
+  #noteBox .toolbarBox {width:320px; margin-left:-160px;}
+  #noteBox .toolbarBoxIn .selecToolBox {width:35px;}
+  #noteBox .toolbarBoxIn .slideViewBox {width:100px; text-align: center;}
+  #noteBox .toolbarBoxIn .slideViewBox .slideV_txt {padding:0}
+  #noteBox .toolbarBoxIn .slideViewList {width:100px;}
+  #noteBox .toolbarBoxIn .slideViewList ul {width:80px;}
+  #noteBox .toolbarBoxIn .slideViewList ul li a {font-size:13px;}
+  #noteBox .toolbarBoxIn .slideViewBox .arrow {display:none;}
+  #noteBox .toolbarBox > ul > li.fontBtn {display:none;}
+  #noteBox .toolusingStudentName {display:none;}
+
+  /*ê°•ì˜ ëŒ€ê¸°ì‹¤*/
+  .ment {font-size: 18px;}
+  .topMent.btnBox a {width: 200px;}
+  .restArea .hed {padding:10px;}
+  .restArea .lec_info {padding: 20px 15px;}
+  /** .restArea .lec_info li span {display: block;} **/
+  .restArea.waitingRoomIn .infoDetail {padding: 20px 15px;}
+  .restArea.waitingRoomIn .infoDetailSet {padding:20px 15px;}
+  .restArea.waitingRoomIn .conListBox ul.conList > li {display: block;}
+  .restArea.waitingRoomIn .conListBox ul.conList1_n > li {width:100%;}
+  .restArea.waitingRoomIn .conListBox ul.conList1_n > li.right {float:none;}
+  .restArea.waitingRoomIn .con .w_setting .subject {font-size: 15px;}
+  .restArea.waitingRoomIn .con .w_setting .subject .icon {top:0px;}
+  .skin_black .restArea.waitingRoomIn .conList {border-bottom:none;}
+  .restArea.waitingRoomIn .conListBox ul.conList3 {padding-top: 0;}
+
+
+  /**  layerpopup **/
+  .popupLayout {left:0;}
+
+  .layerPopup {width:300px; margin-left:-150px}
+
+  .layerPopup.studyStatusPopup {width: 100%; margin-left:-50%;}
+  .layerPopup.studyStatusPopup .rspopIn .con .conIn {padding:0;}
+  .layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaTab ul li a {font-size:14px; padding:4px;}
+  .layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaTable {height:200px;}
+  .layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaTable table {width:1200px;}
+  .layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaDownSearch .searchR {width:200px;}
+  .layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaDownSearch .searchR input[type="text"] {width:92%;}
+  .layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaDownSearch .downloadBtn span.icon {font-size:20px;}
+  .layerPopup.studyStatusPopup .rspopIn .con .conIn .radioBox {display:block; margin-bottom:12px;}
+  .layerPopup.studyStatusPopup .rspopIn .con .conIn .radio .label {width:12px; height:12px; margin-right:4px; font-size:13px;}
+  .layerPopup.studyStatusPopup .rspopIn .con .conIn .radio .label:after {width:8px; height:8px; margin-left:-4px; margin-top:-4px;}
+
+  /*20210203 프레젠테이션 툴팁 영역 반응형 css 추가*/
+  #noteBox .toolbarBox {width: 320px;height: 77px;margin-left: -180px;}
+  #noteBox .toolbarBoxIn .selecToolBox {width:35px;}
+  #noteBox .toolbarBoxIn .slideViewBox {width:100px; text-align: center;}
+  #noteBox .toolbarBoxIn .slideViewBox .slideV_txt {padding:0}
+  #noteBox .toolbarBoxIn .slideViewList {width:100px;}
+  #noteBox .toolbarBoxIn .slideViewList ul {width:80px;}
+  #noteBox .toolbarBoxIn .slideViewList ul li a {font-size:13px;}
+  #noteBox .toolbarBoxIn .slideViewBox .arrow {display:none;}
+  #noteBox .toolbarBox > ul > li.fontBtn {display:none;}
+  #noteBox .toolusingStudentName {display:none;}
+
+}
+
+/* 20210202 */
+.surCusBox input {width:calc(100% - 75px) !important;}
+#chattingBox .talkMeTextArea .typing .text-container {padding: 0 40px 0 13px;background-color: #434343;border: none; border-radius: 10px;display: flex;height: 41px;align-items: center;}
+#chattingBox .talkMeTextArea .typing textarea.chatting_textarea {resize: none;width:100%; color: rgba(255,255,255,0.8);border: none;border-radius: 10px;height: 18px;padding: 14px 13px 10px 13px;outline: none;font-size: 14px;background-color: #434343;}
+.skin_black #chattingBox .chattingTak ul li.chatFileDownload strong {word-break: break-all;}
+/* 추가 1136라인, JS 1067, 1072 추가 */
+
+
+/*20210203 프레젠테이션 툴팁 영역 css 추가*/
+#noteBox .toolbarBoxIn .screenSizeBox {position:relative; width:115px; height:38px; line-height:38px; text-align: center;}
+#noteBox .toolbarBoxIn .screenSizeBox .arrow {font-size:18px; position:absolute;}
+#noteBox .toolbarBoxIn .screenSizeBox .arrow .icon-plus_square {position: relative; top:2px;}
+#noteBox .toolbarBoxIn .screenSizeBox .arrow .icon-minus_square {position: relative; top:1px;}
+#noteBox .toolbarBoxIn .screenSizeBox .leftA {transform:rotate(-180deg); left:5px; top:3px; color:#fff;}
+#noteBox .toolbarBoxIn .screenSizeBox .rightA {right:5px; top:-3px;color:#fff;}
+#noteBox .toolbarBoxIn .screenSizeBox .slideV_txt { color:#fff; padding:0 33px;}
+
+#noteBox .toolbarBoxIn .selecToolBox .selecTool .icon-screen_sharing {position:relative; top:-1px; left:-2px;}
+#noteBox .toolbarBoxIn .selecToolBox .selecTool .icon-trash {position:relative; top:-2px;}
+#noteBox .toolbarBoxIn .selecToolBox .selecTool .icon-boad_arrow {position:relative; top:-1px;}
+#noteBox .toolbarBoxIn .selecToolBox .selecTool .icon-pencil {position:relative; top:-3px;}
+#noteBox .toolbarBoxIn .selecToolBox .selecTool .icon-board {position:relative; top:-1px;}
+#noteBox .toolbarBoxIn .selecToolBox .icon-arrowR {position:relative; top:-5px;}
+#noteBox .toolbarBoxIn .selecToolBox .fullscreen {position: relative; top:-8px; font-size: 18px;color:#fff;}
+  .screenCtrBtn {float: right; padding:0 7px; font-size: 20px; color:#fff;background-color: rgba(0,0,0,0.3);border-radius: 5px; margin: 8px; transition: 0.3s all ease;}
+  .screenCtrBtn:hover {background-color: #4EA7FF;}
+  .screenCtrBtn .icon-minus {position: relative; top:-2px;}
+
+/*툴팁*/
+.tagHv {display:none; position: absolute; top:46px; margin:auto; width:auto; height: 25px;line-height: 12px; text-align: center; color: #fff;border-radius: 3px; background-color:rgba(66,66,72,0.8);box-shadow: 0px 1px 5px 2px rgba(0,0,0,0.2); transition:0.3s all ease;z-index: 1;}
+#noteBox .toolbarBoxIn .slideViewBox .leftA .icon-arrowR {position: relative; top:-2px;}
+#noteBox .toolbarBoxIn .slideViewBox .rightA .icon-arrowR {position: relative; top:3px;}
+#noteBox .toolbarBoxIn .slideViewBox .leftA .tagHv {transform: rotate(180deg);}
+.tagHv.left {left:0;}
+.tagHv.right {right:0;}
+#noteBox .toolbarBox > ul > li.on .tagHv {opacity: 1;}
+.tagHv span {position: relative; display:inline-block; padding:0 5px; font-size:13px; line-height: 25px;}
+.tagHv span:after {content:''; display:block; position:absolute;right: 0;left: 0; left:0px; top:-5px; width:13px; height:11px; margin:auto; background:url(../img/tagHvBgAr2.png) no-repeat;background-size: 11px;opacity: 0.8;}
+
+/*20210205*/
+::-webkit-scrollbar {/* 스크롤바 전체 영역 */width: 4px; height:4px;}
+::-webkit-scrollbar-track {/* 스크롤이 움직이는 영역 */height:4px;background-color: #000000;}
+::-webkit-scrollbar-thumb {/*  스크롤 */height:4px;background-color: #8E8E8E; border-radius:5px;}
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {/* 스크롤의 화살표가 포함된 영역 */display:block;height:4px;background-color: #000;}
+
+/*210208*/
+.pagingCtr {position: absolute;bottom: 10px;width: 100%;}
+.pagingCtr button {background: none; border: none;font-size: 30px; color: #fff;opacity:0.5;cursor: pointer;transition: 0.3s all ease;}
+.pagingCtr button.on {opacity:1;}
+.pagingCtr .pageLeft {float:left;margin-left:10px;}
+.pagingCtr .pageLeft .icon-arrowR {display: inline-block;transform: rotate(180deg);}
+.pagingCtr .pageRight {position: relative;top: 1px;float:right;}
+
+#surveyResultList {height:300px;}
+
+/*20220526 - 갤러리뷰 2차 고도화*/
+.testBox {position: absolute; z-index: 999;}
+.grid-wrap {display: flex;height: 100%;}
+.grid-container {display: flex;flex-wrap: wrap;justify-content: center;width: 100%;height: 100% !important;/* height: auto !important; 영상 1개일 때 */ }
+.grid-container li {}
+
+.grid2Column li {flex: 1 1 19%;}
+.grid3Column li {flex: 0 1 33%;}
+.grid4Column li {flex: 0 1 36%;}
+.grid5Column li {flex: 0 1 33%;}
+.grid7Column li {flex: 0 1 25%;}
+.grid9Column li {flex: 0 1 20%;}
+.grid15Column li {flex: 0 1 16%;}
+
+@media (max-width: 1180px) {
+  .grid3Column li {flex: 0 1 50%;}
+  .grid4Column li {flex: 1 1 36%;}
+  .grid15Column li {flex: 0 1 33%;}
+}
+@media (max-width: 1024px) {
+  .grid2Column li {flex: 1 1 50%;}
+  .grid7Column li {flex: 0 1 25%;}
+  .grid9Column li {flex: 0 1 50%;}
+}
+@media (max-width: 820px) {
+  .grid2Column li {flex: 1 1 51%;}
+  .grid5Column li {flex: 0 1 50%;}
+  .grid7Column li {flex: 0 1 50%;}
+}
+@media (max-width: 640px) {
+  .grid1Column .grid-container {height: auto !important;}
+  .grid3Column li {flex: 0 1 80%;}
+  .grid4Column li {flex: 0 1 65%;}
+  .grid15Column li {flex: 0 1 50%;}
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  .grid2Column li {flex: 1 1 19%;}
+  .grid3Column li {flex: 1 1 19%;}
+  .grid4Column li {flex: 0 1 36%;}
+  .grid7Column li {flex: 0 1 25%;}
+}
+@media (orientation: landscape) and (max-width: 1180px) {
+
+}
+@media (orientation: landscape) and (max-width: 1024px) {
+  
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            background-color: #27272e;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .grid-wrap {
+            display: flex;
+            height: 100%;
+        }
+
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .grid-container li {
+            flex: 0 1 19%;
+            max-width: 50vw;
+            margin: 3px;
+            color: #ddd;
+            background-color: #626262;
+        }
+        /* .preferably-square {
+            width: 300px;
+            aspect-ratio: auto 16 / 9; 
+            background-image: linear-gradient(90deg,#ec4899,#ef4444,#f59e0b);
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+
+        .box {
+            background-image: linear-gradient(90deg,#ec4899,#ef4444,#f59e0b);
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+
+        .box_1 {
+            padding-top: 200%;
+        }
+
+        .box_2 {
+            padding-top: 75%;
+        }
+
+        .box_3 {
+            padding-top: 56.25%;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="grid-wrap">
+        <ul class="grid-container">
+            <li>grid1</li>
+            <li>grid2</li>
+            <li>grid3</li>
+            <li>grid4</li>
+            <li>grid5</li>
+            <li>grid6</li>
+            <li>grid7</li>
+            <li>grid8</li>
+            <li>grid9</li>
+            <li>grid10</li>
+        </ul>
+        <!-- <div class="preferably-square"></div> -->
+        <!-- <div class="container">
+            <div class="box box_3"></div>
+          </div> -->
+    </div>
+    
+</body>
+
+</html>

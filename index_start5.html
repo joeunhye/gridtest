@@ -1,0 +1,3659 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name='viewport' content='initial-scale=1, viewport-fit=cover'>
+  <title>Lesson365</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./assets/js/jquery-1.12.4.min.js"></script>
+  <script src="./assets/js/jquery-ui.min.js"></script>
+  <script src="./assets/js/jquery.ui.touch-punch.min.js"></script>
+  <script src="./assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  
+  <script type="text/javascript" src="./assets/js/wvFace.js"></script>
+  <link rel="stylesheet" href="./assets/css/jquery.mCustomScrollbar.min.css" />
+  <link rel="stylesheet" type="text/css" href="./assets/css/font.css"/>
+  <link rel="stylesheet" type="text/css" href="./assets/css/wvFace.css"/>
+  <link rel="stylesheet" type="text/css" href="./assets/css/skinwhite.css" />
+  <link rel="stylesheet" type="text/css" href="./assets/css/skinbark.css" />
+  
+</head>
+
+<body>
+  <div id="faceLayout" class="skin_black gnbOn headNone">
+    <header id="faceHeader">
+      <div class="hed">
+        <h1><img src="./assets/img/logo.png" alt=""/></h1>
+        <ul class="hedLink">
+          <li><a href="javascript:;" target="_blank">マイルーム</a></li>
+          <li><a href="javascript:;" target="_blank" class="on">集合研修詳細</a></li>
+        </ul>
+      </div>
+      <div class="subjectBox"> <!--100자 기준-->
+        <h3 class="subjectTitle">디지털인포메이션디지털인포메이션디지털인포메이션디지털인포메이션디지털인포메이션디지털인포메이션디지털인포메이션디지털인포메이션디지털인포메이션디지털인포메이션디지털인포메이션디지털인포메이션이지어러</h3>
+        <div class="tooltip">
+          <span>디지털인포메이션디지털인포메이션디지털인포메이션디지털인포메이션디지털인포메이션디지털인포메이션디지털인포메이션디지털인포메이션디지털인포메이션디지털인포메이션디지털인포메이션디지털인포메이션이지어러</span>
+        </div>
+        <div class="rBox">
+          
+          <span class="studentCo">
+            <span>학습자</span> <span class="studentCount">20명</span>
+          </span>
+          <span class="timeline">00:00:00</span>
+          <a href="javascript:;" class="fullscreenBtn"><span class="icon icon-fullscreen_square"></span></a> <!--전체화면보기/확대-->
+          <a href="javascript:;" class="fullscreenBtn"><span class="icon icon-fullscreen-close_square"></span></a> <!--전체화면보기/축소-->
+          <a href="javascript:;" class="hotkeyBtn">
+            <span class="icon icon-exclamationMark"></span>
+          </a>
+          <a href="javascript:;" class="onoffBtn" data-target="onoffBtn"><span class="icon icon-off"></span></a>
+          <a href="javascript:;" class="circlePBtn"><span class="icon icon-circle_play"></span></a> <!--재생/시작버튼 추가-->
+        </div>
+      </div>
+    </header>
+    <section id="recodingStatus">
+      <div class="recCondition">
+        <div class="reCIn">
+          <div><span class="circle"></span><span class="txt">REC 강의녹화중</span> </div>
+          <div class="time">
+            00:00
+          </div>
+        </div>
+      </div>
+      <div class="recoStopBox">
+        <div>
+          <a href="javascript:;" class="recoStopB">
+            <span class="square"></span>
+            <span class="txt">녹화중지</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section id="gnbBox">
+      <div class="gnbBoxIn">
+        <div class="menuBtn">
+          <a href="javascript:;" class="menuBtnIn open" data-target="gnbMB">
+            <span class="mbin">
+              <span class="line">
+              </span>
+
+              <span class="topArrow icon-arrowT"></span>
+
+            </span>
+          </a>
+        </div>
+        <div class="menuList">
+          <ul>
+            <li class="gnbList listFirst">
+              <a href="javascript:;" data-target="clasInfo">
+                <span class="icon icon-cricleAdd"></span>
+                <span>강의정보</span>
+              </a>
+            </li>
+            <li class="gnbList">
+              <a href="javascript:;" data-target="classUser">
+                <span class="classUNum">11</span>
+                <span class="icon icon-user"></span>
+                <span>참석자</span>
+              </a>
+            </li>
+            <li class="gnbList">
+              <a href="javascript:;" data-target="chattingBox">
+                <span class="icon icon-chat"></span>
+                <span>채팅</span>
+              </a>
+            </li>
+            <li class="gnbList">
+              <a href="javascript:;" data-target="classSurvey">
+                <span class="icon icon-memo"></span>
+                <span>설문</span>
+              </a>
+            </li>
+            <li class="gnbList brr">
+              <a href="javascript:;" data-target="breakOutRoom">
+                <span class="icon icon-breakeoutroom"></span>
+                <span><span class="br">브레이크</span><span>아웃룸</span></span>
+              </a>
+            </li>
+            <li class="gnbList">
+              <a href="javascript:;" data-target="referenceRoom">
+                <span class="icon icon-file"></span>
+                <span>자료실</span>
+              </a>
+            </li>
+            <li class="gnbList">
+              <a href="javascript:;" data-target="qaCont">
+                <span class="icon icon-qa"></span>
+                <span>질의응답</span>
+              </a>
+            </li>
+            <li class="gnbList">
+              <a href="javascript:;" data-target="studyStatus">
+                <span class="icon icon-bargraph"></span>
+                <span>학습현황</span>
+              </a>
+            </li>
+  
+            <!-- 설정 -->
+            <li class="gnbList setG">
+              <a href="javascript:;" data-target="generSet">
+                <span class="icon icon-setbar"></span>
+                <span>일반설정</span>
+              </a>
+            </li>
+            <li class="gnbList">
+              <a href="javascript:;" data-target="lectureSet">
+                <span class="icon icon-setting"></span>
+                <span><span class="br">강의실</span><span>설정</span></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="classInfo" class="gnbCon">
+      
+      <div class="contentIn">
+        <div class="sectionTitleBox">
+          <div class="sectionTitleBoxIn">
+            <a href="javacript:;" data-target="clasInfo">
+              <span class="icon-arrowR icon"></span><span>강의정보</span>
+            </a>
+          </div>
+        </div>
+        <div class="cinfol">
+         <div class="cinfolIn">
+          <div class="infoBox">
+            <div class="subject">ガンウイミョン</div>
+            <div class="subjTitle">
+              <a href="javascript:;" class="copyBtn">
+                <span>ビジネスマインドと仕事の進め方ビジネスマインドと仕事の進め方ビジネスマインドと仕事の進め方ビジネスマインドと仕事の進め方</span>
+              </a>
+              
+            </div>
+            <div class="subjlmsid">LBIZCOM0203</div>
+          </div>
+          <div class="infoBox">
+            <div class="subject">ガンサミョン</div>
+            <div class="infoTe">
+              <span class="tname">山田太郎山田太郎山田太郎山田太郎山田太郎山田太郎山田太郎山田太郎山田太郎山田太郎</span>
+              <span class="tcode">TR2006200</span>
+            </div>
+          </div>
+          <div class="infoBox">
+            <div class="subject">講義時間</div>
+            <div class="clstarttop">
+              <span class="clstart">開始時間</span>
+              <span class="cldateTime">2020.07.02 15:03 </span>
+            </div>
+            <div>
+              <span class="cling">経過時間</span>
+              <span class="clingTime">01:42:38</span>
+            </div>
+          </div>
+          <div class="infoBox ciLBox">
+            <div class="subject">教室URL</div>
+            <div>
+              <div class="classInfoLinkBox">
+                <a href="javascript:;">
+                  <span class="icon-link"></span>
+                </a>
+                <div class="urltextArea">
+                  <span class="">http://www.nelive.co.jp/FOgDh%0EX4Dt...</span>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          
+         </div>
+        </div>
+      </div>
+    </section>
+    <section id="classUser" class="gnbCon">
+      <div class="contentIn">
+        <div class="sectionTitleBox">
+          <div class="sectionTitleBoxIn">
+            <a href="javascript:;" class="arrrow" data-target="classUser">
+              <span class="icon icon-arrowR"></span><span> 사용자</span>
+            </a>
+          </div>
+        </div>
+        <div class="classUserListBox">
+          <div class="classUserIn">
+            <div class="classUserSetView">
+              <div>
+                <div class="classUSVIn">
+                  <div classs="">
+                    <div class="classUSCIn">
+                      <div class="subject"><span class="icon-camera_on icon"></span><span>카메라 설정</span></div>
+                      <ul class="classUSCSetL userCSet">
+                        <li>
+                          <a href="javascript:;">전체 Off</a>
+                        </li>
+                        <li>
+                          <a href="javascript:;" class="on">전체 On</a>
+                        </li>
+                        <li>
+                          <a href="javascript:;">발표자 외 Off</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="">
+                    <div class="classUSCIn">
+                      <div class="subject"><span class="icon-mic_on icon"></span><span>마이크 설정</span></div>
+                      <ul class="classUSCSetL userCSet">
+                        <li>
+                          <a href="javascript:;">전체 Off</a>
+                        </li>
+                        <li>
+                          <a href="javascript:;">전체 On</a>
+                        </li>
+                        <li>
+                          <a href="javascript:;" class="on">발표자 외 Off</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+  
+                </div>
+                <div class="classUSVBtnBox">
+                  <a href="javascript:;">저장하기</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 강사 및 id 찾기 -->
+          <div class="classUserSearch">
+            <div class="classUserSearchIn">
+              <select class="searchBox">
+                <option>전체</option>
+                <option>강사</option>
+                <option>수강생</option>
+              </select>
+              <span class="line"></span>
+              <input type="text" placeholder="검색어를 입력해주세요."/>
+              <button type="submit">
+                <span class="icon-search"></span>
+              </button>
+            </div>
+          </div>
+          <!-- 강사 및 id 찾기 -->
+          <div class="classUSerList">
+            <div class="classUSerListIn">      
+              <ul>
+                <li class="on">
+                  <div class="userProBox">
+                    <div class="userPro noBg"> <!--사용자 프로필 이미지 사용 안하고 아이콘 노출 시 클래스 'noBg' 추가-->
+                        <span class="icon icon-lecturer"></span>
+                    </div>
+                    <span class="teacherIcon">T</span>
+                  </div>
+                 
+                  
+                  <div class="userNameMicCamer">
+                    <div class="userNameMicCamerIN">
+                      <div class="culnamelmsid">
+                        <span class="name">강사</span>
+                        <span class="lmsid">ASP0021</span>
+                        
+                      </div>
+                      <div class="culonoffTime">
+                        <span class="onoff">On</span>
+                        <span class="time">13:07:45</span>
+                      </div>
+                      <div class="culinvitation">
+                        <a href="javascript:;">
+                          <span class="icon icon-Rtetragon"></span>
+                          <span class="">초대</span>
+                        </a> 
+                      </div>
+                    </div>
+                  </div>
+    
+                </li>
+                <li>
+                  <div class="userProBox">
+                    <div class="userPro noBg">
+                        <span class="icon icon-student"></span>
+                    </div>
+                  </div>
+                 
+                  
+                  <div class="userNameMicCamer">
+                    <div class="userNameMicCamerIN">
+                      <div class="culnamelmsid">
+                        <span class="name">수강생</span>
+                        <span class="lmsid">ASP0021</span>
+                        
+                      </div>
+                      <div class="culonoffTime">
+                        <span class="onoff">On</span>
+                        <span class="time">13:07:45</span>
+                      </div>
+                      <div class="culinvitation">
+                        <a href="javascript:;">
+                          <span class="icon icon-Rtetragon"></span>
+                          <span class="">초대</span>
+                        </a> 
+                      </div>
+                    </div>
+                  </div>
+    
+                </li>
+                <li>
+                  <div class="userProBox">
+                    <div class="userPro noBg">
+                        <span class="icon icon-business"></span>
+                    </div>
+                  </div>
+                 
+                  
+                  <div class="userNameMicCamer">
+                    <div class="userNameMicCamerIN">
+                      <div class="culnamelmsid">
+                        <span class="name">부강사/직장인</span>
+                        <span class="lmsid">ASP0021</span>
+                        
+                      </div>
+                      <div class="culonoffTime">
+                        <span class="onoff">On</span>
+                        <span class="time">13:07:45</span>
+                      </div>
+                      <div class="culinvitation">
+                        <a href="javascript:;">
+                          <span class="icon icon-Rtetragon"></span>
+                          <span class="">초대</span>
+                        </a> 
+                      </div>
+                    </div>
+                  </div>
+    
+                </li>
+                <li class="">
+                  <div class="userProBox">
+                    <div class="userPro">
+                    </div>
+                  </div>
+                 
+                  
+                  <div class="userNameMicCamer">
+                    <div class="userNameMicCamerIN">
+                      <div class="culnamelmsid">
+                        <span class="name">ビジネスマインドと仕事の進め方ビジネスマインドと仕事の進め方ビジネスマインドと仕事の進め方ビジネスマインドと仕事の進め方</span>
+                        <span class="lmsid">ASP0021</span>
+                        
+                      </div>
+                      <div class="culonoffTime">
+                        <span class="onoff">On</span>
+                        <span class="time">13:07:45</span>
+                      </div>
+                      <div class="culiconBox">
+                        <span class="first">
+                          <a href="javascript:;"><span class="icon-speker"></span></a>
+                        </span>
+                        <span class="onofficonBox">
+                          <a href="javascript:;">
+                            <span class="icon-mic_on"></span>
+                            <span class="icon-mic_off off"></span>
+                          </a>
+    
+                        </span>
+                        <span class="onofficonBox">
+                          <a href="javascript:;">
+                            <span class="icon-camera_on"></span>
+                            <span class="icon-camera_off off"></span>
+                          </a>
+                        </span>
+                        <span class="ext">
+                          <a href="javascript:;">
+                            <span class="icon-exit"></span>
+                          </a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+    
+                </li>
+                <li class="">
+                  <div class="userProBox">
+                    <div class="userPro">
+                    </div>
+                  </div>
+                 
+                  
+                  <div class="userNameMicCamer">
+                    <div class="userNameMicCamerIN">
+                      <div class="culnamelmsid">
+                        <span class="name">ビジネスマインドと仕事の進め方ビジネスマインドと仕事の進め方ビジネスマインドと仕事の進め方ビジネスマインドと仕事の進め方</span>
+                        <span class="lmsid">ASP0021</span>
+                        
+                      </div>
+                      <div class="culonoffTime">
+                        <span class="onoff">On</span>
+                        <span class="time">13:07:45</span>
+                      </div>
+                      <div class="culiconBox">
+                        <span class="first">
+                          <a href="javascript:;"><span class="icon-speker"></span></a>
+                        </span>
+                        <span class="onofficonBox">
+                          <a href="javascript:;">
+                            <span class="icon-mic_on"></span>
+                            <span class="icon-mic_off off"></span>
+                          </a>
+    
+                        </span>
+                        <span class="onofficonBox">
+                          <a href="javascript:;">
+                            <span class="icon-camera_on"></span>
+                            <span class="icon-camera_off off"></span>
+                          </a>
+                        </span>
+                        <span class="ext">
+                          <a href="javascript:;">
+                            <span class="icon-exit"></span>
+                          </a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+    
+                </li>
+                <li class="">
+                  <div class="userProBox">
+                    <div class="userPro">
+                    </div>
+                  </div>
+                 
+                  
+                  <div class="userNameMicCamer">
+                    <div class="userNameMicCamerIN">
+                      <div class="culnamelmsid">
+                        <span class="name">ビジネスマインドと仕事の進め方ビジネスマインドと仕事の進め方ビジネスマインドと仕事の進め方ビジネスマインドと仕事の進め方</span>
+                        <span class="lmsid">ASP0021</span>
+                        
+                      </div>
+                      <div class="culonoffTime">
+                        <span class="onoff">On</span>
+                        <span class="time">13:07:45</span>
+                      </div>
+                      <div class="culiconBox">
+                        <span class="first">
+                          <a href="javascript:;"><span class="icon-speker"></span></a>
+                        </span>
+                        <span class="onofficonBox">
+                          <a href="javascript:;">
+                            <span class="icon-mic_on"></span>
+                            <span class="icon-mic_off off"></span>
+                          </a>
+    
+                        </span>
+                        <span class="onofficonBox">
+                          <a href="javascript:;">
+                            <span class="icon-camera_on"></span>
+                            <span class="icon-camera_off off"></span>
+                          </a>
+                        </span>
+                        <span class="ext">
+                          <a href="javascript:;">
+                            <span class="icon-exit"></span>
+                          </a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+    
+                </li>
+                <li class="">
+                  <div class="userProBox">
+                    <div class="userPro">
+                    </div>
+                  </div>
+                 
+                  
+                  <div class="userNameMicCamer">
+                    <div class="userNameMicCamerIN">
+                      <div class="culnamelmsid">
+                        <span class="name">ビジネスマインドと仕事の進め方ビジネスマインドと仕事の進め方ビジネスマインドと仕事の進め方ビジネスマインドと仕事の進め方</span>
+                        <span class="lmsid">ASP0021</span>
+                        
+                      </div>
+                      <div class="culonoffTime">
+                        <span class="onoff">On</span>
+                        <span class="time">13:07:45</span>
+                      </div>
+                      <div class="culiconBox">
+                        <span class="first">
+                          <a href="javascript:;"><span class="icon-speker"></span></a>
+                        </span>
+                        <span class="onofficonBox">
+                          <a href="javascript:;">
+                            <span class="icon-mic_on"></span>
+                            <span class="icon-mic_off off"></span>
+                          </a>
+    
+                        </span>
+                        <span class="onofficonBox">
+                          <a href="javascript:;">
+                            <span class="icon-camera_on"></span>
+                            <span class="icon-camera_off off"></span>
+                          </a>
+                        </span>
+                        <span class="ext">
+                          <a href="javascript:;">
+                            <span class="icon-exit"></span>
+                          </a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+    
+                </li>
+                <li class="">
+                  <div class="userProBox">
+                    <div class="userPro">
+                    </div>
+                  </div>
+                 
+                  
+                  <div class="userNameMicCamer">
+                    <div class="userNameMicCamerIN">
+                      <div class="culnamelmsid">
+                        <span class="name">ビジネスマインドと仕事の進め方ビジネスマインドと仕事の進め方ビジネスマインドと仕事の進め方ビジネスマインドと仕事の進め方</span>
+                        <span class="lmsid">ASP0021</span>
+                        
+                      </div>
+                      <div class="culonoffTime">
+                        <span class="onoff">On</span>
+                        <span class="time">13:07:45</span>
+                      </div>
+                      <div class="culiconBox">
+                        <span class="first">
+                          <a href="javascript:;"><span class="icon-speker"></span></a>
+                        </span>
+                        <span class="onofficonBox">
+                          <a href="javascript:;">
+                            <span class="icon-mic_on"></span>
+                            <span class="icon-mic_off off"></span>
+                          </a>
+    
+                        </span>
+                        <span class="onofficonBox">
+                          <a href="javascript:;">
+                            <span class="icon-camera_on"></span>
+                            <span class="icon-camera_off off"></span>
+                          </a>
+                        </span>
+                        <span class="ext">
+                          <a href="javascript:;">
+                            <span class="icon-exit"></span>
+                          </a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+    
+                </li>
+              </ul>
+    
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="viewBox">
+      <!-- viewBox -->
+    </section>
+    <section id="faceAllBox">
+      <a  href="javascript:;" class="icon-arrowR iconLeft"></a>
+      <a href="javascript:;" class="on icon-arrowR iconRight"></a>
+      <div class="testBox">
+        <select id="testS">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+          <option value="24">24</option>
+          <option value="25">25</option>
+          <option value="26">26</option>
+          <option value="27">27</option>
+          <option value="28">28</option>
+          <option value="29">29</option>
+          <option value="30">30</option>
+          <option value="31">31</option>
+          <option value="32">32</option>
+          <option value="33">33</option>
+          <option value="34">34</option>
+          <option value="35">35</option>
+          <option value="36">36</option>
+          <option value="37">37</option>
+          <option value="38">38</option>
+          <option value="39">39</option>
+          <option value="40">40</option>
+        </select>
+        <button onclick="testS()">화면시험</button>
+      </div>
+      <div class="faceAllBoxOver">
+        <div class="faceAllBoxW">
+          <div>
+            <div class="faceAllBoxIn grid-wrap">
+              <ul class="faceAllList faceAllList1 grid-container">
+                <li>
+                  <div class="faceAllVideo">
+                    <div class="faceAllVideoIn">
+                      <!--기본이미지 영역-->
+                      <div class="basicBox"><img src="./assets/img/basic.png" alt="" class="" /></div>
+                      <!-- video 영역-->
+                      <div class="videoBox"><video></video></div>
+                      <!-- icon option 영역-->
+                      <a href="javascript:;" class="Announ"><span class="icon-hands"></span></a>
+                      <a href="javascript:;" class="videoSetting"><span class="vedioSetIn"><span class="btn"></span></span></a>
+                      <div class="videoSetBg">
+                        <ul>
+                          <li>
+                            <div><a href="javascript:;"><span class="icon-mic_off icon"></span><span>음성 소거 해제</span></a></div>
+                            <div><a href="javascript:;"><span class="icon-camera_off icon"></span><span>영상 소거 해제</span></a></div>
+                            <div><a href="javascript:;"><span class="icon-videofixe icon"></span><span>비디오 고정 </span></a></div>
+                          </li>
+                          <li>
+                            <div><a href="javascript:;"><span class="icon-pin icon"></span><span>호스트 지정</span></a></div>
+                            <div><a href="javascript:;"><span class="icon-sound icon"></span> <span>발표자 지정</span></a></div>
+                          </li>
+                          <li>
+                            <div><a href="javascript:;"><span class="icon-exit icon"></span> <span>강제 퇴실</span></a></div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="naming">
+                        <a href="javascript:;" class="camera off"><span class="icon-camera_off "></span></a>
+                        <a href="javascript:;" class="mic off"><span class="icon-mic_off "></span></a>
+                        <span class="nameText">YamamotoYamamotoYamamotoYamamotoYamamotoYamamotoYamamoto</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="chattingBox" class="gnbCon">
+      <div class="contentIn">
+        <div class="sectionTitleBox">
+          <div class="sectionTitleBoxIn">
+            <a href="javascript:;" class="arrrow" data-target="chattingBox">
+             <span class="icon icon-arrowR"></span><span>채팅</span></a>
+            </a>
+            <a href="javascript:;" class="set" data-target="chatSeting">
+              <span class="icon-setting"></span>
+            </a>
+            <div class="settingList">
+              <!-- setting list -->
+            </div>
+          </div>
+        </div>
+        <div class="classUserIn">
+          <div class="classUserIn">
+            <div class="chattingTak">
+              <ul>
+                <li class="others">
+                  <div>
+                    <span class="talkTime">PM 16:19</span><span class="othersName">Botami teacher</span>
+                    <div class="talkBox">
+                      안녕하세요 모두 반갑습니다.
+                    </div>
+                  </div>
+                </li>
+                <li class="talkMe">
+                  <div>
+                    <span class="talkTime">PM 16:19</span>
+                    <div class="talkBox">
+                      안녕하세요.
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                    </div>
+                  </div>
+                </li>
+                <li class="others">
+                  <div>
+                    <span class="talkTime">PM 16:19</span><span class="othersName">Botami teacher</span>
+                    <div class="talkBox">
+                      안녕하세요.
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      안녕하세요.
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                    </div>
+                  </div>
+                </li>
+                <li class="chattingOut">
+                  <div class="chatoutIn">
+                    <span class="talkTime">PM 16:19</span>
+                    <strong>Botami teacherfjfjfj</strong> 퇴실
+                  </div>
+                </li>
+                <li class="chatBrakeOutStart">
+                  <div class="chatoutIn">
+                    <span class="talkTime">PM 16:19</span>
+                    <strong>브레이크 아웃룸</strong> 시작
+                  </div>
+                </li>
+                <li class="chatFileDownload">
+                  <div class="chatoutIn">
+                    <span class="talkTime">PM 16:19</span>
+                    <strong>파일공유</strong>  <a href="javascript:;" class="chatFileDown"><span>파일다운로드</span><span class="icon icon-roundDown"></span></a>
+                  </div>
+                </li>
+                <li class="others">
+                  <div>
+                    <span class="talkTime">PM 16:19</span><span class="othersName">Botami teacher</span>
+                    <div class="talkBox">
+                      안녕하세요.
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      안녕하세요.
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="talkMeTextArea">
+            <div class="tmtaIn">
+              <a href="javascript:;" class="chatTakBtn imobtn">
+                <span class="icon-smile"></span>
+              </a>
+              <a href="javascript:;" class="chatTakBtn">
+                <span class="icon-attach"></span>
+              </a>
+              <span class="typing">
+                <input type="text" placeholder="내용을 입력해주세요." />
+                <button type="submit" class="enterBnt">
+                  <span class="icon-sand"></span>
+                </button>
+              </span>
+            </div>
+             <!-- imoti -->
+            <div class="imo">
+              <ul>
+                <li><a hefr="javacript:;"><span class="icon-undecided"></span></a></li>
+                <li><a hefr="javacript:;"><span class="icon-sad"></span></a></li>
+                <li><a hefr="javacript:;"><span class="icon-happy"></span></a></li>
+                <li><a hefr="javacript:;"><span class="icon-confused"></span></a></li>
+                <li><a hefr="javacript:;"><span class="icon-applause"></span></a></li>
+                <li><a hefr="javacript:;"><span class="icon-thumbs_down"></span></a></li>
+                <li><a hefr="javacript:;"><span class="icon-thumbs_up"></span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+       
+      </div>
+    </section>
+    <section id="surveyBox" class="gnbCon">
+      <div class="contentIn">
+        <div class="sectionTitleBox">
+          <div class="sectionTitleBoxIn">
+            <a href="javascript:;" class="arrrow" data-target="classSurvey"><span class="icon icon-arrowR"></span><span>설문</span></a>
+            <a href="javascript:;" class="set" data-target="surveyBoxBtn">
+              <span class="setIn">
+                <span class="txt">설문작성</span> <span class="icon icon-addlight"></span>
+              </span>
+            </a>
+          </div>
+        </div>
+        <!--설문 리스트 -->
+        <div class="srbinListB">
+          <ul class="srbinList">
+            <li class="surveyConBox">
+              <div class="surConBIn">
+                <h3>상반기 워크샵 어젠더 설문조사</h3>
+                <div class="surveyJoinNum">
+                  <span class="sJoin">참여</span>
+                  <span class="sNum">15명</span>
+                </div>
+                <div class="surveyProgressDate">
+                  <span class="sProg">설문완료</span>
+                  <span class="sDate">2020.10.10</span>
+                </div>
+                <div class="surveyBtnBox end">
+                  <a href="javascript:;">설문마감</a>
+                </div>
+              </div>
+            </li>
+            <li class="surveyConBox">
+              <div class="surConBIn">
+                <h3>상반기 워크샵 어젠더 설문조사</h3>
+                <div class="surveyJoinNum">
+                  <span class="sJoin">참여</span>
+                  <span class="sNum">15명</span>
+                </div>
+                <div class="surveyProgressDate">
+                  <span class="sProg ing">진행중</span>
+                  <span class="sDate">2020.10.10</span>
+                </div>
+                <div class="surveyBtnBox share">
+                  <a href="javascript:;">결과공유</a>
+                </div>
+              </div>
+            </li>
+            <li class="surveyConBox">
+              <div class="surConBIn">
+                <h3>상반기 워크샵 어젠더 설문조사</h3>
+                <div class="surveyJoinNum">
+                  <span class="sJoin">참여</span>
+                  <span class="sNum">15명</span>
+                </div>
+                <div class="surveyProgressDate">
+                  <span class="sProg pre">설문준비</span>
+                  <span class="sDate">2020.10.10</span>
+                </div>
+                <div class="surveyBtnBox start">
+                  <a href="javascript:;">설문시작</a>
+                </div>
+              </div>
+            </li>
+            <li class="surveyConBox">
+              <div class="surConBIn">
+                <h3>상반기 워크샵 어젠더 설문조사</h3>
+                <div class="surveyJoinNum">
+                  <span class="sJoin">참여</span>
+                  <span class="sNum">15명</span>
+                </div>
+                <div class="surveyProgressDate">
+                  <span class="sProg">설문완료</span>
+                  <span class="sDate">2020.10.10</span>
+                </div>
+                <div class="surveyBtnBox end">
+                  <a href="javascript:;">설문마감</a>
+                </div>
+              </div>
+            </li>
+            <li class="surveyConBox">
+              <div class="surConBIn">
+                <h3>상반기 워크샵 어젠더 설문조사</h3>
+                <div class="surveyJoinNum">
+                  <span class="sJoin">참여</span>
+                  <span class="sNum">15명</span>
+                </div>
+                <div class="surveyProgressDate">
+                  <span class="sProg">설문완료</span>
+                  <span class="sDate">2020.10.10</span>
+                </div>
+                <div class="surveyBtnBox end">
+                  <a href="javascript:;">설문마감</a>
+                </div>
+              </div>
+            </li>
+            <li class="surveyConBox">
+              <div class="surConBIn">
+                <h3>상반기 워크샵 어젠더 설문조사</h3>
+                <div class="surveyJoinNum">
+                  <span class="sJoin">참여</span>
+                  <span class="sNum">15명</span>
+                </div>
+                <div class="surveyProgressDate">
+                  <span class="sProg">설문완료</span>
+                  <span class="sDate">2020.10.10</span>
+                </div>
+                <div class="surveyBtnBox end">
+                  <a href="javascript:;">설문마감</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- 설문 목록 생성-->
+        <div class="surveyCCBox">
+          <div class="surveyConCreatio">
+            <div class="surveTitleCon">
+              <h3 class="">설문내용</h3>
+              <div class="sccInputBox">
+                <input type="text" placeholder="내용을 입력하세요." />
+              </div>
+            </div>
+          </div>
+          <h3 class="surveyCCListT">답변내용</h3>
+          <div class="surveyCCListBox">
+           <div class="surveyCCListBoxIn">
+              <ul class="surveyCCList">
+                <li class="">
+                  <label for="opt1" class="radio">
+                    <input type="radio" name="rdo" id="opt1" class="hidden" />
+                    <span class="label"></span>Yes / No
+                  </label>
+                </li>
+                <li class="">
+                  <label for="opt2" class="radio">
+                    <input type="radio" name="rdo" id="opt2" class="hidden" />
+                    <span class="label"></span>True / False
+                  </label>
+                </li>
+                <li class="">
+                  <label for="opt3" class="radio">
+                    <input type="radio" name="rdo" id="opt3" class="hidden" />
+                    <span class="label"></span>Custom
+                  </label>
+                  <div class="surCusListBox">
+                    <div class="surCusListBoxIn">
+                      <div class="surccCustom">
+                        <ul>
+                          <li>
+                            <div>
+                              <span class="txt">블라블라블라</span>
+                              <a href="javascript:;"><span class="icon icon-closebtn"></span></a>
+                            </div>
+                          </li>
+                          <li>
+                            <div>
+                              <span class="txt">블라블라블라</span>
+                              <a href="javascript:;"><span class="icon icon-closebtn"></span></a>
+                            </div>
+                          </li>
+                          <li>
+                            <div>
+                              <span class="txt">블라블라블라</span>
+                              <a href="javascript:;"><span class="icon icon-closebtn"></span></a>
+                            </div>
+                          </li>
+                          <li>
+                            <div>
+                              <span class="txt">블라블라블라</span>
+                              <a href="javascript:;"><span class="icon icon-closebtn"></span></a>
+                            </div>
+                          </li>
+                          <li>
+                            <div>
+                              <span class="txt">블라블라블라</span>
+                              <a href="javascript:;"><span class="icon icon-closebtn"></span></a>
+                            </div>
+                          </li>
+                          <li>
+                            <div>
+                              <span class="txt">블라블라블라</span>
+                              <a href="javascript:;"><span class="icon icon-closebtn"></span></a>
+                            </div>
+                          </li>
+                          <li>
+                            <div>
+                              <span class="txt">블라블라블라</span>
+                              <a href="javascript:;"><span class="icon icon-closebtn"></span></a>
+                            </div>
+                          </li>
+                          <li>
+                            <div>
+                              <span class="txt">블라블라블라</span>
+                              <a href="javascript:;"><span class="icon icon-closebtn"></span></a>
+                            </div>
+                          </li>
+                          <li>
+                            <div>
+                              <span class="txt">블라블라블라</span>
+                              <a href="javascript:;"><span class="icon icon-closebtn"></span></a>
+                            </div>
+                          </li>
+                          <li>
+                            <div>
+                              <span class="txt">블라블라블라</span>
+                              <a href="javascript:;"><span class="icon icon-closebtn"></span></a>
+                            </div>
+                          </li>
+                          <li class="surAddBox">
+                            <a href="javascript:;">
+                              <span class="icon icon-closebtn"></span>
+                              <span>추가</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+        
+                    <a href="javascript:;" class="surCusSaveBtn">저장</a>
+                  </div>
+        
+                </li>
+              </ul>
+           </div>
+          </div>
+        </div>
+        <!-- 설문 목록 Edit-->
+        <div class="surveyConCreatio">
+          <div class="surveTitleCon">
+            <h3 class="">설문내용</h3>
+            <div class="sccInputBox">
+              <div class="txt">상반기 워크샵 어젠더 설문조사</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="sureditLay">
+            <h3 class="surveyCCListT">답변</h3>
+            <div class="surveyConCreatio">
+              <div class="surveTitleCon">
+                <ul>
+                  <li class="survReBoxan">
+                    <div class="survT">
+                      월간보고월간보고월간보고월간보고월간보고월간보고월간
+                    </div>
+                    <div class="txtR">
+                      <span class="survN">2</span>
+                      <span class="surP ">20%</span>
+                    </div>
+                  </li>
+                  <li class="survReBoxan">
+                    <div class="survT">
+                      인원현황
+                    </div>
+                    <div class="txtR">
+                      <span class="survN">2</span>
+                      <span class="surP on">25%</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="surviReing">
+              <h3 class="surveyCCListT">수강생응답</h3>
+              <div class="surveyConCreatio answer">
+                <div class="surveTitleCon">
+                  <div class="survReBoxstu">
+                    <ul>
+                     
+                      <li>
+                        <div class="survName">
+                          <span>김성수성수성수성수성수성수성수성수성수성수성수</span>
+                        </div>
+                        <div class="survTR">
+                          인원현황인원현황
+                          인원현황인원현황
+                          인원현황
+                          인원현황
+                          인원현황인원현황
+                          인원현황
+                          인원현황
+                          인원현황
+                          인원현황
+                        </div>
+                      </li>
+                      <li>
+                        <div class="survName">
+                          <span>김성수성수성수성수성수성수성수성수성수성수성수</span>
+                        </div>
+                        <div class="survTR">
+                          인원현황인원현황
+                          인원현황인원현황
+                          인원현황
+                          인원현황
+                          인원현황인원현황
+                          인원현황
+                          인원현황
+                          인원현황
+                          인원현황
+                        </div>
+                      </li>
+                      <li>
+                        <div class="survName">
+                          <span>김성수성수성수성수성수성수성수성수성수성수성수</span>
+                        </div>
+                        <div class="survTR">
+                          인원현황인원현황
+                          인원현황인원현황
+                          인원현황
+                          인원현황
+                          인원현황인원현황
+                          인원현황
+                          인원현황
+                          인원현황
+                          인원현황
+                        </div>
+                      </li>
+                      <li>
+                        <div class="survName">
+                          <span>김성수성수성수성수성수성수성수성수성수성수성수</span>
+                        </div>
+                        <div class="survTR">
+                          인원현황인원현황
+                          인원현황인원현황
+                          인원현황
+                          인원현황
+                          인원현황인원현황
+                          인원현황
+                          인원현황
+                          인원현황
+                          인원현황
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="surveyEdiBtnBox">
+            <div class="surveyEdiBtnBoxIn">
+              <div class="all">
+                <a href="javascript:;" class="reE ">설문마감</a>
+              </div>
+              <div class="all">
+                <a href="javascript:;" class="open on">결과공개</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="breakOutRoom" class="gnbCon">
+      <div class="contentIn">
+        <div class="sectionTitleBox">
+          <div class="sectionTitleBoxIn">
+            <a href="javacript:;" data-target="breakout">
+              <span class="icon-arrowR icon"></span><span>브레이크아웃룸</span>
+            </a>
+          </div>
+        </div>
+        <div class="boRListoBox">
+          <div>
+            <ul>
+              <li>
+                <div>
+                  <div class="subject">
+                    <span class="roomNumber">Room<span class="num">1</span></span>
+                    <span class="count">5</span>
+                    <span class="time">남은시간 00:00</span>
+                  </div>
+                  <div class="userBox">
+                    <span>
+                      김성수, 최원요, jaiwal lee, 김용필, 김수진
+                      김성수, 최원요, jaiwal lee, 김용필, 김수진
+                      김성수, 최원요, jaiwal lee, 김용필, 김수진
+                    </span>
+                  </div>
+                  <div class="participationBox">
+                    <a href="javascript:;s" target="_blank">참여</a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <div class="subject">
+                    <span class="roomNumber">Room<span class="num">1</span></span>
+                    <span class="count">5</span>
+                    <span class="time">남은시간 00:00</span>
+                  </div>
+                  <div class="userBox">
+                    <span>
+                      김성수, 최원요, jaiwal lee, 김용필, 김수진
+                     
+                    </span>
+                  </div>
+                  <div class="participationBox">
+                    <a href="javascript:;s" target="_blank" class="on">참여</a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <div class="subject">
+                    <span class="roomNumber">Room<span class="num">1</span></span>
+                    <span class="count">5</span>
+                    <span class="time">남은시간 00:00</span>
+                  </div>
+                  <div class="userBox">
+                    <span>
+                      김성수, 최원요, jaiwal lee, 김용필, 김수진
+                      김성수, 최원요, jaiwal lee, 김용필, 김수진
+                      김성수, 최원요, jaiwal lee, 김용필, 김수진
+                    </span>
+                  </div>
+                  <div class="participationBox">
+                    <a href="javascript:;s" target="_blank">참여</a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <div class="subject">
+                    <span class="roomNumber">Room<span class="num">1</span></span>
+                    <span class="count">5</span>
+                    <span class="time">남은시간 00:00</span>
+                  </div>
+                  <div class="userBox">
+                    <span>
+                      김성수, 최원요, jaiwal lee, 김용필, 김수진
+                      김성수, 최원요, jaiwal lee, 김용필, 김수진
+                      김성수, 최원요, jaiwal lee, 김용필, 김수진
+                    </span>
+                  </div>
+                  <div class="participationBox">
+                    <a href="javascript:;s" target="_blank">참여</a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <div class="subject">
+                    <span class="roomNumber">Room<span class="num">1</span></span>
+                    <span class="count">5</span>
+                    <span class="time">남은시간 00:00</span>
+                  </div>
+                  <div class="userBox">
+                    <span>
+                      김성수, 최원요, jaiwal lee, 김용필, 김수진
+                      김성수, 최원요, jaiwal lee, 김용필, 김수진
+                      김성수, 최원요, jaiwal lee, 김용필, 김수진
+                    </span>
+                  </div>
+                  <div class="participationBox">
+                    <a href="javascript:;s" target="_blank">참여</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="referenceRoom" class="gnbCon">
+      <div class="contentIn">
+        <div class="sectionTitleBox">
+          <div class="sectionTitleBoxIn">
+            <a href="javascript:;" class="arrrow" data-target="referRoomArrow"><span class="icon icon-arrowR"></span><span>설문</span></a>
+            <a href="javascript:;" class="set" data-target="referlist">
+              <span class="setIn">
+                <span class="txt">자료등록 </span> <span class="icon icon-addlight"></span>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="referRBox">
+          <div class="referRegi">
+            <!-- 자료등록 -->
+            <div class="referroomb">
+              <div class="subject">자료명</div>
+              <div class="referFindBox">
+                <input type="text" class="referFind" placeholder="자료명을 입력해주세요."/> 
+              </div>  
+              <a href="javascript:;" class="referToggle">
+                <span class="icon icon-Rtetragon"></span>
+                <span>파일첨부</span>
+              </a>
+              <div class="selecRefer">
+                <span class="txt">2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문.xlxs</span>
+              </div>
+            </div>
+            <!-- 자료등록 끝-->
+          </div>
+          <div class="referList">
+            <ul>
+              <li>
+                <h3>프레젠테이션 중금 2교시 과제제출 홍길동</h3>
+                <a href="javascript:;" class="selecRefer">
+                  <span class="txt">2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문.xlxs</span>
+                  <span class="icon icon-Rtetragon"></span>
+                </a>
+               
+                <div class="refreReInfo">
+                  <span>2020-01-01</span>
+                  <span>15:50</span>
+                  <span>홍길동</span>
+                </div>
+              </li>
+              <li>
+                <h3>프레젠테이션 중금 2교시 과제제출 홍길동</h3>
+                <a href="javascript:;" class="selecRefer">
+                  <span class="txt">2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문.xlxs</span>
+                  <span class="icon icon-Rtetragon"></span>
+                </a>
+                <a href="javascript:;" class="selecRefer">
+                  <span class="txt">2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문.xlxs</span>
+                  <span class="icon icon-Rtetragon"></span>
+                </a>
+                <a href="javascript:;" class="selecRefer">
+                  <span class="txt">2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문.xlxs</span>
+                  <span class="icon icon-Rtetragon"></span>
+                </a>
+                <a href="javascript:;" class="selecRefer">
+                  <span class="txt">2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문.xlxs</span>
+                  <span class="icon icon-Rtetragon"></span>
+                </a>
+                <div class="refreReInfo">
+                  <span>2020-01-01</span>
+                  <span>15:50</span>
+                  <span>홍길동</span>
+                </div>
+              </li>
+              <li>
+                <h3>프레젠테이션 중금 2교시 과제제출 홍길동</h3>
+                <a href="javascript:;" class="selecRefer">
+                  <span class="txt">2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문.xlxs</span>
+                  <span class="icon icon-Rtetragon"></span>
+                </a>
+               
+                <div class="refreReInfo">
+                  <span>2020-01-01</span>
+                  <span>15:50</span>
+                  <span>홍길동</span>
+                </div>
+              </li>
+              <li>
+                <h3>프레젠테이션 중금 2교시 과제제출 홍길동</h3>
+                <a href="javascript:;" class="selecRefer">
+                  <span class="txt">2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문.xlxs</span>
+                  <span class="icon icon-Rtetragon"></span>
+                </a>
+                <a href="javascript:;" class="selecRefer">
+                  <span class="txt">2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문2020 워크샵 설문.xlxs</span>
+                  <span class="icon icon-Rtetragon"></span>
+                </a>
+                <div class="refreReInfo">
+                  <span>2020-01-01</span>
+                  <span>15:50</span>
+                  <span>홍길동</span>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+          
+        </div>
+        <div class="referSaveBox">
+          <a href="javascript:;">저장</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="qaCont" class="gnbCon">
+      <div class="contentIn">
+        <div class="sectionTitleBox">
+          <div class="sectionTitleBoxIn">
+            <a href="javascript:;" class="arrrow" data-target="qaCont">
+             <span class="icon icon-arrowR"></span><span>Q&A</span></a>
+            </a>
+            <div class="downBtnBox">
+              <a href="javascript:;" class="downloadBtn">
+                다운로드<span class="icon-down"></span>
+              </a>
+              <a href="javascript:;" class="downloadBtn">
+                다운로드<span class="icon-down"></span>
+              </a>
+            </div>
+            
+            <div class="settingList">
+              <!-- setting list -->
+            </div>
+          </div>
+        </div>
+        <div class="classUserIn">
+          <div class="classUserIn">
+            <div class="chattingTak">
+              <ul>
+                <li class="question">
+                  <div>
+                    <span class="talkTime">PM 16:19</span><span class="othersName">Botami teacher</span>
+                    <a href="#" class="commentAdd"><span class="icon-create"></span>답변</a>
+                    <div class="talkBox">
+                      안녕하세요 모두 반갑습니다.
+                    </div>
+                  </div>
+                  <div class="comentBox"> <!--여러개 사용 시 해당 영역부터 반복하여 사용-->
+                    <div>
+                      <span class="talkTime">PM 16:19</span><span class="othersName">Botami teacher</span>
+                      <a href="#" class="commentDel"><span class="icon-delete"></span>답변삭제</a>
+                      <div class="talkBox">
+                        안녕하세요.
+                        오늘 학습 주제는 무엇인가요 ?
+                        오늘 학습 주제는 무엇인가요 ?
+                        오늘 학습 주제는 무엇인가요 ?
+                        오늘 학습 주제는 무엇인가요 ?
+                        오늘 학습 주제는 무엇인가요 ?
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comentBox"> <!--여러개 사용 시 해당 영역부터 반복하여 사용-->
+                    <div>
+                      <span class="talkTime">PM 16:19</span><span class="othersName">Botami teacher</span>
+                      <a href="#" class="commentDel"><span class="icon-delete"></span>답변삭제</a>
+                      <div class="talkBox">
+                        안녕하세요.
+                        오늘 학습 주제는 무엇인가요 ?
+                        오늘 학습 주제는 무엇인가요 ?
+                        오늘 학습 주제는 무엇인가요 ?
+                        오늘 학습 주제는 무엇인가요 ?
+                        오늘 학습 주제는 무엇인가요 ?
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question">
+                  <div>
+                    <span class="talkTime">PM 16:19</span><span class="othersName">Botami teacher</span>
+                    <a href="#" class="commentAdd"><span class="icon-create"></span>답변</a>
+                    <div class="talkBox">
+                      안녕하세요.
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                    </div>
+                  </div>
+                  <div class="comentBox">
+                    <div>
+                      <div class="tmtaIn">
+                        <span class="typing">
+                          <input type="text" placeholder="내용을 입력해주세요."> <!--input 유형-->
+                          <button type="submit" class="enterBnt">등록</button>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question">
+                  <div>
+                    <span class="talkTime">PM 16:19</span><span class="othersName">Botami teacher</span>
+                    <div class="talkBox">
+                      안녕하세요.
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      안녕하세요.
+                      오늘 학습 주제는 무엇인가요 ? 
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                    </div>
+                  </div>
+                  <div class="comentBox">
+                    <div>
+                      <div class="tmtaIn">
+                        <span class="typing">
+                          <textarea></textarea> <!--textarea 유형-->
+                          <button type="submit" class="enterBnt">등록</button>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question">
+                  <div>
+                    <span class="talkTime">PM 16:19</span><span class="othersName">Botami teacher</span>
+                    <a href="#" class="commentDel"><span class="icon-delete"></span>질문삭제</a>
+                    <div class="talkBox">
+                      안녕하세요.
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      안녕하세요.
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                      오늘 학습 주제는 무엇인가요 ?
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="talkMeTextArea">
+            <div class="tmtaIn">
+              <span class="typing">
+                <input type="text" placeholder="내용을 입력해주세요." />
+                <button type="submit" class="enterBnt">등록</button>
+              </span>
+            </div>
+             <!-- imoti -->
+            <div class="imo">
+              <ul>
+                <li><a hefr="javacript:;"><span class="icon-undecided"></span></a></li>
+                <li><a hefr="javacript:;"><span class="icon-sad"></span></a></li>
+                <li><a hefr="javacript:;"><span class="icon-happy"></span></a></li>
+                <li><a hefr="javacript:;"><span class="icon-confused"></span></a></li>
+                <li><a hefr="javacript:;"><span class="icon-applause"></span></a></li>
+                <li><a hefr="javacript:;"><span class="icon-thumbs_down"></span></a></li>
+                <li><a hefr="javacript:;"><span class="icon-thumbs_up"></span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+       
+      </div>
+    </section>
+
+    <scetion id="generSetting" class="gnbCon">
+      <div class="contentIn">
+        <div class="sectionTitleBox">
+          <div class="sectionTitleBoxIn">
+            <a href="javacript:;" data-target="generSettingArrow">
+              <span class="icon-arrowR icon"></span><span>일반설정</span>
+            </a>
+          </div>
+        </div>
+        <div class="generSetIn">
+          <div class="generBox">
+            <div class="subject">
+              ニックネーム
+            </div>
+            <input type="text" placeholder="ニックネームを入力してください"/>
+          </div>
+
+          <div class="generBox">
+            <ul>
+              <li>
+                <div class="subject"> 카메라</div>
+                <div>
+                  <select>
+                    <option value="">디바이스1</option>
+                    <option>디바이스2</option>
+                    <option>디바이스3</option>
+                  </select>
+                </div>
+              </li>
+              <li>
+                <div class="subject"> 마이크</div>
+                <div>
+                  <select>
+                    <option >디바이스1</option>
+                    <option>디바이스2</option>
+                    <option>디바이스3</option>
+                  </select>
+                </div>
+              </li>
+              <li>
+                <div class="subject"> 스피커</div>
+                <div>
+                  <select>
+                    <option>디바이스1</option>
+                    <option>디바이스2</option>
+                    <option>디바이스3</option>
+                  </select>
+                </div>
+              </li>
+              <li>
+                <div class="subject"> 적용언어</div>
+                  <div>
+                    <select>
+                      <option>디바이스1</option>
+                      <option>디바이스2</option>
+                      <option>디바이스3</option>
+                    </select>
+                  </div>
+              </li>
+            </ul>
+          </div>
+          <div class="generBox last">
+            <div class="subject">적용테마</div>
+            <div>
+              <select>
+                <option>Dark Mode</option>
+                <option>White Mode</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </scetion>
+    <section id="lectureSetting" class="gnbCon">
+      <div class="contentIn">
+        <div class="sectionTitleBox">
+          <div class="sectionTitleBoxIn">
+            <a href="javacript:;" data-target="lectureSettingArrow">
+              <span class="icon-arrowR icon"></span><span>강의실설정</span>
+            </a>
+          </div>
+        </div>
+        <div class="lectuSetBox">
+          <div class="lectuBox">
+            <div class="subject"> 오디오/비디오</div>
+            <ul>
+              <li class="md-checkbox">
+                <input id="ch01" type="checkbox" >
+                <label for="ch01">
+                  <span class="labelText">
+                    <strong>음성</strong>
+                    <span>입장시 모두 OFF</span>
+                  </span>
+                </label>
+              </li>
+              <li class="md-checkbox">
+                <input id="ch02" type="checkbox" >
+                <label for="ch02">
+                  <span class="labelText">
+                    <strong>음성</strong>
+                    <span>발표자 외 모두 OFF</span>
+                  </span>
+                </label>
+              </li>
+              <li class="md-checkbox">
+                <input id="ch03" type="checkbox" >
+                <label for="ch03">
+                  <span class="labelText">
+                    <strong>비디오</strong>
+                    <span>입장시 OFF</span>
+                  </span>
+                </label>
+              </li>
+              <li class="md-checkbox">
+                <input id="ch04" type="checkbox" >
+                <label for="ch04">
+                  <span class="labelText">
+                    <strong>비디오</strong>
+                    <span>발표자 외 모두 OFF</span>
+                  </span>
+                </label>
+              </li>
+            </ul>
+          </div>
+          <div class="lectuBox">
+            <div class="subject"> 채팅</div>
+            <div class="md-checkbox">
+              <input id="ch05" type="checkbox" >
+              <label for="ch05">
+                <span class="labelText">
+                  <span>채팅 사용 안함</span>
+                </span>
+              </label>
+            </div>
+          </div>
+          <div class="lectuBox">
+            <div class="subject"> 자료실</div>
+            <div class="md-checkbox">
+              <input id="ch06" type="checkbox" >
+              <label for="ch06">
+                <span class="labelText">
+                  <span>자료실 사용 안함</span>
+                </span>
+              </label>
+            </div>
+          </div>
+          <div class="lectuBox last">
+            <div class="subject"> 적용언어</div>
+            <div>
+              <select>
+                <option>디바이스1</option>
+                <option>디바이스2</option>
+                <option>디바이스3</option>
+              </select>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    <section class="contentLayout">
+      <section id="noteBox">
+        <div class="leftArrow">
+          <a href="javascript:;"><span class="icon-arrowR"></span></a>
+        </div>
+        <div class="rightArrow">
+          <a href="javascript:;" class="on"><span class="icon-arrowR"></span></a>
+        </div>
+        <div class="noteBoxIn">
+          <a href="#" class="screenCtrBtn"><span class="icon-minus"></span></a> <!--최소화 버튼-->
+          <div class="toolbarBox">
+            <ul class="toolbarBoxIn">
+              <li class="">
+                <div class="slideViewBox">
+                  <a href="javascript:;" class="arrow leftA"><span class="icon-arrowR"></span></a>
+                  <div class="tagHv left"><span>이전</span></div>
+                  <a href="javascript:;" class="slideV_txt">
+                    <span class="slideTxt">
+                      <span>Silde</span>
+                      <span>100</span>
+                    </span>
+                    <span class="icon-arrowTip icon"></span>
+                  </a>
+                  <div class="tagHv slide" style="left:30px;"><span>슬라이드 선택</span></div>
+                  <a href="javascript:;" class="arrow rightA on"><span class="icon-arrowR"></span></a>
+                  <div class="tagHv right"><span>다음</span></div>
+                </div>
+                <div class="slideViewList">
+                  <ul>
+                    <li><a href="javascript:;"><span class="slideViewLText">Slide100</span></a></li>
+                    <li><a href="javascript:;"><span class="slideViewLText">Slide99</span></a></li>
+                    <li><a href="javascript:;"><span class="slideViewLText">Slide1</span></a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="firstline">
+                <div class="selecToolBox">
+                  <a href="javascript:;" class="selecTool toolSe">
+                    <span class="icon-pencil"></span>
+                    <span class="icon-arrowDown tip"></span>
+                  </a>
+                  <div class="tagHv"><span>연필</span></div>
+                </div>
+                <div class="selecList tool">
+                  <ul>
+                    <li><a href="javascript:;"><spna class="icon-handFull"></spna></a></li>
+                    <li><a href="javascript:;"><spna class="icon-pencil"></spna></a></li>
+                    <li><a href="javascript:;"><spna class="circle"></spna></a></li>
+                    <li><a href="javascript:;"><spna class="square"></spna></a></li>
+                    <li>
+                      <a href="javascript:;">
+                        <span class="triangleBox">
+                          <spna class="triangle"></spna>
+                        </span>
+                      </a>
+                    </li>
+                    <li><a href="javascript:;"><spna class="slash"></spna></a></li>
+                    <li><a href="javascript:;"><spna class="icon-T"></spna></a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="">
+                <div class="selecToolBox weigthBox weight05 color01">
+                  <a href="javascript:;" class="selecTool">
+                    <span class="pencilWeight"></span>
+                    <span class="icon-arrowDown tip"></span>
+                  </a>
+                  <div class="tagHv" style="left:-10px"><span>두께선택</span></div>
+                </div>
+                <div class="selecList pencilWeightList">
+                  <ul class="color01">
+                    <li class="weight01">
+                      <a href="javascript:;">
+                        <span class="pencilWeight"></span>
+                      </a>
+                    </li>
+                    <li class="weight02">
+                      <a href="javascript:;">
+                        <span class="pencilWeight"></span>
+                      </a>
+                    </li><li class="weight03">
+                      <a href="javascript:;">
+                        <span class="pencilWeight"></span>
+                      </a>
+                    </li>
+                    <li class="weight04">
+                      <a href="javascript:;">
+                        <span class="pencilWeight"></span>
+                      </a>
+                    </li>
+                    <li class="weight05">
+                      <a href="javascript:;">
+                        <span class="pencilWeight"></span>
+                      </a>
+                    </li>
+                    <li class="weight06">
+                      <a href="javascript:;">
+                        <span class="pencilWeight"></span>
+                      </a>
+                    </li>
+                    <li class="weight07">
+                      <a href="javascript:;">
+                        <span class="pencilWeight"></span>
+                      </a>
+                    </li>
+                    <li class="weight08">
+                      <a href="javascript:;">
+                        <span class="pencilWeight"></span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="">
+                <div class="selecToolBox color01">
+                  <a href="javascript:;" class="selecTool">
+                    <span class="pencilColor"></span>
+                    <span class="icon-arrowDown tip"></span>
+                  </a>
+                  <div class="tagHv"><span>색깔</span></div>
+                </div>
+                <div class="selecList colorPick">
+                  <ul class="">
+                    <li class="color01">
+                      <a href="javascript:;">
+                        <span class="pencilColor"></span>
+                      </a>
+                    </li>
+                    <li class="color02">
+                      <a href="javascript:;">
+                        <span class="pencilColor"></span>
+                      </a>
+                    </li><li class="color03">
+                      <a href="javascript:;">
+                        <span class="pencilColor"></span>
+                      </a>
+                    </li>
+                    <li class="color04">
+                      <a href="javascript:;">
+                        <span class="pencilColor"></span>
+                      </a>
+                    </li>
+                    <li class="color05">
+                      <a href="javascript:;">
+                        <span class="pencilColor"></span>
+                      </a>
+                    </li>
+                    <li class="color06">
+                      <a href="javascript:;">
+                        <span class="pencilColor"></span>
+                      </a>
+                    </li>
+                    <li class="color07">
+                      <a href="javascript:;">
+                        <span class="pencilColor"></span>
+                      </a>
+                    </li>
+                    <li class="color08">
+                      <a href="javascript:;">
+                        <span class="pencilColor"></span>
+                      </a>
+                    </li>
+                    <li class="color09">
+                      <a href="javascript:;">
+                        <span class="pencilColor"></span>
+                      </a>
+                    </li>
+                    <li class="color010">
+                      <a href="javascript:;">
+                        <span class="pencilColor"></span>
+                      </a>
+                    </li>
+                    <li class="color011">
+                      <a href="javascript:;">
+                        <span class="pencilColor"></span>
+                      </a>
+                    </li>
+                    <li class="color012">
+                      <a href="javascript:;">
+                        <span class="pencilColor"></span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+  
+              <li class="">
+                <div class="selecToolBox">
+                  <a href="javascript:;" class="selecTool">
+                    <span class="icon-boad_arrow"></span>
+                  </a>
+                  <div class="tagHv" style="left:-10px"><span>주석취소</span></div>
+                </div>
+              </li>
+              <li class="">
+                <div class="selecToolBox">
+                  <a href="javascript:;" class="selecTool">
+                    <span class="icon-trash"></span>
+                  </a>
+                  <div class="tagHv" style="left:-25px; right:-26px;"><span>모든 주석 삭제</span></div>
+                </div>
+              </li>
+              <li class="lastline">
+                <div class="selecToolBox">
+                  <a href="javascript:;" class="selecTool">
+                    <span class="icon-screen_sharing"></span>
+                  </a>
+                  <div class="tagHv" style="left:-17px; right:-20px;"><span>다중 사용자</span></div>
+                </div>
+              </li>
+              <li class="fontBtn">
+                <div class="selecToolBox tsize tsize01">
+                  <a href="javascript:;" class="selecTool">
+                    <span class="fontS">Aa</span>
+                    <span class="icon-arrowDown tip"></span>
+                  </a>
+                  <div class="tagHv"><span>크기</span></div>
+                </div>
+                <div class="selecList tsizeList">
+                  <ul>
+                    <li class="tsize01">
+                      <a href="javascript:;">
+                        <span class="fontS">Aa</span>
+                      </a>
+                    </li>
+                    <li class="tsize02">
+                      <a href="javascript:;">
+                        <span class="fontS">Aa</span>
+                      </a>
+                    </li>
+                    <li class="tsize03">
+                      <a href="javascript:;">
+                        <span class="fontS">Aa</span>
+                      </a>
+                    </li>
+                    <li class="tsize04">
+                      <a href="javascript:;">
+                        <span class="fontS">Aa</span>
+                      </a>
+                    </li>
+                    <li class="tsize05">
+                      <a href="javascript:;">
+                        <span class="fontS">Aa</span>
+                      </a>
+                    </li>
+                    <li class="tsize06">
+                      <a href="javascript:;">
+                        <span class="fontS">Aa</span>
+                      </a>
+                    </li>
+                    
+                  </ul>
+                </div>
+              </li>
+              <li class="">
+                <div class="screenSizeBox">
+                  <a href="javascript:;" class="arrow leftA"><span class="icon-minus_square"></span></a>
+                  <div class="tagHv left"><span>축소</span></div>
+                  <a href="javascript:;" class="slideV_txt">
+                    <span class="slideTxt">
+                      <span>100%</span>
+                    </span>
+                    <span class="icon-arrowTip icon"></span>
+                  </a>
+                  <a href="javascript:;" class="arrow rightA on"><span class="icon-plus_square"></span></a>
+                  <div class="tagHv right"><span>확대</span></div>
+                </div>
+                <div class="slideViewList">
+                  <ul>
+                    <li><a href="javascript:;"><span class="slideViewLText">Slide100</span></a></li>
+                    <li><a href="javascript:;"><span class="slideViewLText">Slide99</span></a></li>
+                    <li><a href="javascript:;"><span class="slideViewLText">Slide1</span></a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="lastline"> <!--전체화면 보기(확대)-->
+                <div class="selecToolBox">
+                  <a href="javascript:;" class="fullscreen">
+                    <span class="icon-fullscreen"></span> <!--화면 확대-->
+                    <!--<span class="icon-fullscreen-close"></span>--> <!--화면 축소-->
+                  </a>
+                  <div class="tagHv" style="left:-10px"><span>전체화면</span></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+
+          <!-- 학생이름 -->
+          <a class="toolusingStudentName red">JORDANDPRUNERDD</a>
+          <a class="toolusingStudentName blue">JORDANDPRUNERDD</a>
+          <a class="toolusingStudentName gray">JORDANDPRUNERDD</a>
+          <a class="toolusingStudentName purple">JORDANDPRUNERDD</a>
+        </div>
+      </section>
+    </section>
+    <!-- <section id="presenterAlert">
+      <div class="presenterAletBox">
+        Lesson365 님이 손을 흔들었습니다.
+      </div>
+    </section> -->
+    <!-- bottom button -->
+    <section id="btnBox">
+      <div class="btnBoxIn">
+        <span class="btnSettingBox">
+          <a href="javascript:;" class="bottomBtn picture bbt">
+            <span class="micon icon-mic_on"></span>
+            <span class="micon icon-mic_off"></span>
+          </a>
+         
+        </span>
+        
+        <span class="btnSettingBox">
+          <a href="javascript:;" class="bottomBtn picture bbt">
+            <span class="cicon icon-camera_on"></span>
+            <span class="cicon icon-camera_off"></span>
+          </a>
+          
+         
+        </span>
+        <a href="javascript:;" data-target="recoBtn" class="bottomBtn bottomRecoding ">
+          <span class="recording"></span>
+        </a>
+        <a href="javascript:;" data-target="faceRecognition" class="bottomBtn faceRecognition">
+          <span class="icon-recognition"></span>
+        </a>
+        <span class="line"></span>
+        <a href="javascript:;" data-target="noteBox" class="bottomBtn bbtright">
+          <span class="icon icon-board"></span>
+        </a>
+        <a href="javascript:;"  data-target="displayshare"  class="bottomBtn bbt bbtright disp">
+          <span class="icon-displayshare"></span>
+        </a>
+
+        <span class="line"></span>
+
+        <a href="javascript:;" data-target="hands" class="bottomBtn bbt bbtright hand">
+          <span class="icon-hands"></span>
+        </a>
+        
+        <div class="btnSettingList mic">
+        <!-- mic setting -->
+          <div class="bslHead">
+            <div class="bslHeadIn">
+              <span><span class="icon-mic_on icon"></span><span>마이크</span></span>
+              <a href="javascript:;" class="micAnnounce">마이크 사용요청</a>
+            </div>
+          </div>
+          <ul class="deviceList mic">
+            <li>
+              <label for="device_mic01" class="radio">
+                <input type="radio" name="rdo02" id="device_mic01" class="hidden">
+                <span class="label">
+                  <span>device</span>
+                </span>
+              </label>
+              <div class="volumBox">
+                <ul>
+                  <li class="on">
+                    <span class="volum"></span>
+                  </li>
+                  <li class="on">
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <label for="device_mic02" class="radio">
+                <input type="radio" name="rdo02" id="device_mic02" class="hidden">
+                <span class="label">
+                  <span>device</span>
+                </span> 
+              </label>
+              <div class="volumBox">
+                <ul>
+                  <li class="on">
+                    <span class="volum"></span>
+                  </li>
+                  <li class="on">
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <label for="device_mic03" class="radio">
+                <input type="radio" name="rdo02" id="device_mic03" class="hidden">
+                <span class="label">
+                  <span>device</span>
+                </span>
+              </label>
+              <div class="volumBox">
+                <ul>
+                  <li class="on">
+                    <span class="volum"></span>
+                  </li>
+                  <li class="on">
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        <!-- mic setting end-->
+          <span class="line"></span>
+        <!-- speak setting -->
+          <div class="bslHead ">
+            <div class="bslHeadIn">
+              <span><span class="icon-sound icon"></span><span>스피커</span></span>
+            </div>
+          </div>
+          <ul class="deviceList speak">
+            <li>
+              <label for="device_spe" class="radio">
+                <input type="radio" name="rdo" id="device_spe" class="hidden">
+                <span class="label">
+                  <span>device</span>
+                </span>
+              </label>
+              <div class="volumBox speak">
+                <ul>
+                  <li  class="on">
+                    <span class="volum"></span>
+                  </li>
+                  <li  class="on">
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <label for="device_spe02" class="radio">
+                <input type="radio" name="rdo" id="device_spe02" class="hidden">
+                <span class="label">
+                  <span>device</span>
+                </span>
+              </label>
+              <div class="volumBox speak">
+                <ul>
+                  <li  class="on">
+                    <span class="volum"></span>
+                  </li>
+                  <li  class="on">
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <label for="device_spe03" class="radio">
+                <input type="radio" name="rdo" id="device_spe03" class="hidden">
+                <span class="label">
+                  <span>device</span>
+                </span>
+              </label>
+              <div class="volumBox speak">
+                <ul>
+                  <li  class="on">
+                    <span class="volum"></span>
+                  </li>
+                  <li  class="on">
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                  <li>
+                    <span class="volum"></span>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+         <!-- speak setting -->
+        </div>
+
+        <div class="btnSettingList camera">
+          <!-- mic setting -->
+            <div class="bslHead">
+              <div class="bslHeadIn">
+                <span><span class="icon-cam icon"></span><span>카메라</span></span>
+                <a href="javascript:;" class="micAnnounce">카메라 사용요청</a>
+              </div>
+            </div>
+            <ul class="deviceList mic">
+              <li>
+                <label for="device_cam01" class="radio">
+                  <input type="radio" name="rdo02" id="device_cam01" class="hidden">
+                  <span class="label">
+                    <span>device</span>
+                  </span>
+                </label>
+                <div class="volumBox">
+                  <ul>
+                    <li class="on">
+                      <span class="volum"></span>
+                    </li>
+                    <li class="on">
+                      <span class="volum"></span>
+                    </li>
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+  
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <label for="device_cam02" class="radio">
+                  <input type="radio" name="rdo02" id="device_cam02" class="hidden">
+                  <span class="label">
+                    <span>device</span>
+                  </span> 
+                </label>
+                <div class="volumBox">
+                  <ul>
+                    <li  class="on">
+                      <span class="volum"></span>
+                    </li>
+                    <li  class="on">
+                      <span class="volum"></span>
+                    </li>
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+  
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <label for="device_cam03" class="radio">
+                  <input type="radio" name="rdo02" id="device_cam03" class="hidden">
+                  <span class="label">
+                    <span>device</span>
+                  </span>
+                </label>
+                <div class="volumBox">
+                  <ul>
+                    <li  class="on">
+                      <span class="volum"></span>
+                    </li>
+                    <li  class="on">
+                      <span class="volum"></span>
+                    </li>
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+  
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+                    <li>
+                      <span class="volum"></span>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          <!-- mic setting end-->
+            <span class="line"></span>
+          <!-- speak setting -->
+            <div class="bslHead ">
+              <div class="bslHeadIn">
+                <span><span class="icon-camera_on icon"></span><span>영상품질</span></span>
+              </div>
+            </div>
+            <ul class="deviceList rce">
+              <li>
+                <label for="device_rec" class="radio">
+                  <input type="radio" name="rdo" id="device_rec" class="hidden">
+                  <span class="label">
+                    <span>device</span>
+                  </span>
+                </label>
+                <div class="volumBox speak">
+                  <ul>
+                    <li>1080p</li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <label for="device_rec02" class="radio">
+                  <input type="radio" name="rdo" id="device_rec02" class="hidden">
+                  <span class="label">
+                    <span>device</span>
+                  </span>
+                </label>
+                <div class="volumBox speak">
+                  <ul>
+                    <li>720p</li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <label for="device_rec03" class="radio">
+                  <input type="radio" name="rdo" id="device_rec03" class="hidden">
+                  <span class="label">
+                    <span>device</span>
+                  </span>
+                </label>
+                <div class="volumBox speak">
+                  <ul>
+                    <li>480p</li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+           <!-- speak setting -->
+          </div>
+      </div>
+    </section>
+
+    <section id="faceListBox">
+      <!-- face list button start -->
+      <div class="faceTeacher">
+        <div class="faceTIn">
+          <!--기본이미지 영역-->
+          <div class="basicBox">
+            <div class="basicBoxIn">
+              <img src="./assets/img/basic.png" alt="" class="" />
+            </div>
+          </div>
+          <div class="videoBox">
+            <div class="videoBoxIn">
+              <video>
+              </video>
+            </div>
+          </div>
+          <a href="javascript:;" class="videoSetting">
+            <span class="vedioSetIn">
+              <span class="btn"></span>
+            </span>
+          </a>
+          <div class="videoSetBg">
+            <ul>
+              <li>
+                <div>
+                  <a href="javascript:;">
+                    <span class="icon-mic_off icon"></span>
+                    <span>음성 소거 해제</span>
+                  </a>
+                </div>
+                <div>
+                  <a href="javascript:;">
+                    <span class="icon-camera_off icon"></span>
+                    <span>영상 소거 해제</span>
+                  </a>
+                </div>
+
+                <div>
+                  <a href="javascript:;">
+                    <span class="icon-videofixe icon"></span>
+                    <span>비디오 고정 </span>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <a href="javascript:;"><span class="icon-pin icon"></span>
+                  <span>
+                    호스트 지정
+                  </span>
+                  </a>
+                </div>
+                <div><a href="javascript:;"><span class="icon-sound icon"></span> <span>발표자 지정</span></a></div>
+              </li>
+              <li>
+                <div><a href="javascript:;"><span class="icon-exit icon"></span> <span>강제 퇴실</span></a></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="studenCount">
+        <span>학습자</span>
+        <span class="num">20</span>
+      </div>
+      <div class="studenListBox">
+        <div class="studenListBoxIn">
+          
+          <ul class="faceAllList">
+            <li class="on">
+              <div class="faceAllVideo">
+                <div class="faceAllVideoIn">
+                  <!--기본이미지 영역-->
+                  <div class="basicBox">
+                    <img src="./assets/img/basic.png" alt="" class="" />
+                  </div>
+                  <!--//기본이미지 영역-->
+
+                  <!-- video 영역-->
+                  <div class="videoBox">
+                    <video>
+                    </video>
+                  </div>
+                  <!-- icon option 영역-->
+                  <a href="javascript:;" class="Announ"><span class="icon-hands"></span></a>
+                  <a href="javascript:;" class="videoSetting">
+                    <span class="vedioSetIn">
+                      <span class="btn"></span>
+                    </span>
+
+                  </a>
+                  <div class="videoSetBg">
+                    <ul>
+                      <li>
+                        <div>
+                          <a href="javascript:;">
+                            <span class="icon-mic_off icon"></span>
+                            <span>음성 소거 해제</span>
+                          </a>
+                        </div>
+                        <div>
+                          <a href="javascript:;">
+                            <span class="icon-camera_off icon"></span>
+                            <span>영상 소거 해제</span>
+                          </a>
+                        </div>
+  
+                        <div>
+                          <a href="javascript:;">
+                            <span class="icon-videofixe icon"></span>
+                            <span>비디오 고정 </span>
+                          </a>
+                        </div>
+                      </li>
+                      <li>
+                        <div>
+                          <a href="javascript:;"><span class="icon-pin icon"></span>
+                          <span>
+                            호스트 지정
+                          </span>
+                          </a>
+                        </div>
+                        <div><a href="javascript:;"><span class="icon-sound icon"></span> <span>발표자 지정</span></a></div>
+                      </li>
+                      <li>
+                        <div><a href="javascript:;"><span class="icon-exit icon"></span> <span>강제 퇴실</span></a></div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="naming">
+                    <a href="javascript:;" class="camera off"><span class="icon-camera_off "></span></a>
+                    <a href="javascript:;" class="mic off"><span class="icon-mic_on "></span></a>
+                    <span class="nameText">YamamotoYamamotoYamamotoYamamotoYamamotoYamamotoYamamoto</span>
+                  </div>
+
+                </div>
+              </div>
+            </li>
+           
+            <li class="">
+              <div class="faceAllVideo">
+                <div class="faceAllVideoIn">
+                  <!--기본이미지 영역-->
+                  <div class="basicBox">
+                    <img src="./assets/img/testimg4.png" alt="" class="" />
+                  </div>
+                  <!--//기본이미지 영역-->
+
+                  <!-- video 영역-->
+                  <div class="videoBox">
+                    <video>
+                    </video>
+                  </div>
+                  <!-- icon option 영역-->
+                  <a href="javascript:;" class="Announ"><span class="icon-hands"></span></a>
+                  <a href="javascript:;" class="videoSetting">
+                    <span class="vedioSetIn">
+                      <span class="btn"></span>
+                    </span>
+
+                  </a>
+                  <div class="videoSetBg">
+                    <ul>
+                      <li>
+                        <div>
+                          <a href="javascript:;">
+                            <span class="icon-mic_off icon"></span>
+                            <span>음성 소거 해제</span>
+                          </a>
+                        </div>
+                        <div>
+                          <a href="javascript:;">
+                            <span class="icon-camera_off icon"></span>
+                            <span>영상 소거 해제</span>
+                          </a>
+                        </div>
+  
+                        <div>
+                          <a href="javascript:;">
+                            <span class="icon-videofixe icon"></span>
+                            <span>비디오 고정 </span>
+                          </a>
+                        </div>
+                      </li>
+                      <li>
+                        <div>
+                          <a href="javascript:;"><span class="icon-pin icon"></span>
+                          <span>
+                            호스트 지정
+                          </span>
+                          </a>
+                        </div>
+                        <div><a href="javascript:;"><span class="icon-sound icon"></span> <span>발표자 지정</span></a></div>
+                      </li>
+                      <li>
+                        <div><a href="javascript:;"><span class="icon-exit icon"></span> <span>강제 퇴실</span></a></div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="naming">
+                    <a href="javascript:;" class="mic off"><span class="icon-mic_off "></span></a>
+                    <span class="nameText">YamamotoYamamotoYamamotoYamamotoYamamotoYamamotoYamamoto</span>
+                  </div>
+
+                </div>
+              </div>
+            </li>
+            <li class="">
+              <div class="faceAllVideo">
+                <div class="faceAllVideoIn">
+                  <!--기본이미지 영역-->
+                  <div class="basicBox">
+                    <img src="./assets/img/testimg4.png" alt="" class="" />
+                  </div>
+                  <!--//기본이미지 영역-->
+
+                  <!-- video 영역-->
+                  <div class="videoBox">
+                    <video>
+                    </video>
+                  </div>
+                  <!-- icon option 영역-->
+                  <a href="javascript:;" class="Announ"><span class="icon-hands"></span></a>
+                  <a href="javascript:;" class="videoSetting">
+                    <span class="vedioSetIn">
+                      <span class="btn"></span>
+                    </span>
+
+                  </a>
+                  <div class="videoSetBg">
+                    <ul>
+                      <li>
+                        <div>
+                          <a href="javascript:;">
+                            <span class="icon-mic_off icon"></span>
+                            <span>음성 소거 해제</span>
+                          </a>
+                        </div>
+                        <div>
+                          <a href="javascript:;">
+                            <span class="icon-camera_off icon"></span>
+                            <span>영상 소거 해제</span>
+                          </a>
+                        </div>
+  
+                        <div>
+                          <a href="javascript:;">
+                            <span class="icon-videofixe icon"></span>
+                            <span>비디오 고정 </span>
+                          </a>
+                        </div>
+                      </li>
+                      <li>
+                        <div>
+                          <a href="javascript:;"><span class="icon-pin icon"></span>
+                          <span>
+                            호스트 지정
+                          </span>
+                          </a>
+                        </div>
+                        <div><a href="javascript:;"><span class="icon-sound icon"></span> <span>발표자 지정</span></a></div>
+                      </li>
+                      <li>
+                        <div><a href="javascript:;"><span class="icon-exit icon"></span> <span>강제 퇴실</span></a></div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="naming">
+                    <a href="javascript:;" class="mic off"><span class="icon-mic_off "></span></a>
+                    <span class="nameText">YamamotoYamamotoYamamotoYamamotoYamamotoYamamotoYamamoto</span>
+                  </div>
+
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!--right button-->
+    <section id="faceListButtonBox">
+      <div class="faceListButtonBox">
+        <button data-target="faceAllBox" class="gridBtn rbtn">
+          <span class="icon-grid"></span>
+        </button>
+        <button data-target="faceListBox" class="rightBtn rbtn">
+          <span class="icon-arrowR"></span>
+        </button>
+      </div>
+    </section>
+
+    
+
+
+  <!-------------------------------- layer popup ------------------------------->
+  <!-- rec popup -->
+  <div class="popupLayout recoS">
+    
+        <!-- 설문 -->
+      <div class="layerPopup surveyResult drag">
+        <div class="rspopIn">
+          <div class="hed">
+
+            상반기 워크샵 어젠더 설문조사
+            <a href="javascript:;" class="closeBtn">
+              <span class="icon-closebtn"></span>
+            </a>
+          </div>
+
+          <div class="con">
+            <div class="surveyConCreatio">
+              <div class="surveTitleCon">
+                <ul>
+                  <li class="survReBoxan">
+                    <div class="survT">
+                      월간보고월간보고월간보고월간보고월간보고월간보고월간
+                    </div>
+                    <div class="txtR">
+                      <span class="survN">2</span>
+                      <span class="surP on">20%</span>
+                    </div>
+                  </li>
+                  <li class="survReBoxan">
+                    <div class="survT">
+                      인원현황
+                    </div>
+                    <div class="txtR">
+                      <span class="survN">2</span>
+                      <span class="surP on">25%</span>
+                    </div>
+                  </li>
+                  <li class="survReBoxan">
+                    <div class="survT">
+                      인원현황
+                    </div>
+                    <div class="txtR">
+                      <span class="survN">2</span>
+                      <span class="surP on">25%</span>
+                    </div>
+                  </li>
+                  <li class="survReBoxan">
+                    <div class="survT">
+                      인원현황
+                    </div>
+                    <div class="txtR">
+                      <span class="survN">2</span>
+                      <span class="surP on">25%</span>
+                    </div>
+                  </li>
+                  <li class="survReBoxan">
+                    <div class="survT">
+                      인원현황
+                    </div>
+                    <div class="txtR">
+                      <span class="survN">2</span>
+                      <span class="surP on">
+                        100%
+                      </span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- breakOutRoom -->
+
+      <div class="layerPopup borPopup  ">
+        <div class="rspopIn">
+          <div class="hed">
+            <span class="">
+              <span class="icon icon-breakeoutroom"></span>
+              <span class="txt">브레이크아웃룸</span>
+            </span>
+            <a href="javascript:;" class="closeBtn">
+              <span class="icon-closebtn"></span>
+            </a>
+          </div>
+  
+          <div class="con">
+            <div class="conIn">
+              <div class="leftArea">
+                <div class="subject">운영시간</div>
+                <div class="leftTopBox">
+                  <select>
+                    <option>15분</option>
+                    <option>30분</option>
+                    <option>45분</option>
+                    <option>60분</option>
+                  </select>
+                </div>
+                <div class="subject leftbb">Room 개설 수 </div>
+                <div class="leftBottomBox">                
+                  <div>
+                    <select>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                    </select>
+                    <div class="md-checkbox">
+                      <input id="cusSelec" type="checkbox" >
+                      <label for="cusSelec">
+                        <span class="labelText">
+                          <span>사용자 선택 룸 참여 허용</span>
+                        </span>
+                      </label>
+                    </div>
+  
+                    <div class="broaAutoBtnBox">
+                      <a href="javascript:;">
+                        인원 자동 배정
+                      </a>
+                    </div>
+                    <div class="broInfomation">
+                      브레이크아웃 룸을 생성하고 참여자를<br/>
+                      드래그&드롭으로 배정할수 있습니다.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="rightArea">
+                <div class="subject">
+                  <span>수강생</span>
+                  <span class="studenCount">
+                    <span>배정안됨</span> <span class="num">2</span>
+                  </span>
+                </div>
+                <ul class="sutdenBox" >
+                  <li >
+                    <ul id="sortable1" class="connectedSortable">
+                      <li class="ui-state-default add">
+                        <a href="javascript:;">김성수</a>
+                      </li>
+                      <li class="ui-state-default">
+                        <a href="javascript:;">김성수</a>
+                      </li>
+                      <li class="ui-state-default">
+                        <a href="javascript:;">김성수</a>
+                      </li>
+                      <li class="ui-state-default">
+                        <a href="javascript:;">김성수</a>
+                      </li>
+                      <li class="ui-state-default">
+                        <a href="javascript:;">김성수</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li >
+                    <ul id="sortable2" class="connectedSortable">
+                      <li class="ui-state-default"><a href="javascript:;">김성수</a></li>
+                      <li class="ui-state-default"><a href="javascript:;">김성2수</a></li>
+                      <li class="ui-state-default"><a href="javascript:;">김성2수</a></li>
+                      <li class="ui-state-default"><a href="javascript:;">김성22수</a></li>
+                      <li class="ui-state-default"><a href="javascript:;">김22성수</a></li>
+                      <li class="ui-state-default"><a href="javascript:;">김성수</a></li>
+                      <li class="ui-state-default"><a href="javascript:;">김22성수</a></li>
+                      <li class="ui-state-default"><a href="javascript:;">김22성수</a></li>
+                      <li class="ui-state-default"><a href="javascript:;">김22성수</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                      <ul id="sortable3" class="connectedSortable">
+                        <li class="ui-state-default"><a href="javascript:;">김성수</a></li>
+                      </ul>
+                  </li>
+                  <li>
+                    <ul  id="sortable4" class="connectedSortable">
+                      <li><a href="javascript:;">김성수</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                      <ul id="sortable5" class="connectedSortable">
+                        <li><a href="javascript:;">김성수</a></li>
+                      </ul>
+                  </li>
+                  <li>
+                      <ul id="sortable6" class="connectedSortable">
+                        <li><a href="javascript:;">김성수</a></li>
+                      </ul>
+                  </li>
+                  <li>
+                    <ul id="sortable7" class="connectedSortable">
+                      <li><a href="javascript:;">김성수</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <ul id="sortable8" class="connectedSortable">
+                      <li><a href="javascript:;" class="on">김성수</a></li>
+                    </ul>
+                  </li>
+  
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="bottom">
+            <a href="javascript:;" class="cancel whiteBtn">취소</a>
+            <a href="javascript:;" class="starBtn blueBtn">생성</a>
+          </div>
+        </div>
+      </div>
+      <div class="layerPopup borGeneraPopup drag">
+        <div class="rspopIn">
+          <div class="hed">
+            <span class="">
+              <span class="icon icon-breakeoutroom"></span>
+              <span class="txt">브레이크아웃룸</span>
+            </span>
+            <a href="javascript:;" class="closeBtn">
+              <span class="icon-closebtn"></span>
+            </a>
+          </div>
+
+          <div class="con">
+            <div class="conIn">
+              참여 브레이크아웃 룸 선택
+              <div>
+                <select>
+                  <option>
+                    <span>오금초 3-1 길이와 시간 (룸#1)</span>
+                  </option>
+                  
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="bottom">
+            <a href="javascript:;" class="cancel whiteBtn">취소</a>
+            
+            <a href="javascript:;" class="starBtn blueBtn">참여</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 학습 현황 -->
+      <div class="layerPopup studyStatusPopup">
+        <div class="rspopIn">
+          <div class="hed">
+            <span class="">
+              <span class="icon icon-bargraph"></span>
+              <span class="txt">학습현황</span>
+            </span>
+            <a href="javascript:;" class="closeBtn">
+              <span class="icon-closebtn"></span>
+            </a>
+          </div>
+
+          <div class="con">
+            <div class="conIn">
+              <div class="studyStaTab">
+                <ul>
+                  <li><a href="javascript:;" class="on">학습현황</a></li>
+                  <li><a href="javascript:;">학습이력</a></li>
+                </ul>
+              </div>
+              <ul>
+                <li class="studyStaCon on">
+                
+                  <div class="">
+                    <div class="studyStaDownSearch">
+                      <a href="javascirpt:;" class="downloadBtn">
+                        <span class="icon icon-roundDown"></span>
+                        <span>다운로드</span>
+                      </a>
+                      <div class="searchR">
+                        <input type="text" placeholder="검색어를 입력해주세요."/>
+                        <button type="submit" class="submitBtn">
+                          <span class="icon-search"></span>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="studyStaTable">
+                      <table cell-spacing="0">
+                        <thead>
+                          <tr>
+                            <th>사용자</th>
+                            <th>구분</th>
+                            <th>입장/퇴실 시간</th>
+                            <th>참여시간</th>
+                            <th>대화시간</th>
+                            <th>비디오</th>
+                            <th>화면공유</th>
+                            <th>프레젠테이션</th>
+                            <th>설문응답</th>
+                            <th>채팅</th>
+                            <th>손들기</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="user">
+                              <div>레슨화상교육</div>
+                              <div class="code">corp0032</div>
+                            </td>
+                            <td class="">
+                              기업담당
+                            </td>
+                            <td class="">
+                              <div><span>입실</span> <span>2020-07-03  14:01:35</span></div>
+                              <div><span>퇴실</span> <span>2020-07-03  14:01:35</span></div>
+                            </td>
+                            
+                            <td class="">
+                              14:01:35
+                            </td>
+                            <td class="">
+                              14:01:35
+                            </td>
+                            <td class="">
+                              14:01:35
+                            </td>
+                            <td class="">
+                              14:01:35
+                            </td>
+                            <td class="">
+                              14:01:35
+                            </td>
+                            <td class="">
+                              1회
+                            </td>
+                            <td class="">
+                              1회
+                            </td>
+                            <td class="">
+                              1회
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="user">
+                              <div>레슨화상교육</div>
+                              <div class="code">corp0032</div>
+                            </td>
+                            <td class="">
+                              기업담당
+                            </td>
+                            <td class="">
+                              <div><span>입실</span> <span>2020-07-03  14:01:35</span></div>
+                              <div><span>퇴실</span> <span>2020-07-03  14:01:35</span></div>
+                            </td>
+                            
+                            <td class="">
+                              14:01:35
+                            </td>
+                            <td class="">
+                              14:01:35
+                            </td>
+                            <td class="">
+                              14:01:35
+                            </td>
+                            <td class="">
+                              14:01:35
+                            </td>
+                            <td class="">
+                              14:01:35
+                            </td>
+                            <td class="">
+                              1회
+                            </td>
+                            <td class="">
+                              1회
+                            </td>
+                            <td class="">
+                              1회
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </li>
+                <li class="studyStaCon ">
+                  <div class="">
+                    <div class="studyStaDownSearch">
+                      <span class="radioBox">
+                        
+                      
+                        <label for="sort01" class="radio">
+                          <input type="radio" name="rdo" id="sort01" class="hidden">
+                          <span class="label"></span>
+                          <span>시간순정렬</span>
+                        </label>
+                        <label for="sort02" class="radio">
+                          <input type="radio" name="rdo" id="sort02" class="hidden">
+                          <span class="label"></span>
+                          <span>시간역순정렬</span>
+                        </label>
+                      </span>
+                      <a href="javascirpt:;" class="downloadBtn">
+                        <span class="icon icon-roundDown"></span>
+                        <span>다운로드</span>
+                      </a>
+                      <div class="searchR">
+                        <input type="text" placeholder="검색어를 입력해주세요."/>
+                        <button type="submit" class="submitBtn">
+                          <span class="icon-search"></span>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="studyStaTable">
+                      <table cell-spacing="0">
+                        <thead>
+                          <tr>
+                            <th>사용자</th>
+                            <th>구분</th>
+                            <th>입장/퇴실 시간</th>
+                            <th>참여시간</th>
+                            <th>대화시간</th>
+                            <th>비디오</th>
+                            <th>화면공유</th>
+                            <th>프레젠테이션</th>
+                            <th>설문응답</th>
+                            <th>채팅</th>
+                            <th>손들기</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="user">
+                              <div>레슨화상교육</div>
+                              <div class="code">corp0032</div>
+                            </td>
+                            <td class="">
+                              기업담당
+                            </td>
+                            <td class="">
+                              <div><span>입실</span> <span>2020-07-03  14:01:35</span></div>
+                              <div><span>퇴실</span> <span>2020-07-03  14:01:35</span></div>
+                            </td>
+                            
+                            <td class="">
+                              14:01:35
+                            </td>
+                            <td class="">
+                              14:01:35
+                            </td>
+                            <td class="">
+                              14:01:35
+                            </td>
+                            <td class="">
+                              14:01:35
+                            </td>
+                            <td class="">
+                              14:01:35
+                            </td>
+                            <td class="">
+                              1회
+                            </td>
+                            <td class="">
+                              1회
+                            </td>
+                            <td class="">
+                              1회
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="user">
+                              <div>레슨화상교육</div>
+                              <div class="code">corp0032</div>
+                            </td>
+                            <td class="">
+                              기업담당
+                            </td>
+                            <td class="">
+                              <div><span>입실</span> <span>2020-07-03  14:01:35</span></div>
+                              <div><span>퇴실</span> <span>2020-07-03  14:01:35</span></div>
+                            </td>
+                            
+                            <td class="">
+                              14:01:35
+                            </td>
+                            <td class="">
+                              14:01:35
+                            </td>
+                            <td class="">
+                              14:01:35
+                            </td>
+                            <td class="">
+                              14:01:35
+                            </td>
+                            <td class="">
+                              14:01:35
+                            </td>
+                            <td class="">
+                              1회
+                            </td>
+                            <td class="">
+                              1회
+                            </td>
+                            <td class="">
+                              1회
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="bottom">
+            <a href="javascript:;" class="cancel whiteBtn">닫기</a> 
+          </div>
+        </div>
+      </div>
+      <!-- 화면공유 -->
+      <div class="layerPopup displayshare">
+        <div class="rspopIn">
+          <div class="hed">
+            <span class="">
+              <span class="icon icon-displayshare"></span>
+              <span class="txt">화면공유</span>
+            </span>
+            <a href="javascript:;" class="closeBtn">
+              <span class="icon-closebtn"></span>
+            </a>
+          </div>
+
+          <div class="con">
+            <div class="conIn">
+              <div class="popupTab">
+                <ul>
+                  <li><a href="javascript:;" class="on">전체화면</a></li>
+                  <li><a href="javascript:;">어플리케이션</a></li>
+                  <li><a href="javascript:;">웹브라우저탭</a></li>
+                </ul>
+              </div>
+              <ul class="popupConBox">
+                <li class="popupTabCon on">
+                  
+                  <div class="allScreenBox">
+                    <ul class="">
+                      <li class="on">
+                        <div class="asBoxIn">
+                          <img src="./assets/img/sharetest2.png"/>
+                        </div>
+                        <div class="screenTitle">화면1</div>
+                      </li>
+                      <li>
+                        <div class="asBoxIn">
+                          <img src="./assets/img/shartest.png"/>
+                        </div>
+                        <div class="screenTitle">화면2</div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="popupTabCon">
+                    
+                  <div class="allScreenBox app">
+                    <ul class="">
+                      <li class="on">
+                        <div class="asBoxIn">
+                          <img src="./assets/img/sharetest2.png"/>
+                        </div>
+                        <div class="screenTitle">
+                          <img src="./assets/img/fileicon.png" />
+                          <span class="txt">파일 탐색기</span>
+                        </div>
+                      </li>
+                      <li class="">
+                        <div class="asBoxIn">
+                          <img src="./assets/img/sharetest2.png"/>
+                        </div>
+                        <div class="screenTitle">
+                          <img src="./assets/img/fileicon.png" />
+                          <span class="txt">파일 탐색기</span>
+                        </div>
+                      </li>
+                      <li class="">
+                        <div class="asBoxIn">
+                          <img src="./assets/img/sharetest2.png"/>
+                        </div>
+                        <div class="screenTitle">
+                          <img src="./assets/img/fileicon.png" />
+                          <span class="txt">파일 탐색기</span>
+                        </div>
+                      </li>
+                      <li class="">
+                        <div class="asBoxIn">
+                          <img src="./assets/img/sharetest2.png"/>
+                        </div>
+                        <div class="screenTitle">
+                          <img src="./assets/img/fileicon.png" />
+                          <span class="txt">파일 탐색기</span>
+                        </div>
+                      </li>
+                      <li class="">
+                        <div class="asBoxIn">
+                          <img src="./assets/img/sharetest2.png"/>
+                        </div>
+                        <div class="screenTitle">
+                          <img src="./assets/img/fileicon.png" />
+                          <span class="txt">파일 탐색기</span>
+                        </div>
+                      </li>
+                      <li class="">
+                        <div class="asBoxIn">
+                          <img src="./assets/img/sharetest2.png"/>
+                        </div>
+                        <div class="screenTitle">
+                          <img src="./assets/img/fileicon.png" />
+                          <span class="txt">파일 탐색기</span>
+                        </div>
+                      </li>
+                      <li class="">
+                        <div class="asBoxIn">
+                          <img src="./assets/img/sharetest2.png"/>
+                        </div>
+                        <div class="screenTitle">
+                          <img src="./assets/img/fileicon.png" />
+                          <span class="txt">파일 탐색기</span>
+                        </div>
+                      </li>
+                     
+                    </ul>
+                  </div>
+                  
+                </li> 
+                <li class="popupTabCon">
+                  
+                  <div class="allScreenBox browser">
+                    <ul class="">
+                      <li class="on">
+                        <div class="screenTitle">
+                          <img src="./assets/img/fileicon.png" />
+                          <span class="txt">파일 탐색기</span>
+                        </div>
+                      </li>
+                      <li class="">
+                        <div class="screenTitle">
+                          <img src="./assets/img/fileicon.png" />
+                          <span class="txt">파일 탐색기</span>
+                        </div>
+                      </li>
+                      <li class="">
+                        <div class="screenTitle">
+                          <img src="./assets/img/fileicon.png" />
+                          <span class="txt">파일 탐색기</span>
+                        </div>
+                      </li>
+                      <li class="">
+                        <div class="screenTitle">
+                          <img src="./assets/img/fileicon.png" />
+                          <span class="txt">파일 탐색기</span>
+                        </div>
+                      </li>
+                      <li class="">
+                        <div class="screenTitle">
+                          <img src="./assets/img/fileicon.png" />
+                          <span class="txt">파일 탐색기</span>
+                        </div>
+                      </li>
+                      <li class="">
+                        <div class="screenTitle">
+                          <img src="./assets/img/fileicon.png" />
+                          <span class="txt">파일 탐색기</span>
+                        </div>
+                      </li>
+                      <li class="">
+                        <div class="screenTitle">
+                          <img src="./assets/img/fileicon.png" />
+                          <span class="txt">파일 탐색기</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="bottom">
+            <a href="javascript:;" class="cancel whiteBtn">취소</a>
+            <a href="javascript:;" class="starBtn re">공유</a>
+          </div>
+        </div>
+      </div>
+      <!-- 단축키 팝업 -->
+      <div class="layerPopup hotkeyPopup drag">
+        <div class="rspopIn">
+          <div class="hed">
+            <span class="">
+              <span class="txt">키보드 단축키</span>
+            </span>
+            <a href="javascript:;" class="closeBtn">
+              <span class="icon-closebtn"></span>
+            </a>
+          </div>
+  
+          <div class="con">
+            <div class="conIn">
+              <div class="hotkeyTable">
+                <table>
+                  <thead>
+                    <tr>
+                      <th class="txtleft">기능</th>
+                      <th>바로가기</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="txtleft">강의정보</td>
+                      <td>Alt + I</td>
+                    </tr>
+                    <tr>
+                      <td class="txtleft">참석자 목록</td>
+                      <td>Alt + A</td>
+                    </tr>
+                    <tr>
+                      <td class="txtleft">채팅</td>
+                      <td>Alt + C</td>
+                    </tr>
+                    <tr>
+                      <td class="txtleft">설문(강사)</td>
+                      <td>Alt + O</td>
+                    </tr>
+                    <tr>
+                      <td class="txtleft">자료실</td>
+                      <td>Alt + Q</td>
+                    </tr>
+                    <tr>
+                      <td class="txtleft">브레이크아웃룸(세미나 제외)</td>
+                      <td>Alt + B</td>
+                    </tr>
+                    <tr>
+                      <td class="txtleft">일반설정</td>
+                      <td>Alt + T</td>
+                    </tr>
+                    <tr>
+                      <td class="txtleft">강의실 설정(강사)</td>
+                      <td>Alt + E</td>
+                    </tr>
+                    <tr>
+                      <td class="txtleft">음소거</td>
+                      <td>Alt + M</td>
+                    </tr>
+                    <tr>
+                      <td class="txtleft">영상소거</td>
+                      <td>Alt + D</td>
+                    </tr>
+                    <tr>
+                      <td class="txtleft">손들기</td>
+                      <td>Alt + H</td>
+                    </tr>
+                    <tr>
+                      <td class="txtleft">화면공유 시작/종료(발표자)</td>
+                      <td>Alt + S</td>
+                    </tr>
+                    <tr>
+                      <td class="txtleft">프리젠테이션 시작/종료(발표자)</td>
+                      <td>Alt + P</td>
+                    </tr>
+                    <tr>
+                      <td class="txtleft">뷰모드 전환(Toggle View)</td>
+                      <td>Alt + V</td>
+                    </tr>
+                    <tr>
+                      <td class="txtleft">퇴실</td>
+                      <td>Alt + X</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <!--녹화 시작/중지 팝업 -->
+      <div class="layerPopup recording recStart drag">
+        <div class="rspopIn">
+          <div class="hed">
+            강의/회의 녹화
+            <a href="javascript:;" class="closeBtn">
+              <span class="icon-closebtn"></span>
+            </a>
+          </div>
+  
+          <div class="con">
+            강의 녹화는 강사화면을 기준으로 녹화되며,<br />
+            넷러닝 서버에 저장됩니다.
+          </div>
+          <div class="bottom">
+            <a href="javascript:;" class="cancel whiteBtn">취소</a>
+            <a href="javascript:;" class="starBtn blueBtn">녹화시작</a>
+          </div>
+        </div>
+      </div>
+      <div class="layerPopup recording recoStop drag">
+          <div class="rspopIn">
+            <div class="hed">
+              강의/회의 녹화
+              <a href="javascript:;" class="closeBtn">
+                <span class="icon-closebtn"></span>
+              </a>
+            </div>
+
+            <div class="con">
+              강의 녹화는 강사화면을 기준으로 녹화되며,<br />
+              넷러닝 서버에 저장됩니다.
+            </div>
+            <div class="bottom">
+              <a href="javascript:;" class="cancel whiteBtn">취소</a>
+              <a href="javascript:;" class="starBtn re">녹화중지</a>
+            </div>
+          </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>

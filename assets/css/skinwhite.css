@@ -1,0 +1,422 @@
+
+/* gnb content background common*/
+.skin_white #gnbBox,  
+.skin_white #classInfo,.skin_white #chattingBox
+,.skin_white #classUser, .skin_white #faceListBox ,
+.skin_white #surveyBox, .skin_white #generSetting , .skin_white #lectureSetting,
+.skin_white #referenceRoom , .skin_white #breakOutRoom, .skin_white #qaCont, .layerPopup.hotkeyPopup, .layerPopup.borPopup {
+    background-color:rgba(255,255,255,0.95);
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.3);
+}
+/* gnb content background common end */
+
+/*content title common*/
+.skin_white .sectionTitleBoxIn{border-color:rgba(0,0,0,0.15);}
+.skin_white .sectionTitleBoxIn a span.icon {color:rgba(0,0,0,0.5)}
+.skin_white .sectionTitleBoxIn a span {color:rgba(0,0,0,1);}
+.skin_white .sectionTitleBoxIn a.set span{color:rgba(0,0,0,0.6);}
+.skin_white .sectionTitleBoxIn a.set:hover, .skin_white .sectionTitleBoxIn a:hover, .skin_white .sectionTitleBoxIn a:hover span {color:#005DC8}
+/*content title common end*/
+
+
+.skin_white#faceLayout {background-color:#F1F1F1;}
+.skin_white #faceHeader {background-color:#F1F1F1; }
+.skin_white #faceHeader .subjectTitle {color:#333;}
+.skin_white #faceHeader .rBox {color:#333;}
+.skin_white #faceHeader .rBox .studentCount {color:#3693FF;}
+.skin_white #faceHeader .rBox .timeline {background-color:rgba(0,0,0,0.47); color:#fff;}
+.skin_white #faceHeader .rBox .onoffBtn {color:#666;}
+.skin_white #faceHeader .rBox .onoffBtn:before {background-color:rgba(0,0,0,0.3);}
+.skin_white #faceHeader .rBox .onoffBtn:hover {color:#005DC8;}
+.skin_white #faceHeader .hotkeyBtn {color:rgba(0,0,0,0.3);}
+.skin_white #faceHeader .hotkeyBtn:hover {color:#005DC8}
+.skin_white #faceHeader .hotkeyBtn.on {color:#005DC8}
+.skin_white #faceHeader .rBox .circlePBtn:before {background-color:rgba(0,0,0,0.3);}
+.skin_white #faceHeader .rBox .circlePBtn:hover {color:#005DC8;}
+
+.skin_white #gnbBox ul li.setG:before {background-color:#E1E1E1;}
+.skin_white #gnbBox .gnbList a {color:#000; opacity:1;}
+/* .skin_white #gnbBox .gnbList .icon_menu {color:#fff;} */
+.skin_white #gnbBox .gnbList:hover a {color:#005DC8;}
+.skin_white #gnbBox .gnbList .classUNum {color:#6BBF22;}
+
+.skin_white #gnbBox .menuBtn {background-color:rgba(255,255,255,0.85); box-shadow: 0 3px 6px rgba(0,0,0,0.16);}
+
+.skin_white #gnbBox .menuBtnIn span.line {background-color:rgba(0,0,0,1);}
+.skin_white #gnbBox .menuBtnIn span.line:before {background-color:rgba(0,0,0,1);} 
+.skin_white #gnbBox .menuBtnIn span.line:after {background-color:rgba(0,0,0,1);} 
+.skin_white #gnbBox .menuBtnIn .topArrow {color:rgba(0,0,0,1);} 
+.skin_white #gnbBox .gnbList a.on {color:#005DC8;}
+.skin_white #gnbBox .menuBtn a:hover .topArrow {color:#005DC8;}
+.skin_white #gnbBox .menuBtn a:hover span.line, .skin_white #gnbBox .menuBtn a:hover span.line:before,.skin_white #gnbBox .menuBtn a:hover span.line:after {background-color:#005DC8;}
+
+/* 오른쪽 사용자 리스트 */
+.skin_white #faceListButtonBox .rbtn { background-color:#fff; color:#000;}
+.skin_white .faceTeacher { border-bottom:1px solid rgba(0,0,0,0.15);}
+.skin_white .studenCount span.num {color:#005DC8;}
+/*viedo Setting*/
+.skin_white .videoSetting span.btn ,.skin_white .videoSetting span.btn:before, .skin_white .videoSetting span.btn:after {background-color:#fff;}
+.skin_white .videoSetBg { background-color:rgba(255,255,255,0.95);  box-shadow: 0 2px 5px rgba(0,0,0,0.36); }
+.skin_white .videoSetBg ul li div a {color:#888;}
+.skin_white .videoSetBg ul li div a:hover {color:#000;}
+.skin_white .videoSetBg ul li {border-top:1px solid rgba(0,0,0,0.2);}
+
+/*noteBox*/
+.skin_white #noteBox .toolbarBox { background-color:#DEDEDE; }
+.skin_white #noteBox .toolbarBoxIn .slideViewBox  {border-right:1px solid rgba(0,0,0,0.2);}
+.skin_white #noteBox .toolbarBoxIn .slideViewBox .arrow {color:rgba(0,0,0,0.4);}
+.skin_white #noteBox .toolbarBoxIn .slideViewBox .slideV_txt { color:#000;}
+
+.skin_white #noteBox .toolbarBoxIn .slideViewList ul { background-color:#DEDEDE;}
+.skin_white #noteBox .toolbarBoxIn .slideViewList ul li a { color:rgba(0,0,0,0.6);}
+.skin_white #noteBox .toolbarBoxIn .slideViewList ul li:hover {background-color:rgba(0,0,0,0.05);}
+.skin_white #noteBox .toolbarBoxIn .slideViewBox .arrow.on {color:#000;}
+
+.skin_white #noteBox .toolbarBoxIn .selecToolBox .selecTool {color:rgba(0,0,0,0.8);}
+.skin_white #noteBox .toolbarBoxIn .selecToolBox .selecTool .tip {color:#666;}
+
+.skin_white #noteBox .toolbarBoxIn .selecList ul li {background-color:#DEDEDE;}
+.skin_white #noteBox .toolbarBoxIn .selecList ul li a {background-color:#DEDEDE; color:rgba(0,0,0,0.8);}
+.skin_white #noteBox .toolbarBoxIn .selecList ul li a:hover {background-color:rgba(0,0,0,0.05);}
+.skin_white #noteBox .toolbarBoxIn .circle {background-color:rgba(0,0,0,0.6); border:1px solid rgba(0,0,0,0.6);}
+.skin_white #noteBox .toolbarBoxIn .square {background-color:rgba(0,0,0,0.6); border:1px solid rgba(0,0,0,0.6);}
+.skin_white #noteBox .toolbarBoxIn .triangle {background-color:rgba(0,0,0,0.6); border:1px solid rgba(0,0,0,0.6);}
+.skin_white #noteBox .toolbarBoxIn .slash {background-color:rgba(0,0,0,0.6);}
+
+.skin_white #noteBox .toolbarBoxIn .selecToolBox:before {border-left:1px solid rgba(0,0,0,0.2);}
+.skin_white #noteBox .toolbarBoxIn  .lastline.on .selecToolBox a {color:#6BBF22;}
+
+
+
+/* 강의정보 */
+.skin_white #classInfo .infoBox {border-bottom: 1px dashed #D7D7D7;}
+.skin_white #classInfo .infoBox.ciLBox {border-bottom:none;}
+.skin_white #classInfo .infoBox .subject {color:#000;}
+.skin_white #classInfo .infoBox .subjTitle a{color:#005DC8;}
+.skin_white #classInfo .infoBox .infoTe span.tcode {color:rgba(0,0,0,0.6);}
+.skin_white #classInfo .infoBox .infoTe span.tname {color:rgba(0,0,0,0.8);}
+.skin_white #classInfo .infoBox .clstart, .skin_white #classInfo .infoBox .cling {color:rgba(0,0,0,0.6);}
+.skin_white #classInfo .infoBox .classInfoLinkBox a{background-color: #B2B2B2;}
+.skin_white #classInfo .infoBox .classInfoLinkBox a span {color:#fff;} 
+.skin_white #classInfo .infoBox .classInfoLinkBox .urltextArea {background-color:#F5F5F5;}
+.skin_white #classInfo .infoBox .classInfoLinkBox .urltextArea span {color:rgba(0,0,0,0.6);}
+/* 강의정보 끝 */
+
+/* 사용자 */
+.skin_white .clasSet {border-bottom:1px solid rgba(0,0,0, 0.15);}
+.skin_white .clasSet .arrrow {color:#000; }
+
+
+.skin_white .classUserSetView  { background-color:#F5F5F5;}
+.skin_white .classUserSetView .classUSVIn:after {background-color:rgba(0,0,0, 0.1);}
+.skin_white .classUserSetView .classUSVIn .classUSCIn {color:rgba(0,0,0,0.8);}
+.skin_white .classUserSetView .classUSVIn .classUSCSetL a {color:rgba(0,0,0, 0.6);}
+.skin_white .classUserSetView .classUSVIn .classUSCSetL a:hover {color:rgba(0,0,0,1);}
+.skin_white .classUserSetView .classUSVIn .classUSCSetL a.on, .skin_white .classUserSetView .classUSVIn .classUSMSetL a.on {color:#0063D5; border:2px solid #0063D5;}
+.skin_white .classUserSetView .classUSVBtnBox a{color:rgba(255,255,255,0.8); background-color:#B2B2B2;}
+
+.skin_white .classUSerList .userPro {border:2px solid #B2B2B2;}
+.skin_white .classUSerList .userProBox .teacherIcon { background-color:#005DC8; color:#fff;}
+.skin_white .classUSerList .culnamelmsid .name {color:rgba(0,0,0,0.4)}
+.skin_white .classUSerList .culnamelmsid .lmsid {color:rgba(0,0,0,0.2);}
+
+.skin_white .classUSerList .culonoffTime span {color:rgba(0,0,0,0.4);}
+.skin_white .classUSerList .culiconBox > span a {color:rgba(0,0,0,1);}
+.skin_white .classUSerList .culiconBox > span a:hover {color:rgba(0,0,0,1);}
+.skin_white .classUSerList .culiconBox > span.ext a {color:rgba(0,0,0,0.3);}
+.skin_white .classUSerList .culiconBox > span.ext a:hover {color:rgba(0,0,0,1);}
+.skin_white .classUSerList .culinvitation a span{color:rgba(0,0,0,0.3);}
+.skin_white .classUSerList .culinvitation a:hover span{color:rgba(0,0,0,1);}
+
+.skin_white .classUSerList ul li.on .userPro {border:2px solid #3ADF34;}
+.skin_white .classUSerList ul li.on .culonoffTime span {color:#3ADF34;}
+.skin_white .classUSerList ul li.on .culonoffTime.invit span.off {margin-left:8px;}
+.skin_white .classUSerList ul li.on .culonoffTime.invit span.off , .skin_white .classUSerList ul li.on .culonoffTime.invit span.offtime {color:rgba(0,0,0,0.4);}
+.skin_white .classUSerList ul li.on .culnamelmsid .name {color:rgba(0,0,0,0.8);}
+
+.skin_white .classUserSearch .classUserSearchIn {background-color:#F5F5F5;}
+.skin_white .classUserSearch select {border:none; color: rgba(0,0,0,0.6);
+  background: url('../img/arrowDonw_black.png') no-repeat 95% 50% #F5F5F5; background-size:10px;}
+  
+.skin_white .classUserSearch .classUserSearchIn .line {background-color:rgba(0,0,0,0.15); }
+.skin_white .classUserSearch .classUserSearchIn input[type="text"] {color:#000;}
+.skin_white .classUserSearch .classUserSearchIn input[type="text"]:-webkit-input-placeholder {color:rgba(0,0,0,0.6);}
+.skin_white .classUserSearch .classUserSearchIn input[type="text"]:-ms-input-placeholder {color:rgba(0,0,0,0.6);}
+.skin_white .classUserSearch .classUserSearchIn button[type="submit"] {color:#000;}
+/* 사용자 끝*/
+
+/* 채팅 */
+.skin_white #chattingBox .chattingTak ul li.others .talkBox { background-color:#67676C; color:#fff;}
+.skin_white #chattingBox .chattingTak ul li.others .othersName {color:#000; opacity:0.8;}
+.skin_white #chattingBox .chattingTak ul li.talkMe .talkTime {color:#000; opacity:0.8;}
+.skin_white #chattingBox .chattingTak ul li.talkMe .talkBox { background-color:#3B699E; color:#fff; }
+.skin_white #chattingBox .chattingTak ul li.chattingOut .talkTime,.skin_white .chattingTak ul li.chatBrakeOutStart .talkTime {color:#000;opacity:0.8 }
+.skin_white #chattingBox .chattingTak ul li.chattingOut .chatoutIn, .skin_white .chattingTak ul li.chatBrakeOutStart .chatoutIn {color:#000; opacity:0.7;}
+.skin_white #chattingBox .chattingTak ul li.chatFileDownload strong {color:rgba(0,0,0,0.6);}
+.skin_white #chattingBox .talkMeTextArea .chatTakBtn  {color:#fff; background-color:#7C7C84;}
+.skin_white #chattingBox .talkMeTextArea .typing input[type="text"] {background-color:#E6E6E6;}
+.skin_white #chattingBox .talkMeTextArea .typing .enterBnt { background-color:#4570A2; color:#fff;}
+/* 채팅 끝*/
+
+
+/* 설문*/ 
+.skin_white #surveyBox .set {color:rgba(0,0,0,0.6); border:1px solid rgba(0,0,0,0.6);}
+.skin_white #surveyBox .set:hover {opacity:1; border-color:#4EA7FF; }
+.skin_white #surveyBox .surveyConBox {background-color:#F5F5F5;}
+.skin_white #surveyBox .surveyConBox .surConBIn h3 {color:#000;}
+.skin_white #surveyBox .surveyConBox .surConBIn .surveyJoinNum span {color:#888;}
+.skin_white #surveyBox .surveyConBox .surConBIn .surveyJoinNum span.sNum {color:#3693FF;}
+.skin_white #surveyBox .surveyConBox .surConBIn .surveyProgressDate .sProg {background-color:rgba(255,255,255,1); color:#000;}
+.skin_white #surveyBox .surveyConBox .surConBIn .surveyProgressDate .sProg.ing {color:#FF4747;}
+.skin_white #surveyBox .surveyConBox .surConBIn .surveyProgressDate .sProg.pre {color:#005DC8;}
+.skin_white #surveyBox .surveyConBox .surConBIn .surveyBtnBox.end a {background-color:#B2B2B2; color:rgba(255,255,255,0.8); }
+.skin_white #surveyBox .surveyConBox .surConBIn .surveyBtnBox.share a {background-color:#27272E; color:rgba(255,255,255,0.8);}
+.skin_white #surveyBox .surveyConBox .surConBIn .surveyBtnBox.start a {background-color:#1365C4; color:rgba(255,255,255,0.8);}
+.skin_white #surveyBox .surveyConBox .surConBIn .surveyBtnBox.share a:hover, .skin_white #surveyBox .surveyConBox .surConBIn .surveyBtnBox.start a:hover{color:#fff; opacity:1;}
+
+
+.skin_white #surveyBox .surveTitleCon {border-bottom:1px dashed #D7D7D7;}
+.skin_white #surveyBox .surveTitleCon h3 {color:#000;}
+.skin_white #surveyBox .surveTitleCon .sccInputBox input { border:1px solid #D7D7D7; background-color:#F5F5F5;}
+.skin_white #surveyBox .surveTitleCon .sccInputBox input:-webkit-input-placeholder {color: #555;}
+.skin_white #surveyBox .surveTitleCon .sccInputBox input:-ms-input-placeholder {color: #555;}
+.skin_white #surveyBox .surveTitleCon .sccInputBox .txt {color:#005DC8;}
+.skin_white #surveyBox .surveyCCListT {color:#000;}
+.skin_white #surveyBox .surveyCCList > li .radio .label { border: 2px solid #D7D7D7; background-color:#F5F5F5;}
+.skin_white #surveyBox .surveyCCList > li .radio .label:after {background: #005DC8; }
+.skin_white #surveyBox .surveyCCList > li input[type="radio"]:checked + .label { border-color: #005DC8; background-color:#fff;}
+.skin_white #surveyBox .surveyCCList > li .surccCustom ul > li > div {background-color:#F5F5F5; border:1px solid #D7D7D7;}
+.skin_white #surveyBox .surveyCCList > li .surccCustom ul > li > div span {color:rgba(0,0,0,0.6);}
+.skin_white #surveyBox .surveyCCList > li .surccCustom ul > li .icon {color:rgba(0,0,0,0.3);}
+.skin_white #surveyBox .surveyCCList > li .surccCustom ul > li.surAddBox a{ border:1px solid #D7D7D7; background-color:#fff; color:rgba(0,0,0,0.6);}
+.skin_white #surveyBox .surveyCCList > li .surccCustom ul > li.surAddBox a span.icon {color:rgba(0,0,0,0.8); opacity:0.5;}
+.skin_white #surveyBox .surCusListBox .surCusSaveBtn {color:rgba(255,255,255,0.8); background-color:#1365C4}
+.skin_white #surveyBox .surCusListBox .surCusSaveBtn:hover {color:rgba(255,255,255,1);}
+ 
+.skin_white #surveyBox .surveyConCreatio .survReBoxan {background-color:#F7F8F9; color:#333;}
+.skin_white #surveyBox .surveyConCreatio .survReBoxan > div {color:#333;}
+.skin_white #surveyBox .surveyConCreatio .survReBoxan div.txtR .survN {color:#555;}
+.skin_white #surveyBox .surveyConCreatio .survReBoxan div.txtR .surP {color:#005DC8;}
+.skin_white #surveyBox .surveyConCreatio .survReBoxan div.txtR .surP.on {background-color:#fff;}
+.skin_white #surveyBox .surveyConCreatio.answer .survReBoxstu > ul li {background-color:#F7F8F9;}
+.skin_white #surveyBox .surveyConCreatio.answer .survReBoxstu > ul li > div.survName {color:rgba(0,0,0,0.8);}
+.skin_white #surveyBox .surveyConCreatio.answer .survReBoxstu > ul li > div.survTR {color:#005DC8;}
+.skin_white #surveyBox .surveyEdiBtnBox .surveyEdiBtnBoxIn > div a {color:rgba(255,255,255,0.8);}
+.skin_white #surveyBox .surveyEdiBtnBox .surveyEdiBtnBoxIn > div.all a{background-color:#1365C4;}
+.skin_white #surveyBox .surveyEdiBtnBox .surveyEdiBtnBoxIn > div a.reS {background-color:#B2B2B2;}
+.skin_white #surveyBox .surveyEdiBtnBox .surveyEdiBtnBoxIn > div a.open {background-color:#1365C4;}
+.skin_white #surveyBox .surveyEdiBtnBox .surveyEdiBtnBoxIn > div a.reS:hover, .skin_white #surveyBox .surveyEdiBtnBox .surveyEdiBtnBoxIn > div.all a:hover, .skin_white #surveyBox .surveyEdiBtnBox .surveyEdiBtnBoxIn > div a.open:hover{color:rgba(255,255,255,1);}
+
+
+/* 브레이크아웃룸 */
+.skin_white #breakOutRoom .boRListoBox li > div { background-color:#F5F5F5}
+.skin_white #breakOutRoom .boRListoBox li > div .subject .roomNumber {color:#000; }
+.skin_white #breakOutRoom .boRListoBox li > div .subject .count {color:#3ADF34;}
+.skin_white #breakOutRoom .boRListoBox li > div .userBox {color:rgba(0,0,0,0.6);}
+.skin_white #breakOutRoom .boRListoBox li > div .participationBox a {color:#0063D5;}
+.skin_white #breakOutRoom .boRListoBox li > div .participationBox a.on {background-color:#0063D5; color:rgba(255,255,255,0.8);}
+.skin_white #breakOutRoom .boRListoBox li > div .participationBox a.on:hover {color:#fff; opacity:1;}
+.skin_white #breakOutRoom .boRListoBox li > div .subject .time {color:rgba(0,0,0,0.8)}
+
+/* 자료실 */
+.skin_white #referenceRoom .set {color:rgba(0,0,0,0.6); border:1px solid rgba(0,0,0,0.6);}
+.skin_white #referenceRoom .set:hover {border:1px solid #005DC8;}
+.skin_white #referenceRoom .referroomb .subject {color:#000;}
+.skin_white #referenceRoom .referFind { background-color:#F5F5F5; color:#000;}
+.skin_white #referenceRoom input[type="text"]:-ms-input-placeholder,.skin_white #referenceRoom input[type="text"]:-webkit-input-placeholder {color:#555;}
+.skin_white #referenceRoom .referToggle {color:rgba(255,255,255,0.6);}
+.skin_white #referenceRoom .selecRefer {color:#005DC8;}
+.skin_white #referenceRoom .referSaveBox a {background-color:#0063D5; color:rgba(255,255,255,0.8);}
+.skin_white #referenceRoom .referSaveBox a:hover {color:#fff;}
+
+.skin_white #referenceRoom .referList ul li {background-color:#F5F5F5;}
+.skin_white #referenceRoom .referList ul li h3 {color:#000;}
+
+/* 질의응답 */
+.skin_white #qaCont .chattingTak ul li.others .talkBox { background-color:#67676C; color:#fff;}
+.skin_white #qaCont .chattingTak ul li.others .othersName {color:#000; opacity:0.8;}
+.skin_white #qaCont .chattingTak ul li.talkMe .talkTime {color:#000; opacity:0.8;}
+.skin_white #qaCont .chattingTak ul li.talkMe .talkBox { background-color:#3B699E; color:#fff; }
+.skin_white #qaCont .chattingTak ul li.chattingOut .talkTime,.skin_white .chattingTak ul li.chatBrakeOutStart .talkTime {color:#000;opacity:0.8 }
+.skin_white #qaCont .chattingTak ul li.chattingOut .chatoutIn, .skin_white .chattingTak ul li.chatBrakeOutStart .chatoutIn {color:#000; opacity:0.7;}
+.skin_white #qaCont .chattingTak ul li.chatFileDownload strong {color:rgba(0,0,0,0.6);}
+.skin_white #qaCont .talkMeTextArea .chatTakBtn  {color:#fff; background-color:#7C7C84;}
+.skin_white #qaCont .talkMeTextArea .typing input[type="text"] {background-color:#E6E6E6;}
+.skin_white #qaCont .talkMeTextArea .typing .enterBnt { background-color:#4570A2; color:#fff;}
+/* 질의응답 끝*/
+
+
+/*일반 설정 */
+.skin_white #generSetting .generBox {border-bottom:1px dashed rgba(0,0,0,0.2);}
+.skin_white #generSetting .generBox .subject {color:#000;}
+.skin_white #generSetting .generBox input[type="text"] {background-color:#F5F5F5;color:#D7D7D7;}
+.skin_white #generSetting .generBox input[type="text"]:-ms-input-placeholder,.skin_white #generSetting .generBox input[type="text"]:-webkit-input-placeholder {color:rgba(0,0,0,0.6)}
+.skin_white #generSetting .generBox ul li select , .skin_white #generSetting .generBox.last select{border:1px solid #D7D7D7; background-color:#36363B; color: rgba(0,0,0,0.6); background: url('../img/arrowDonw_black.png') no-repeat 95% 50% #F5F5F5;}
+.skin_white #generSetting .generBox.last {margin-top:20px; border-bottom:none;}
+
+
+/* 강의실 설정*/
+.skin_white #lectureSetting .lectuBox { border-bottom:1px dashed rgba(0,0,0,0.2);}
+.skin_white #lectureSetting .lectuBox .subject {color:#000;}
+.skin_white #lectureSetting .lectuBox select {border:1px solid #D7D7D7; background-color:#F5F5F5; color: rgba(0,0,0,0.6); background: url('../img/arrowDonw_black.png') no-repeat 95% 50% #F5F5F5;}
+.skin_white #lectureSetting .lectuBox .md-checkbox label:before, .skin_white #lectureSetting .lectuBox .md-checkbox label:after { content: ""; position: absolute;left: 0;top: 0;}
+.skin_white #lectureSetting .lectuBox .md-checkbox label:before { background: rgba(0,0,0,0.2);}
+.skin_white #lectureSetting .lectuBox .md-checkbox input[type="checkbox"]:checked + label:before { background: #0063D5;}
+.skin_white #lectureSetting .lectuBox .md-checkbox label span.labelText {color:rgba(0,0,0,0.7);}
+.skin_white #lectureSetting .lectuBox .md-checkbox label span.labelText strong{color:rgba(0,0,0,0.8);} 
+.skin_white #lectureSetting .lectuBox.last {margin-top:20px; border-bottom:none;}
+
+
+/*grid 방향키*/
+.skin_white #faceAllBox .iconLeft { color:rgba(0,0,0,0.6);}
+.skin_white #faceAllBox .iconRight {color:rgba(0,0,0,0.6);}
+
+.skin_white #faceAllBox .icon-arrowR.on {color:rgba(0,0,0,1);}
+
+/************************ 팝업 *******************************/
+.skin_white .layerPopup, .skin_white .btnSettingList {background-color:rgba(255,255,255,0.95); box-shadow:10px 10px 20px rgba(0,0,0,0.3);}
+.skin_white .layerPopup .rspopIn .hed {border-bottom:1px solid rgba(0,0,0,0.2); color:#000; }
+.skin_white .layerPopup .rspopIn .hed .closeBtn {color:#000;}
+.skin_white .layerPopup .rspopIn .con {color:#000; }
+.skin_white .layerPopup .rspopIn .bottom  .cancel {border:2px solid #D7D7D7; background-color:rgba(255,255,255,0.3); color:#888; }
+.skin_white .layerPopup .rspopIn .bottom  .starBtn {border:2px solid #EE5151; background-color:#EE5151; color:rgba(255,255,255,0.9); color:#CFE0F3;}
+.skin_white .layerPopup .rspopIn .bottom  .starBtn.re {border:2px solid #0063D5; background-color:#0063D5; color:rgba(255,255,255,0.9); color:#CFE0F3;}
+.skin_white .layerPopup .rspopIn .bottom  .cancel:hover,.layerPopup.black .rspopIn .bottom  .starBtn:hover{color:rgba(0,0,0,0.6); opacity:1;}
+/* waitingRoom */
+.skin_white #waitingRoom  {background-color: #F1F1F1;}
+.skin_white .waitingRoomIn > .hed {background-color:rgba(255,255,255,0.3);}
+.skin_white .waitingRoomIn > .hed .white {display:block;}
+.skin_white .waitingRoomIn .nick {color:#000;}
+.skin_white .waitingRoomIn .nick input {background-color:#F5F5F5; border:1px solid #D7D7D7; color:#000;}
+.skin_white .waitingRoomIn .nick input:-ms-input-placeholder,  .waitingRoomIn .nick input:-webkit-input-placeholder {color:rgba(0,0,0,0.8);}
+.skin_white .waitingRoomIn .con  {background-color:rgba(255,255,255,0.3);}
+.skin_white .waitingRoomIn .con .w_setting .subject{color:#000;}
+.skin_white .waitingRoomIn .con .w_setting .cont > ul > li {border-top:1px dashed rgba(0,0,0,0.15);}
+.skin_white .waitingRoomIn .con .w_setting .cont .volumBox > ul > li span {background-color:rgba(0,0,0,0.15); }
+.skin_white .waitingRoomIn .con .w_setting .cont .radio .label {border: 2px solid #D7D7D7;}
+.skin_white .waitingRoomIn .con .w_setting .cont .radio .label:after {background: #005DC8;}
+.skin_white .waitingRoomIn .con .w_setting .cont input[type="radio"]:checked + .label span {color:#005DC8;}
+.skin_white .waitingRoomIn .con .w_btnBox a{color:rgba(255,255,255,0.8); background-color:#0063D5;}
+.skin_white .waitingRoomIn .con .w_btnBox a:hover { color:rgba(255,255,255,1);}
+.skin_white .waitingRoomIn .con .w_setting .cont > ul > li.on:before {border-color: #000;}
+
+.skin_white .waitingRoomIn .conList {border-bottom:1px solid rgba(0,0,0,0.08)}
+.skin_white .waitingRoomIn .con .w_setting .cont select {border:1px solid #D7D7D7; background-color:#F5F5F5; color: #666; background: url('../img/arrowDonw_black.png') no-repeat 95% 50% #F5F5F5;}
+
+/* survey result popup */
+.skin_white .layerPopup.surveyResult .hed {color:#000; border-bottom:1px solid #D7D7D7;}
+.skin_white .layerPopup.surveyResult .survReBoxan { background-color: #F7F8F9; color: #333;}
+.skin_white .layerPopup.surveyResult .survReBoxan:after {display:block; content:''; clear:both;}
+.skin_white .layerPopup.surveyResult .survReBoxan:first-child {margin-top:0;}
+.skin_white .layerPopup.surveyResult .survReBoxan div.survT {text-align:left; width:70%; color:#333; font-size: 14px;}
+.skin_white .layerPopup.surveyResult .survReBoxan div.txtR {width:30%;text-align: right; position:absolute; right:8px; top:8px;}
+.skin_white .layerPopup.surveyResult .survReBoxan div.txtR .survN {color:#888; padding-right:10px;}
+.skin_white .layerPopup.surveyResult .survReBoxan div.txtR .surP.on {padding:3px; border-radius:5px; background-color:#fff; color:#005DC8; text-align:right; display:inline-block; text-align:right; width:40px;}
+
+/* 브레이크아웃룸 */
+.skin_white .layerPopup.borPopup .rspopIn .hed span.icon {color:rgba(0,0,0,0.6);}
+.skin_white .layerPopup.borPopup .rspopIn .con .subject {color:#000;}
+.skin_white .layerPopup.borPopup .rspopIn .con .subject .studenCount {color:rgba(0,0,0,0.8);}
+.skin_white .layerPopup.borPopup .rspopIn .con .subject .studenCount .num {color:rgba(0,93,200);}
+.skin_white .layerPopup.borPopup .rspopIn .con .leftTopBox {border-bottom:1px solid #E1E1E1;}
+.skin_white .layerPopup.borPopup .rspopIn .con select {border:1px solid #D7D7D7; background-color:#F5F5F5; color: #666; background: url('../img/arrowDonw_black.png') no-repeat 95% 50% #F5F5F5;}
+.skin_white .layerPopup.borPopup .rspopIn .con .md-checkbox label:before {background: rgba(0,0,0,0.2);}
+.skin_white .layerPopup.borPopup .rspopIn .con .md-checkbox input[type="checkbox"]:checked + label:before { background: #0063D5;}
+.skin_white .layerPopup.borPopup .rspopIn .con .md-checkbox label span.labelText {color:#666;}
+.skin_white .layerPopup.borPopup .rspopIn .con .md-checkbox label span.labelText strong{color:#666;}
+.skin_white .layerPopup.borPopup .rspopIn .con .broaAutoBtnBox a{ color:rgba(0,0,0,0.8); background-color:#131316;}
+.skin_white .layerPopup.borPopup .rspopIn .con .broaAutoBtnBox a:hover {color:#fff;}
+.skin_white .layerPopup.borPopup .rspopIn .con .broInfomation {color:#333;}
+.skin_white .layerPopup.borPopup .rspopIn .con .rightArea {border-left: 1px dashed rgba(0,0,0,0.15);}
+.skin_white .layerPopup.borPopup .rspopIn .con .sutdenBox > li > ul {background-color:rgba(245,245,245,0.8); border:1px solid #D7D7D7;}
+.skin_white .layerPopup.borPopup .rspopIn .con .sutdenBox > li > ul li a{color:#555;}
+.skin_white .layerPopup.borPopup .rspopIn .con .sutdenBox > li > ul li a.on{ border : 2px dashed #005DC8}
+.skin_white .layerPopup.borPopup .rspopIn .bottom .starBtn {background-color:#1365C4; border-color:#1365C4;}
+/* 브레이크아웃룸 생성 클릭시 팝업 */
+.skin_white .layerPopup.borGeneraPopup .rspopIn .bottom .starBtn {background-color:#1365C4; border-color:#1365C4;}
+.skin_white .layerPopup.borGeneraPopup {width:500px; margin-left:-350px;}
+.skin_white .layerPopup.borGeneraPopup .rspopIn .con {text-align: center; margin-bottom:30px;}
+.skin_white .layerPopup.borGeneraPopup .rspopIn .con  select {border:1px solid #D7D7D7; background-color:#F5F5F5; color: rgba(0,0,0,0.6); background: url('../img/arrowDonw_black.png') no-repeat 95% 50% #F5F5F5;}
+
+
+/* 학습현황 팝업 */
+.skin_white .layerPopup.studyStatusPopup .rspopIn .hed span.icon {color:rgba(0,0,0,0.6);}
+.skin_white .layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaTab {background-color:rgba(0,0,0,0.05)}
+.skin_white .layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaTab ul li  a {color:rgba(0,0,0,0.8); }
+.skin_white .layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaTab ul li  a.on {color:#fff; background-color:#5A5A65; box-shadow: 0 0 10px rgba(0,0,0,0.55);}
+.skin_white .layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaDownSearch .downloadBtn {color:rgba(0,0,0,0.6);}
+.skin_white .layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaDownSearch .searchR input[type="text"] {color:rgba(0,0,0,0.6); border:1px solid #D7D7D7; background-color:#F5F5F5;}
+.skin_white .layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaDownSearch .searchR input[type="text"]:-webkit-input-placeholder {color:rgba(0,0,0,0.6);}
+.skin_white .layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaDownSearch .searchR input[type="text"]:-ms-input-placeholder {color:rgba(0,0,0,0.6);}
+.skin_white .layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaDownSearch .searchR button[type="submit"] {color:#4EA7FF;}
+.skin_white .layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaTable {background-color:rgba(0,0,0,0.05);}
+.skin_white .layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaTable table th {background-color:#E5E5E5; color:#666; border-bottom:1px solid rgba(0,0,0,0.1);}
+.skin_white .layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaTable table td.user .code { color:rgba(136,136,136,0.6);}
+.skin_white .layerPopup.studyStatusPopup .rspopIn .con .conIn .studyStaTable table td { color:#666; background-color:#F3F3F3; border-bottom:1px solid rgba(0,0,0,0.05);}
+.skin_white .layerPopup.studyStatusPopup .rspopIn .con .conIn .radio  {color:rgba(0,0,0,0.6)}
+.skin_white .layerPopup.studyStatusPopup .rspopIn .con .conIn .radio .label { border: 2px solid #D7D7D7; background-color:  #fff;}
+.skin_white .layerPopup.studyStatusPopup .rspopIn .con .conIn .radio .label:after {background: #005DC8;}
+.skin_white .layerPopup.studyStatusPopup .rspopIn .con .conIn input[type="radio"]:checked + .label { border-color: #005DC8; background-color:#fff;}
+
+
+/* 화면공유 */
+.skin_white .layerPopup.displayshare .rspopIn .hed span.icon {color:rgba(255,255,255,0.6);}
+.skin_white .layerPopup.displayshare .rspopIn .con .conIn .popupTab {background-color:rgba(0,0,0,0.05)}
+.skin_white .layerPopup.displayshare .rspopIn .con .conIn .popupTab ul li  a {color:#888;}
+.skin_white .layerPopup.displayshare .rspopIn .con .conIn .popupTab ul li  a.on {color:#fff; background-color:rgba(55,55,68,0.8); box-shadow: 0 0 10px rgba(0,0,0,0.55);}
+.skin_white .layerPopup.displayshare .rspopIn .con .conIn .allScreenBox ul li .screenTitle {color:rgba(51,51,51,0.8)}
+.skin_white .layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox ul li.on .asBoxIn{border-color:#005DC8;}
+.skin_white .layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox ul li.on .screenTitle{color:#005DC8;}
+
+.skin_white .layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox.app ul li .screenTitle img span.txt { color:#fff;}
+
+.skin_white .layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox.browser ul li .screenTitle:before { border-top:1px dashed rgba(255,255,255,0.1); }
+.skin_white .layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox.browser ul li.on .screenTitle{border:5px solid #4EA7FF; }
+.skin_white .layerPopup.displayshare .rspopIn .con .conIn  .allScreenBox.browser ul li.on .screenTitle{color:#fff;}
+
+
+/* 단축키 팝업  */
+.skin_white .layerPopup.hotkeyPopup .rspopIn .con {color:#000; opacity:0.8;}
+.skin_white .layerPopup.hotkeyPopup .rspopIn .con table th { background-color:#E5E5E5;}
+.skin_white .layerPopup.hotkeyPopup .rspopIn .con table td { background-color:rgba(243,243,243,0.9); border-top:1px solid rgba(0,0,0,0.05);}
+.skin_white .layerPopup.hotkeyPopup .rspopIn .con table th.txtleft,.skin_white .layerPopup.hotkeyPopup .rspopIn .con table td.txtleft {border-right: 1px solid rgba(0,0,0,0.05);}
+
+
+/* 하단 버튼 > 마이크, 카메라 컨트롤 */
+
+.skin_white .btnSettingList .bslHead {color:#000;}
+.skin_white .btnSettingList .bslHead .micAnnounce {background-color:#000;  color:rgba(255,255,255,0.8)}
+.skin_white .btnSettingList .bslHead .bslHeadIn {border-bottom:1px solid rgba(0,0,0,0.05);}
+.skin_white .btnSettingList .deviceList > li input[type="radio"]:checked + .label span {color:#0063D5;}
+.skin_white .btnSettingList .deviceList > li input[type="radio"]:checked + .label:after {background-color:#0063D5;}
+.skin_white .btnSettingList .line{background-color:rgba(0,0,0,0.13);}
+.skin_white .btnSettingList .deviceList > li.on {background-color:rgba(0,0,0,0.05)}
+
+.skin_white .btnSettingList .volumBox span {background-color:rgba(0,0,0,0.15);}
+.skin_white .btnSettingList .volumBox li.on span {background-color:#0063D5;}
+.skin_white .btnSettingList .volumBox span:hover {background-color:#0063D5;}
+.skin_white .btnSettingList .volumBox ul.vol1 li:nth-child(0) span {background-color:#fff;}
+
+
+
+
+
+@media all and (max-width: 1024px) {
+
+  .skin_white #faceHeader .rBox .timeline {background-color:transparent; color:rgba(0,0,0,1)}
+
+  .skin_white #gnbBox {background:none; box-shadow:none;}
+  .skin_white #gnbBox .menuBtn {background:none;  box-shadow:none;}
+  .skin_white #gnbBox .menuList {background-color:rgba(255,255,255,0.9);}
+  .skin_white.gnbOn #gnbBox .menuList ul:after {background-image:url('../img/swipe_gra_white.png'); width:33px;}
+  .skin_white #generSetting .generBox ul li select, .skin_black #generSetting .generBox.last select {background-position: 98% 50%;}
+  .skin_white .btnBoxIn {background-color:rgba(255,255,255,0.6);}
+}
+
+
+@media all and (max-width: 640px) { 
+  .skin_white #gnbBox {background:none; box-shadow:none;}
+  .skin_white #gnbBox .menuBtn {background:none;}
+  
+  
+}
